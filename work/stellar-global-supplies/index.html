@@ -2,185 +2,155 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Stellar Global Supplies: A Connected SaaS Ecosystem on Cloudflare | Stellar Forge</title>
-<meta name="description" content="How Stellar Forge built and migrated a full SaaS ecosystem — analytics, quoting, workflows, orders, advertising, AI, and billing — from AWS to Cloudflare, with SSO.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stellar Global Supplies: Full-Stack Platform & AWS-to-Cloudflare Migration | Stellar Forge</title>
+<meta name="description" content="How Stellar Forge built and now runs the complete technology stack for Stellar Global Supplies — order management, billing, AI-driven lead generation, and automation, migrated from AWS to Cloudflare's edge.">
 <link rel="canonical" href="https://stellarforge.is-a.dev/work/stellar-global-supplies/">
 <meta name="robots" content="index,follow">
-<meta name="theme-color" content="#090C14">
-<link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32">
-<link rel="icon" href="../assets/img/favicon-256.png" sizes="256x256">
-<link rel="apple-touch-icon" href="../assets/img/favicon-256.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Stellar Forge">
-<meta property="og:title" content="Stellar Global Supplies: A Connected SaaS Ecosystem on Cloudflare | Stellar Forge">
-<meta property="og:description" content="How Stellar Forge built and migrated a full SaaS ecosystem — analytics, quoting, workflows, orders, advertising, AI, and billing — from AWS to Cloudflare, with SSO.">
+<meta property="og:title" content="Stellar Global Supplies: Full-Stack Platform & AWS-to-Cloudflare Migration | Stellar Forge">
+<meta property="og:description" content="How Stellar Forge built and now runs the complete technology stack for Stellar Global Supplies — order management, billing, AI-driven lead generation, and automation, migrated from AWS to Cloudflare's edge.">
 <meta property="og:url" content="https://stellarforge.is-a.dev/work/stellar-global-supplies/">
-<meta property="og:image" content="https://stellarforge.is-a.dev/assets/img/stellar-forge-logo.png">
+<meta property="og:image" content="https://stellarforge.is-a.dev/assets/og-default.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Stellar Global Supplies: A Connected SaaS Ecosystem on Cloudflare | Stellar Forge">
-<meta name="twitter:description" content="How Stellar Forge built and migrated a full SaaS ecosystem — analytics, quoting, workflows, orders, advertising, AI, and billing — from AWS to Cloudflare, with SSO.">
-<meta name="twitter:image" content="https://stellarforge.is-a.dev/assets/img/stellar-forge-logo.png">
+<meta name="twitter:title" content="Stellar Global Supplies: Full-Stack Platform & AWS-to-Cloudflare Migration | Stellar Forge">
+<meta name="twitter:description" content="How Stellar Forge built and now runs the complete technology stack for Stellar Global Supplies — order management, billing, AI-driven lead generation, and automation, migrated from AWS to Cloudflare's edge.">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/style.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Stellar Forge", "url": "https://stellarforge.is-a.dev/", "logo": "https://stellarforge.is-a.dev/assets/img/stellar-forge-logo.png", "description": "Stellar Forge is an independent technology engineering studio building AI applications, SaaS platforms, and cloud-native systems.", "email": "workwithstellarforge@gmail.com", "founder": {"@type": "Person", "name": "Founder, Stellar Forge"}, "sameAs": []}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "CreativeWork", "name": "Stellar Global Supplies", "about": "Building a connected SaaS ecosystem — and migrating it from AWS to Cloudflare", "author": {"@type": "Organization", "name": "Stellar Forge"}, "url": "https://stellarforge.is-a.dev/work/stellar-global-supplies/"}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://stellarforge.is-a.dev/"}, {"@type": "ListItem", "position": 2, "name": "Work", "item": "https://stellarforge.is-a.dev/work/"}, {"@type": "ListItem", "position": 3, "name": "Stellar Global Supplies", "item": "https://stellarforge.is-a.dev/work/stellar-global-supplies/"}]}</script>
-
+<link rel="stylesheet" href="/assets/styles.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "CreativeWork", "name": "Stellar Global Supplies", "about": "B2B Supply & Distribution", "description": "How Stellar Forge built and now runs the complete technology stack for Stellar Global Supplies \u2014 order management, billing, AI-driven lead generation, and automation, migrated from AWS to Cloudflare's edge.", "url": "https://stellarforge.is-a.dev/work/stellar-global-supplies/", "creator": {"@type": "ProfessionalService", "name": "Stellar Forge"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://stellarforge.is-a.dev/"}, {"@type": "ListItem", "position": 2, "name": "Work", "item": "https://stellarforge.is-a.dev/work/"}, {"@type": "ListItem", "position": 3, "name": "Stellar Global Supplies"}]}</script>
 </head>
-<body class="">
-<div class="sf-bg-field"></div>
-<div class="sf-bg-grid"></div>
-<canvas id="sf-stars" aria-hidden="true"></canvas>
-<a class="sf-skip-link" href="#main">Skip to content</a>
-<header class="sf-header">
-  <nav class="sf-nav" aria-label="Primary">
-    <a href="../" class="sf-logo" aria-label="Stellar Forge home">
-      <img src="../assets/img/mark.png" alt="Stellar Forge" width="30" height="30">
-      Stellar Forge
-    </a>
-    <div class="sf-nav-links">
-      <a href="../" data-path="/">Home</a>
-<a href="../services/" data-path="/services/">Services</a>
-<a href="../work/" data-path="/work/">Work</a>
-<a href="../about/" data-path="/about/">About</a>
-<a href="../testimonials/" data-path="/testimonials/">Testimonials</a>
-<a href="../insights/" data-path="/insights/">Insights</a>
-<a href="../contact/" data-path="/contact/">Contact</a>
-    </div>
-    <div class="sf-nav-cta-group">
-      <a href="../contact/" class="sf-btn sf-btn-ghost sf-btn-sm">Contact</a>
-      <a href="mailto:workwithstellarforge@gmail.com" class="sf-btn sf-btn-primary sf-btn-sm">Start a project</a>
-      <button class="sf-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="cosmos" aria-hidden="true"></div>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="/" class="brand"><svg width="30" height="30" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  <title>Stellar Forge</title>
+  <path d="M10,54.8 L34.8,11.6 L89.2,11.6 L70,30.8" stroke="#eef1f8" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+  <path d="M90,45.2 L65.2,88.4 L10.8,88.4 L30,69.2" stroke="#eef1f8" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+  <path d="M50 29.2 L70.8 50 L50 70.8 L29.2 50 Z" stroke="#eef1f8" stroke-width="4.5" stroke-linejoin="round" fill="none"/>
+  <circle cx="50" cy="50" r="12" fill="#3ddba0" opacity="0.4"/>
+  <rect x="43.5" y="43.5" width="13" height="13" rx="2" transform="rotate(45 50 50)" fill="#3ddba0"/>
+</svg><span>Stellar Forge</span></a>
+    <nav class="main-nav" aria-label="Primary"><a href="/services/">Services</a><a href="/work/" aria-current="page">Work</a><a href="/about/">About</a><a href="/blog/">Insights</a><a href="/contact/">Contact</a></nav>
+    <div class="header-cta">
+      <a href="/contact/" class="btn btn-primary btn-sm">Start a project</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
       </button>
     </div>
-  </nav>
+  </div>
+  <div class="mobile-nav"><a href="/services/">Services</a><a href="/work/">Work</a><a href="/about/">About</a><a href="/blog/">Insights</a><a href="/contact/">Contact</a></div>
 </header>
-
+<nav class="breadcrumbs wrap" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/work/">Work</a><span class="sep">/</span><span aria-current="page">Stellar Global Supplies</span></nav>
 <main id="main">
 
-<nav class="sf-breadcrumbs sf-container" aria-label="Breadcrumb"><a href="../">Home</a><span aria-hidden="true"> / </span><a href="../work/">Work</a><span aria-hidden="true"> / </span><span aria-current="page">Stellar Global Supplies</span></nav>
-<section class="sf-hero sf-section-tight">
-  <div class="sf-container">
-    <div class="sf-hero-inner" data-reveal>
-      <span class="sf-eyebrow">SaaS Ecosystem · AWS → Cloudflare · SSO</span>
-      <h1 style="font-size:clamp(2rem,4vw,3rem);">Stellar Global Supplies</h1>
-      <p class="sf-lede">Building a connected SaaS ecosystem — and migrating it from AWS to Cloudflare</p>
-      <div class="sf-hero-ctas">
-        <a href="https://www.stellarglobalsupplies.com/" rel="noopener" target="_blank" class="sf-btn sf-btn-ghost">Visit live site ↗</a>
-      </div>
-      <div class="sf-hero-meta"><div><strong>7</strong>connected applications</div><div><strong>1</strong>unified data layer</div><div><strong>AWS → CF</strong>cloud migration</div></div>
+<section class="hero" style="padding-block:48px 24px;">
+  <div class="wrap hero-inner">
+    <p class="label">B2B Supply & Distribution</p>
+    <h1>Stellar Global Supplies</h1>
+    <p class="lede">Stellar Forge designed, built, and now manages Stellar Global Supplies' entire technology stack — from core operations software to an AI-driven growth engine — including a full migration from AWS to Cloudflare's edge platform.</p>
+    <div class="stat-strip" style="margin-top:32px;">
+      <div class="stat"><div class="lbl">Scope</div><div class="num" style="font-size:1.05rem;">End-to-end platform engineering & ongoing technology management</div></div>
+      <div class="stat"><div class="lbl">Client site</div><div class="num" style="font-size:1.05rem;"><a href="https://www.stellarglobalsupplies.com/" target="_blank" rel="noopener">www.stellarglobalsupplies.com</a></div></div>
     </div>
   </div>
 </section>
 
-<section class="sf-section-tight">
-  <div class="sf-container sf-two-col">
-    <div data-reveal>
-      <h2>The problem</h2>
-      <p>Stellar Global Supplies needed more than a website — they needed an operating system for their business: a way to run analytics, quoting, workflows, advertising, order management, billing, and AI tooling as one connected ecosystem instead of disconnected point solutions. The original infrastructure was built on AWS, which was capable but increasingly costly and complex to operate for the traffic patterns and team size involved.</p>
-    </div>
-    <div data-reveal>
-      <h2>Services applied</h2>
-      <div class="sf-tag-row"><span class="sf-tag"><a href="../../services/saas-platforms/" style="color:inherit">SaaS Platforms</a></span><span class="sf-tag"><a href="../../services/cloudflare-workers-edge-architecture/" style="color:inherit">Edge Architecture</a></span><span class="sf-tag"><a href="../../services/authentication-security/" style="color:inherit">Auth & Security</a></span><span class="sf-tag"><a href="../../services/cloud-infrastructure/" style="color:inherit">Cloud Infrastructure</a></span><span class="sf-tag"><a href="../../services/observability-monitoring/" style="color:inherit">Observability</a></span><span class="sf-tag"><a href="../../services/api-gateways-distributed-systems/" style="color:inherit">API Gateways</a></span></div>
-    </div>
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head"><h2>The challenge</h2><p>Stellar Global Supplies needed more than a single application — they needed a coordinated system of tools to run order operations, generate quotes, manage billing, understand performance through analytics, and grow through automated lead generation and marketing, all while keeping infrastructure costs and latency under control as the business scaled.</p></div>
   </div>
 </section>
 
-<section class="sf-section-tight sf-section-alt">
-  <div class="sf-container">
-    <h2 data-reveal>What we built</h2>
-    <ul class="sf-list-check" data-reveal><li>Designed a shared data layer so SGS Analytics, SGS Quotes, SGS Workflows, SGS Advertise, and SGS Orders all read from and write to consistent, connected data — instead of duplicating records across separate tools.</li><li>Built Stellar AI and Stellar Bills as native modules within the same ecosystem, so AI-assisted work and billing sit alongside operational tools rather than bolted on separately.</li><li>Implemented SSO so users can move between the applications in the ecosystem under a single, secure identity — important as the number of connected tools grew.</li><li>Planned and executed a staged migration of the platform from AWS to Cloudflare Workers and edge infrastructure, moving traffic over incrementally to avoid downtime.</li><li>Set up observability (via New Relic and Cloudflare Analytics) and security tooling (Snyk, SonarCloud, SGS Security, SGS Scan) so the growing ecosystem stays monitored and auditable as it scales.</li><li>Established CI/CD and supporting tooling (SGS Docs, SGS Testing, GitHub-based workflows, DevHelm) so the team can ship changes across multiple connected applications safely.</li></ul>
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head"><h2>What we built</h2></div>
+    <div class="grid grid-2"><div class="card"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4>Platform architecture</h4><p>Designed a suite of connected internal applications — SGS Orders, SGS Quotes, SGS Analytics, SGS Workflows, SGS Advertise, Stellar Bills, and Stellar AI — each scoped as a focused tool rather than one monolithic system, sharing a common identity and data layer.</p></div><div class="card"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4>Identity & access</h4><p>Implemented single sign-on (SSO) across the full application suite, so the team moves between order management, billing, and analytics tools with one identity and consistent role-based permissions.</p></div><div class="card"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4>Infrastructure migration</h4><p>Migrated the platform from AWS to Cloudflare Workers and the surrounding edge platform, reducing latency for distributed users and simplifying the infrastructure footprint compared to the original AWS setup.</p></div><div class="card"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4>AI & automation layer</h4><p>Built an AI-driven advertising and lead-generation system (SGS Advertise, Stellar AI) alongside automation pipelines that scrape and qualify leads, generate and publish social media content, and automatically write and publish blog content — reducing manual marketing operations work.</p></div><div class="card"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4>Operational tooling</h4><p>Delivered supporting internal tools — SGS Docs, SGS Scan, SGS Security, and SGS Testing — so the platform has proper documentation, scanning, security tooling, and QA testing built into daily operations, not bolted on after the fact.</p></div></div>
   </div>
 </section>
 
-<section class="sf-section-tight">
-  <div class="sf-container">
-    <h2 data-reveal>The outcome</h2>
-    <p data-reveal style="max-width:760px;">The result is a single, connected ecosystem rather than a patchwork of disconnected tools — with lower infrastructure overhead after the move to Cloudflare's edge network, and SSO that lets the team and their users move between applications without re-authenticating. The platform now supports the full operational surface of the business: from quoting and orders through to AI-assisted workflows and billing.</p>
+<section class="section-tight" style="padding-top:0;">
+  <div class="wrap">
+    <h4>Technology</h4>
+    <div class="tag-row"><span class="tag">Cloudflare Workers</span><span class="tag">AWS (prior infrastructure)</span><span class="tag">SSO / OAuth</span><span class="tag">AI/LLM integration</span><span class="tag">Automation pipelines</span><span class="tag">Analytics dashboards</span></div>
   </div>
 </section>
 
-<section class="sf-section-tight sf-section-alt">
-  <div class="sf-container">
-    <div class="sf-section-head" data-reveal>
-      <span class="sf-eyebrow">In their words</span>
-    </div>
-    <div class="sf-grid sf-grid-3" style="grid-template-columns:1fr;max-width:640px;">
-      
-<div class="sf-quote-card" data-reveal>
-  <div class="sf-quote-mark">&ldquo;</div>
-  <p class="sf-quote-text">Stellar Forge didn't just build us a website — they built the entire backbone of how Stellar Global Supplies runs. Analytics, quotes, workflows, orders, advertising and our AI tools all talk to each other now, and moving off AWS onto Cloudflare made everything faster without any of the migration headaches we were bracing for.</p>
-  <div class="sf-quote-foot">
-    <div class="sf-quote-badge"><img src="../../assets/img/stellar-global-supplies-logo.jpg" alt="Stellar Global Supplies logo" class="sf-client-logo"></div>
-    <div class="sf-quote-who"><strong>Stellar Global Supplies</strong><span>Operations</span></div>
-  </div>
-</div>
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="card" style="padding:36px;">
+      <p class="label">Outcome</p>
+      <p style="font-size:1.1rem; color:var(--ink); margin-bottom:0;">Stellar Forge continues to manage Stellar Global Supplies' technology stack on an ongoing basis — from infrastructure and security to new feature development across the application suite — functioning as the company's embedded engineering team.</p>
     </div>
   </div>
 </section>
 
-<section class="sf-section">
-  <div class="sf-container">
-    <div class="sf-cta-band" data-reveal>
-      <h2>Have a similar system in mind?</h2>
-      <p>We'll look at what you're working with and give you a real technical read on scope.</p>
-      <div class="sf-cta-actions">
-        <a href="../../contact/" class="sf-btn sf-btn-primary">Start a project</a>
-        <a href="../" class="sf-btn sf-btn-ghost">See more work</a>
-      </div>
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head"><p class="label">Related services</p><h2>Capabilities behind this project</h2></div>
+    <div class="grid grid-3"><a class="card" href="/services/cloudflare-workers-edge-architecture/"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M12 3v6M12 15v6M3 12h6M15 12h6" stroke="currentColor" stroke-width="1.6"/></svg></div><h4>Cloudflare Workers & Edge Architecture</h4><span class="card-link">Explore →</span></a><a class="card" href="/services/saas-platforms/"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 20h8M12 16v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div><h4>SaaS Platforms</h4><span class="card-link">Explore →</span></a><a class="card" href="/services/ai-and-intelligent-applications/"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.5 2.5M16.5 16.5L19 19M19 5l-2.5 2.5M7.5 16.5L5 19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="3.4" stroke="currentColor" stroke-width="1.6"/></svg></div><h4>AI & Intelligent Applications</h4><span class="card-link">Explore →</span></a><a class="card" href="/services/automation-and-integrations/"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div><h4>Automation & Integrations</h4><span class="card-link">Explore →</span></a><a class="card" href="/services/authentication-and-security/"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 11V7a4 4 0 018 0v4" stroke="currentColor" stroke-width="1.6"/></svg></div><h4>Authentication & Security</h4><span class="card-link">Explore →</span></a></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Facing a similar challenge?</h2>
+      <div class="btn-row"><a href="/contact/" class="btn btn-primary">Start a project</a></div>
     </div>
   </div>
 </section>
 
 </main>
-<footer class="sf-footer">
-  <div class="sf-container">
-    <div class="sf-footer-grid">
-      <div class="sf-footer-brand">
-        <a href="../" class="sf-logo"><img src="../assets/img/mark.png" alt="Stellar Forge" width="28" height="28">Stellar Forge</a>
-        <p>An independent technology engineering studio building AI applications, SaaS platforms, and cloud-native systems. Engineering what's next.</p>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand"><svg width="30" height="30" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  <title>Stellar Forge</title>
+  <path d="M10,54.8 L34.8,11.6 L89.2,11.6 L70,30.8" stroke="#eef1f8" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+  <path d="M90,45.2 L65.2,88.4 L10.8,88.4 L30,69.2" stroke="#eef1f8" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+  <path d="M50 29.2 L70.8 50 L50 70.8 L29.2 50 Z" stroke="#eef1f8" stroke-width="4.5" stroke-linejoin="round" fill="none"/>
+  <circle cx="50" cy="50" r="12" fill="#3ddba0" opacity="0.4"/>
+  <rect x="43.5" y="43.5" width="13" height="13" rx="2" transform="rotate(45 50 50)" fill="#3ddba0"/>
+</svg><span>Stellar Forge</span></div>
+        <p class="small">Engineering what's next. A technology engineering studio building scalable, secure, production-grade software — from AI applications to edge-native infrastructure.</p>
+        <p class="small mono"><a href="mailto:workwithstellarforge@gmail.com">workwithstellarforge@gmail.com</a></p>
       </div>
-      <div>
+      <div class="footer-col">
         <h5>Services</h5>
-        <ul><li><a href="../services/ai-intelligent-applications/">AI-Powered Applications</a></li>
-<li><a href="../services/saas-platforms/">SaaS Platforms</a></li>
-<li><a href="../services/cloudflare-workers-edge-architecture/">Edge Architecture</a></li>
-<li><a href="../services/api-gateways-distributed-systems/">API Gateways</a></li>
-<li><a href="../services/cloud-infrastructure/">Cloud Infrastructure</a></li>
-<li><a href="../services/authentication-security/">Auth & Security</a></li>
-          <li><a href="../services/">All services</a></li>
+        <ul><li><a href="/services/ai-and-intelligent-applications/">AI & Intelligent Apps</a></li><li><a href="/services/saas-platforms/">SaaS Platforms</a></li><li><a href="/services/cloudflare-workers-edge-architecture/">Edge Architecture</a></li><li><a href="/services/api-gateways-distributed-systems/">API Gateways</a></li><li><a href="/services/cloud-infrastructure/">Cloud Infrastructure</a></li><li><a href="/services/authentication-and-security/">Auth & Security</a></li><li><a href="/services/">All services →</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h5>Studio</h5>
+        <ul>
+          <li><a href="/work/">Selected work</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/blog/">Insights</a></li>
+          <li><a href="/contact/">Contact</a></li>
         </ul>
       </div>
-      <div>
-        <h5>Company</h5>
+      <div class="footer-col">
+        <h5>Legal</h5>
         <ul>
-          <li><a href="../about/">About</a></li>
-          <li><a href="../work/">Work</a></li>
-          <li><a href="../testimonials/">Testimonials</a></li>
-          <li><a href="../insights/">Insights</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Get in touch</h5>
-        <ul>
-          <li><a href="../contact/">Contact / Enquiry</a></li>
-          <li><a href="mailto:workwithstellarforge@gmail.com">workwithstellarforge@gmail.com</a></li>
+          <li><a href="/legal/privacy-policy/">Privacy policy</a></li>
+          <li><a href="/legal/terms-of-service/">Terms of service</a></li>
+          <li><a href="/sitemap.xml">Sitemap</a></li>
         </ul>
       </div>
     </div>
-    <div class="sf-footer-bottom">
-      <span>© <span id="sf-year">2026</span> Stellar Forge. All rights reserved.</span>
-      <span>Built on Cloudflare Pages.</span>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Stellar Forge. All rights reserved.</span>
+      <span>Designed &amp; engineered by Stellar Forge — Pune, India (remote-first).</span>
     </div>
   </div>
 </footer>
-<script>document.getElementById('sf-year').textContent = new Date().getFullYear();</script>
-<script src="../assets/js/main.js" defer></script>
-
-
+<script src="/assets/main.js" defer></script>
 </body>
 </html>

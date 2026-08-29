@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
-
+Disallow: /legal/
 Sitemap: https://stellarforge.is-a.dev/sitemap.xml

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloudflare Workers vs. Traditional Cloud: When Moving to the Edge Actually Makes Sense | Stellar Forge Insights</title>
+<meta name="description" content="A practical look at when edge architecture on Cloudflare Workers is the right call versus staying on traditional cloud infrastructure like AWS or GCP.">
+<link rel="canonical" href="https://stellarforge.is-a.dev/blog/cloudflare-workers-vs-traditional-cloud-when-to-move-to-the-edge/">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Stellar Forge">
+<meta property="og:title" content="Cloudflare Workers vs. Traditional Cloud: When Moving to the Edge Actually Makes Sense | Stellar Forge Insights">
+<meta property="og:description" content="A practical look at when edge architecture on Cloudflare Workers is the right call versus staying on traditional cloud infrastructure like AWS or GCP.">
+<meta property="og:url" content="https://stellarforge.is-a.dev/blog/cloudflare-workers-vs-traditional-cloud-when-to-move-to-the-edge/">
+<meta property="og:image" content="https://stellarforge.is-a.dev/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cloudflare Workers vs. Traditional Cloud: When Moving to the Edge Actually Makes Sense | Stellar Forge Insights">
+<meta name="twitter:description" content="A practical look at when edge architecture on Cloudflare Workers is the right call versus staying on traditional cloud infrastructure like AWS or GCP.">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/styles.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Cloudflare Workers vs. Traditional Cloud: When Moving to the Edge Actually Makes Sense", "description": "A practical look at when edge architecture on Cloudflare Workers is the right call versus staying on traditional cloud infrastructure like AWS or GCP.", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Stellar Forge"}, "publisher": {"@type": "Organization", "name": "Stellar Forge"}, "mainEntityOfPage": "https://stellarforge.is-a.dev/blog/cloudflare-workers-vs-traditional-cloud-when-to-move-to-the-edge/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://stellarforge.is-a.dev/"}, {"@type": "ListItem", "position": 2, "name": "Insights", "item": "https://stellarforge.is-a.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "Cloudflare Workers vs. Traditional Cloud\u2026"}]}</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="cosmos" aria-hidden="true"></div>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="/" class="brand"><svg width="30" height="30" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  <title>Stellar Forge</title>
+  <path d="M10,54.8 L34.8,11.6 L89.2,11.6 L70,30.8" stroke="#eef1f8" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+  <path d="M90,45.2 L65.2,88.4 L10.8,88.4 L30,69.2" stroke="#eef1f8" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+  <path d="M50 29.2 L70.8 50 L50 70.8 L29.2 50 Z" stroke="#eef1f8" stroke-width="4.5" stroke-linejoin="round" fill="none"/>
+  <circle cx="50" cy="50" r="12" fill="#3ddba0" opacity="0.4"/>
+  <rect x="43.5" y="43.5" width="13" height="13" rx="2" transform="rotate(45 50 50)" fill="#3ddba0"/>
+</svg><span>Stellar Forge</span></a>
+    <nav class="main-nav" aria-label="Primary"><a href="/services/">Services</a><a href="/work/">Work</a><a href="/about/">About</a><a href="/blog/" aria-current="page">Insights</a><a href="/contact/">Contact</a></nav>
+    <div class="header-cta">
+      <a href="/contact/" class="btn btn-primary btn-sm">Start a project</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav"><a href="/services/">Services</a><a href="/work/">Work</a><a href="/about/">About</a><a href="/blog/">Insights</a><a href="/contact/">Contact</a></div>
+</header>
+<nav class="breadcrumbs wrap" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/">Insights</a><span class="sep">/</span><span aria-current="page">Cloudflare Workers vs. Traditional Cloud…</span></nav>
+<main id="main">
+
+<article class="section" style="padding-block:48px 80px;">
+  <div class="wrap post-body">
+    <p class="label">Cloud & Edge</p>
+    <h1>Cloudflare Workers vs. Traditional Cloud: When Moving to the Edge Actually Makes Sense</h1>
+    <p class="post-meta" style="margin-bottom:32px;">Published 2026-07-14 · 7 min read · By Stellar Forge</p>
+    
+<p>Edge computing gets pitched as a universal upgrade — faster, cheaper, simpler. In practice, it's a genuine improvement for some workloads and a poor fit for others. Having migrated production systems from AWS to Cloudflare Workers, here's the honest version of when it's worth it.</p>
+
+<h2>Where the edge genuinely wins</h2>
+<p>The clearest case for Workers is request-response logic that doesn't need heavy, long-running compute: API routing and transformation, authentication checks, A/B test logic, personalization, and content delivery. These run in a V8 isolate that starts in milliseconds, deployed automatically to hundreds of locations, so a user in Mumbai and a user in Toronto both hit a nearby edge node instead of one regional origin server.</p>
+<p>The cost model helps too. Traditional cloud compute often runs 24/7 whether or not it's serving traffic, while Workers bill per request and per CPU-millisecond actually used. For workloads with spiky or unpredictable traffic, that difference compounds.</p>
+
+<h2>Where it's the wrong tool</h2>
+<p>Workers are not a good fit for long-running background jobs, heavy CPU-bound processing (video encoding, large batch data transforms), or workloads that need a traditional relational database with complex joins and transactions at scale. D1 and Durable Objects cover a real range of state needs, but they are not a drop-in replacement for a mature Postgres deployment handling complex reporting queries.</p>
+<p>The honest framing: edge compute is excellent for the parts of your system that sit between the user and your data, and less suited to the heavy lifting that happens deep inside it.</p>
+
+<h2>A migration pattern that actually works</h2>
+<p>Rewriting an entire application for the edge in one attempt is the highest-risk path. A more reliable sequence:</p>
+<ul>
+<li><strong>Move the API gateway first.</strong> Auth, rate limiting, and routing logic are usually stateless enough to migrate early and immediately reduce latency for every downstream request.</li>
+<li><strong>Migrate read-heavy, cacheable endpoints next.</strong> These benefit most from edge caching and carry the lowest risk if something needs to be rolled back.</li>
+<li><strong>Leave stateful, transaction-heavy logic on the origin until there's a clear reason to move it</strong> — and when you do, evaluate D1 or Durable Objects against your actual consistency requirements, not just their availability.</li>
+</ul>
+
+<h2>What this actually saves you</h2>
+<p>In migrations we've run, the measurable wins have consistently been: lower latency for geographically distributed users, reduced idle infrastructure cost, and fewer moving parts to patch and monitor compared to managing EC2 instances, load balancers, and auto-scaling groups directly. The trade-off is a genuine shift in how you think about state — which is why this is an architecture decision, not just a hosting change.</p>
+
+<p>If you're evaluating whether an edge migration makes sense for your system, it's worth mapping your actual traffic patterns and state requirements before committing either way.</p>
+
+    <hr class="divider" style="margin:48px 0;">
+    <div class="card">
+      <h4>Working on something similar?</h4>
+      <p>Stellar Forge builds exactly the kind of systems discussed above — get in touch if you'd like a second opinion or a hands-on build partner.</p>
+      <a href="/contact/" class="btn btn-primary">Start a project</a>
+    </div>
+  </div>
+</article>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand"><svg width="30" height="30" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  <title>Stellar Forge</title>
+  <path d="M10,54.8 L34.8,11.6 L89.2,11.6 L70,30.8" stroke="#eef1f8" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+  <path d="M90,45.2 L65.2,88.4 L10.8,88.4 L30,69.2" stroke="#eef1f8" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+  <path d="M50 29.2 L70.8 50 L50 70.8 L29.2 50 Z" stroke="#eef1f8" stroke-width="4.5" stroke-linejoin="round" fill="none"/>
+  <circle cx="50" cy="50" r="12" fill="#3ddba0" opacity="0.4"/>
+  <rect x="43.5" y="43.5" width="13" height="13" rx="2" transform="rotate(45 50 50)" fill="#3ddba0"/>
+</svg><span>Stellar Forge</span></div>
+        <p class="small">Engineering what's next. A technology engineering studio building scalable, secure, production-grade software — from AI applications to edge-native infrastructure.</p>
+        <p class="small mono"><a href="mailto:workwithstellarforge@gmail.com">workwithstellarforge@gmail.com</a></p>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul><li><a href="/services/ai-and-intelligent-applications/">AI & Intelligent Apps</a></li><li><a href="/services/saas-platforms/">SaaS Platforms</a></li><li><a href="/services/cloudflare-workers-edge-architecture/">Edge Architecture</a></li><li><a href="/services/api-gateways-distributed-systems/">API Gateways</a></li><li><a href="/services/cloud-infrastructure/">Cloud Infrastructure</a></li><li><a href="/services/authentication-and-security/">Auth & Security</a></li><li><a href="/services/">All services →</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h5>Studio</h5>
+        <ul>
+          <li><a href="/work/">Selected work</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/blog/">Insights</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/legal/privacy-policy/">Privacy policy</a></li>
+          <li><a href="/legal/terms-of-service/">Terms of service</a></li>
+          <li><a href="/sitemap.xml">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Stellar Forge. All rights reserved.</span>
+      <span>Designed &amp; engineered by Stellar Forge — Pune, India (remote-first).</span>
+    </div>
+  </div>
+</footer>
+<script src="/assets/main.js" defer></script>
+</body>
+</html>

@@ -3,25 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Selected Work & Case Studies | Stellar Forge</title>
-<meta name="description" content="Case studies from Stellar Forge: a full-stack platform and AWS-to-Cloudflare migration for Stellar Global Supplies, retail systems for Mayur Masala Center, and a lead-gen platform for Snehal Printers.">
-<link rel="canonical" href="https://stellarforge.is-a.dev/work/">
+<title>Insights & Engineering Notes | Stellar Forge Blog</title>
+<meta name="description" content="Practical engineering writing from Stellar Forge on edge architecture, observability, distributed systems, and building production-grade software.">
+<link rel="canonical" href="https://stellarforge.is-a.dev/blog/">
 <meta name="robots" content="index,follow">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Stellar Forge">
-<meta property="og:title" content="Selected Work & Case Studies | Stellar Forge">
-<meta property="og:description" content="Case studies from Stellar Forge: a full-stack platform and AWS-to-Cloudflare migration for Stellar Global Supplies, retail systems for Mayur Masala Center, and a lead-gen platform for Snehal Printers.">
-<meta property="og:url" content="https://stellarforge.is-a.dev/work/">
+<meta property="og:title" content="Insights & Engineering Notes | Stellar Forge Blog">
+<meta property="og:description" content="Practical engineering writing from Stellar Forge on edge architecture, observability, distributed systems, and building production-grade software.">
+<meta property="og:url" content="https://stellarforge.is-a.dev/blog/">
 <meta property="og:image" content="https://stellarforge.is-a.dev/assets/og-default.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Selected Work & Case Studies | Stellar Forge">
-<meta name="twitter:description" content="Case studies from Stellar Forge: a full-stack platform and AWS-to-Cloudflare migration for Stellar Global Supplies, retail systems for Mayur Masala Center, and a lead-gen platform for Snehal Printers.">
+<meta name="twitter:title" content="Insights & Engineering Notes | Stellar Forge Blog">
+<meta name="twitter:description" content="Practical engineering writing from Stellar Forge on edge architecture, observability, distributed systems, and building production-grade software.">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/styles.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://stellarforge.is-a.dev/"}, {"@type": "ListItem", "position": 2, "name": "Work"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Blog", "name": "Stellar Forge Insights", "url": "https://stellarforge.is-a.dev/blog/", "blogPost": [{"@type": "BlogPosting", "headline": "Cloudflare Workers vs. Traditional Cloud: When Moving to the Edge Actually Makes Sense", "url": "https://stellarforge.is-a.dev/blog/cloudflare-workers-vs-traditional-cloud-when-to-move-to-the-edge/", "datePublished": "2026-07-14"}, {"@type": "BlogPosting", "headline": "Observability for Small Engineering Teams: What Actually Matters (and What Doesn't Yet)", "url": "https://stellarforge.is-a.dev/blog/observability-for-small-engineering-teams-what-actually-matters/", "datePublished": "2026-07-28"}, {"@type": "BlogPosting", "headline": "API Gateway Patterns That Prevent Cascading Failures", "url": "https://stellarforge.is-a.dev/blog/api-gateway-patterns-that-prevent-cascading-failures/", "datePublished": "2026-08-11"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://stellarforge.is-a.dev/"}, {"@type": "ListItem", "position": 2, "name": "Insights"}]}</script>
 </head>
 <body>
 <a href="#main" class="skip-link">Skip to content</a>
@@ -36,7 +37,7 @@
   <circle cx="50" cy="50" r="12" fill="#3ddba0" opacity="0.4"/>
   <rect x="43.5" y="43.5" width="13" height="13" rx="2" transform="rotate(45 50 50)" fill="#3ddba0"/>
 </svg><span>Stellar Forge</span></a>
-    <nav class="main-nav" aria-label="Primary"><a href="/services/">Services</a><a href="/work/" aria-current="page">Work</a><a href="/about/">About</a><a href="/blog/">Insights</a><a href="/contact/">Contact</a></nav>
+    <nav class="main-nav" aria-label="Primary"><a href="/services/">Services</a><a href="/work/">Work</a><a href="/about/">About</a><a href="/blog/" aria-current="page">Insights</a><a href="/contact/">Contact</a></nav>
     <div class="header-cta">
       <a href="/contact/" class="btn btn-primary btn-sm">Start a project</a>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
@@ -46,58 +47,34 @@
   </div>
   <div class="mobile-nav"><a href="/services/">Services</a><a href="/work/">Work</a><a href="/about/">About</a><a href="/blog/">Insights</a><a href="/contact/">Contact</a></div>
 </header>
-<nav class="breadcrumbs wrap" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">/</span><span aria-current="page">Work</span></nav>
+<nav class="breadcrumbs wrap" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">/</span><span aria-current="page">Insights</span></nav>
 <main id="main">
 
-<section class="hero" style="padding-block:56px 32px;">
+<section class="hero" style="padding-block:56px 24px;">
   <div class="wrap hero-inner">
-    <p class="label">Selected Work</p>
-    <h1>Systems we've built for real businesses</h1>
-    <p class="lede">A look at the platforms Stellar Forge has designed, built, and — in one case — continues to run day-to-day. Each case study describes what was actually built, not a generic success story.</p>
+    <p class="label">Insights</p>
+    <h1>Engineering notes from the studio</h1>
+    <p class="lede">Practical writing on the systems we build day to day — edge architecture, observability, distributed systems, and the decisions behind them. No syndicated filler.</p>
   </div>
 </section>
 <section class="section" style="padding-top:0;">
-  <div class="wrap grid">
-    <a class="case-card" href="/work/stellar-global-supplies/" data-reveal style="text-decoration:none; color:inherit;">
-      <div class="case-visual">
-        <p class="label mb-0">B2B Supply & Distribution</p>
-        <h3 class="mb-0">Stellar Global Supplies</h3>
-      </div>
-      <div class="case-body">
-        <p>Stellar Forge designed, built, and now manages Stellar Global Supplies' entire technology stack — from core operations software to an AI-driven growth engine — including a full migration from AWS to Cloudflare's edge platform.</p>
-        <div class="tag-row"><span class="tag">Cloudflare Workers</span><span class="tag">AWS (prior infrastructure)</span><span class="tag">SSO / OAuth</span><span class="tag">AI/LLM integration</span></div>
-        <span class="card-link">Read full case study →</span>
-      </div>
-    </a><a class="case-card" href="/work/mayur-masala-center/" data-reveal style="text-decoration:none; color:inherit;">
-      <div class="case-visual">
-        <p class="label mb-0">Retail (Spices & Consumer Goods)</p>
-        <h3 class="mb-0">Mayur Masala Center</h3>
-      </div>
-      <div class="case-body">
-        <p>Stellar Forge built a connected set of retail operations tools for Mayur Masala Center — combining a customer-facing e-commerce platform with the billing, barcode, and back-office systems the business runs on internally.</p>
-        <div class="tag-row"><span class="tag">E-commerce platform</span><span class="tag">Billing & invoicing</span><span class="tag">Barcode systems</span><span class="tag">Expense tracking</span></div>
-        <span class="card-link">Read full case study →</span>
-      </div>
-    </a><a class="case-card" href="/work/snehal-printers/" data-reveal style="text-decoration:none; color:inherit;">
-      <div class="case-visual">
-        <p class="label mb-0">Printing & Commercial Services</p>
-        <h3 class="mb-0">Snehal Printers</h3>
-      </div>
-      <div class="case-body">
-        <p>Stellar Forge built Snehal Printers' business website and a complementary AI-powered lead generation platform to help the business find and reach new customers beyond word-of-mouth and walk-in traffic.</p>
-        <div class="tag-row"><span class="tag">Web development</span><span class="tag">AI-powered scraping</span><span class="tag">Lead generation automation</span></div>
-        <span class="card-link">Read full case study →</span>
-      </div>
-    </a>
-  </div>
-</section>
-<section class="section" style="padding-top:0;">
-  <div class="wrap">
-    <div class="cta-band">
-      <h2>Want to be the next case study?</h2>
-      <p class="lede">Tell us what you're building — we'll tell you honestly whether we're the right fit.</p>
-      <div class="btn-row"><a href="/contact/" class="btn btn-primary">Start a project</a></div>
-    </div>
+  <div class="wrap" style="max-width:820px;">
+    <article class="post-card" data-reveal>
+      <p class="post-meta">2026-08-11 · Systems Design · 8 min read</p>
+      <h2 style="font-size:var(--step-2); margin-bottom:6px;"><a href="/blog/api-gateway-patterns-that-prevent-cascading-failures/" style="color:inherit;">API Gateway Patterns That Prevent Cascading Failures</a></h2>
+      <p>Practical patterns — circuit breakers, timeouts, and bulkheads — for building an API gateway that contains failure instead of spreading it.</p>
+      <a class="card-link" href="/blog/api-gateway-patterns-that-prevent-cascading-failures/">Read post →</a>
+    </article><article class="post-card" data-reveal>
+      <p class="post-meta">2026-07-28 · Reliability · 6 min read</p>
+      <h2 style="font-size:var(--step-2); margin-bottom:6px;"><a href="/blog/observability-for-small-engineering-teams-what-actually-matters/" style="color:inherit;">Observability for Small Engineering Teams: What Actually Matters (and What Doesn't Yet)</a></h2>
+      <p>A practical guide to setting up observability when you have a small team and can't afford to over-invest in tooling you won't act on.</p>
+      <a class="card-link" href="/blog/observability-for-small-engineering-teams-what-actually-matters/">Read post →</a>
+    </article><article class="post-card" data-reveal>
+      <p class="post-meta">2026-07-14 · Cloud & Edge · 7 min read</p>
+      <h2 style="font-size:var(--step-2); margin-bottom:6px;"><a href="/blog/cloudflare-workers-vs-traditional-cloud-when-to-move-to-the-edge/" style="color:inherit;">Cloudflare Workers vs. Traditional Cloud: When Moving to the Edge Actually Makes Sense</a></h2>
+      <p>A practical look at when edge architecture on Cloudflare Workers is the right call versus staying on traditional cloud infrastructure like AWS or GCP.</p>
+      <a class="card-link" href="/blog/cloudflare-workers-vs-traditional-cloud-when-to-move-to-the-edge/">Read post →</a>
+    </article>
   </div>
 </section>
 

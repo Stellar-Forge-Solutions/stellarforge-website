@@ -2,186 +2,164 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cloudflare Workers & Edge Architecture Development | Stellar Forge</title>
-<meta name="description" content="We design and build edge-native applications on Cloudflare Workers — low-latency, globally distributed, and production-grade.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloudflare Workers & Edge Architecture Consulting | Stellar Forge</title>
+<meta name="description" content="Stellar Forge designs and migrates applications to Cloudflare Workers and edge-native architecture — lower latency, lower cost, fewer moving parts.">
 <link rel="canonical" href="https://stellarforge.is-a.dev/services/cloudflare-workers-edge-architecture/">
 <meta name="robots" content="index,follow">
-<meta name="theme-color" content="#090C14">
-<link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32">
-<link rel="icon" href="../assets/img/favicon-256.png" sizes="256x256">
-<link rel="apple-touch-icon" href="../assets/img/favicon-256.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Stellar Forge">
-<meta property="og:title" content="Cloudflare Workers & Edge Architecture Development | Stellar Forge">
-<meta property="og:description" content="We design and build edge-native applications on Cloudflare Workers — low-latency, globally distributed, and production-grade.">
+<meta property="og:title" content="Cloudflare Workers & Edge Architecture Consulting | Stellar Forge">
+<meta property="og:description" content="Stellar Forge designs and migrates applications to Cloudflare Workers and edge-native architecture — lower latency, lower cost, fewer moving parts.">
 <meta property="og:url" content="https://stellarforge.is-a.dev/services/cloudflare-workers-edge-architecture/">
-<meta property="og:image" content="https://stellarforge.is-a.dev/assets/img/stellar-forge-logo.png">
+<meta property="og:image" content="https://stellarforge.is-a.dev/assets/og-default.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cloudflare Workers & Edge Architecture Development | Stellar Forge">
-<meta name="twitter:description" content="We design and build edge-native applications on Cloudflare Workers — low-latency, globally distributed, and production-grade.">
-<meta name="twitter:image" content="https://stellarforge.is-a.dev/assets/img/stellar-forge-logo.png">
+<meta name="twitter:title" content="Cloudflare Workers & Edge Architecture Consulting | Stellar Forge">
+<meta name="twitter:description" content="Stellar Forge designs and migrates applications to Cloudflare Workers and edge-native architecture — lower latency, lower cost, fewer moving parts.">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/style.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Stellar Forge", "url": "https://stellarforge.is-a.dev/", "logo": "https://stellarforge.is-a.dev/assets/img/stellar-forge-logo.png", "description": "Stellar Forge is an independent technology engineering studio building AI applications, SaaS platforms, and cloud-native systems.", "email": "workwithstellarforge@gmail.com", "founder": {"@type": "Person", "name": "Founder, Stellar Forge"}, "sameAs": []}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "serviceType": "Cloudflare Workers & Edge Architecture", "provider": {"@type": "Organization", "name": "Stellar Forge", "url": "https://stellarforge.is-a.dev/"}, "description": "We design and build edge-native applications on Cloudflare Workers — low-latency, globally distributed, and production-grade.", "areaServed": "Worldwide", "url": "https://stellarforge.is-a.dev/services/cloudflare-workers-edge-architecture/"}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://stellarforge.is-a.dev/"}, {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://stellarforge.is-a.dev/services/"}, {"@type": "ListItem", "position": 3, "name": "Cloudflare Workers & Edge Architecture", "item": "https://stellarforge.is-a.dev/services/cloudflare-workers-edge-architecture/"}]}</script>
-
+<link rel="stylesheet" href="/assets/styles.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Edge-native architecture on Cloudflare Workers", "serviceType": "Cloudflare Workers & Edge Architecture", "description": "Stellar Forge designs and migrates applications to Cloudflare Workers and edge-native architecture \u2014 lower latency, lower cost, fewer moving parts.", "provider": {"@type": "ProfessionalService", "name": "Stellar Forge", "url": "https://stellarforge.is-a.dev"}, "areaServed": "Worldwide", "url": "https://stellarforge.is-a.dev/services/cloudflare-workers-edge-architecture/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://stellarforge.is-a.dev/"}, {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://stellarforge.is-a.dev/services/"}, {"@type": "ListItem", "position": 3, "name": "Edge Architecture"}]}</script>
 </head>
-<body class="">
-<div class="sf-bg-field"></div>
-<div class="sf-bg-grid"></div>
-<canvas id="sf-stars" aria-hidden="true"></canvas>
-<a class="sf-skip-link" href="#main">Skip to content</a>
-<header class="sf-header">
-  <nav class="sf-nav" aria-label="Primary">
-    <a href="../" class="sf-logo" aria-label="Stellar Forge home">
-      <img src="../assets/img/mark.png" alt="Stellar Forge" width="30" height="30">
-      Stellar Forge
-    </a>
-    <div class="sf-nav-links">
-      <a href="../" data-path="/">Home</a>
-<a href="../services/" data-path="/services/">Services</a>
-<a href="../work/" data-path="/work/">Work</a>
-<a href="../about/" data-path="/about/">About</a>
-<a href="../testimonials/" data-path="/testimonials/">Testimonials</a>
-<a href="../insights/" data-path="/insights/">Insights</a>
-<a href="../contact/" data-path="/contact/">Contact</a>
-    </div>
-    <div class="sf-nav-cta-group">
-      <a href="../contact/" class="sf-btn sf-btn-ghost sf-btn-sm">Contact</a>
-      <a href="mailto:workwithstellarforge@gmail.com" class="sf-btn sf-btn-primary sf-btn-sm">Start a project</a>
-      <button class="sf-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="cosmos" aria-hidden="true"></div>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="/" class="brand"><svg width="30" height="30" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  <title>Stellar Forge</title>
+  <path d="M10,54.8 L34.8,11.6 L89.2,11.6 L70,30.8" stroke="#eef1f8" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+  <path d="M90,45.2 L65.2,88.4 L10.8,88.4 L30,69.2" stroke="#eef1f8" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+  <path d="M50 29.2 L70.8 50 L50 70.8 L29.2 50 Z" stroke="#eef1f8" stroke-width="4.5" stroke-linejoin="round" fill="none"/>
+  <circle cx="50" cy="50" r="12" fill="#3ddba0" opacity="0.4"/>
+  <rect x="43.5" y="43.5" width="13" height="13" rx="2" transform="rotate(45 50 50)" fill="#3ddba0"/>
+</svg><span>Stellar Forge</span></a>
+    <nav class="main-nav" aria-label="Primary"><a href="/services/" aria-current="page">Services</a><a href="/work/">Work</a><a href="/about/">About</a><a href="/blog/">Insights</a><a href="/contact/">Contact</a></nav>
+    <div class="header-cta">
+      <a href="/contact/" class="btn btn-primary btn-sm">Start a project</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
       </button>
     </div>
-  </nav>
+  </div>
+  <div class="mobile-nav"><a href="/services/">Services</a><a href="/work/">Work</a><a href="/about/">About</a><a href="/blog/">Insights</a><a href="/contact/">Contact</a></div>
 </header>
-
+<nav class="breadcrumbs wrap" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/services/">Services</a><span class="sep">/</span><span aria-current="page">Edge Architecture</span></nav>
 <main id="main">
 
-<nav class="sf-breadcrumbs sf-container" aria-label="Breadcrumb"><a href="../">Home</a><span aria-hidden="true"> / </span><a href="../services/">Services</a><span aria-hidden="true"> / </span><span aria-current="page">Cloudflare Workers & Edge Architecture</span></nav>
-<section class="sf-hero sf-section-tight">
-  <div class="sf-container">
-    <div class="sf-hero-inner" data-reveal>
-      <span class="sf-eyebrow">Service</span>
-      <h1 style="font-size:clamp(2rem,4vw,3rem);">Cloudflare Workers & Edge Architecture</h1>
-      <p class="sf-lede">We design and build applications that run at the edge on Cloudflare Workers — closer to your users, with less infrastructure to manage and lower latency by default.</p>
-      <div class="sf-hero-ctas">
-        <a href="../../contact/" class="sf-btn sf-btn-primary">Start a project</a>
-        <a href="../../work/" class="sf-btn sf-btn-ghost">See related work</a>
+<section class="hero" style="padding-block:56px 24px;">
+  <div class="wrap hero-inner">
+    <p class="label">Edge Engineering</p>
+    <h1>Edge-native architecture on Cloudflare Workers</h1>
+    <p class="lede">Running everything in one regional data center adds latency for users far from it and adds cost for infrastructure you may not need. Stellar Forge designs and migrates applications onto Cloudflare's edge network — Workers, D1, R2, KV, and Durable Objects — for systems that respond faster and cost less to run.</p>
+    <div class="btn-row"><a href="/contact/" class="btn btn-primary">Discuss your project</a><a href="/work/" class="btn btn-ghost">See related work</a></div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap">
+    <div class="tag-row"><span class="tag">Cloudflare Workers</span><span class="tag">D1 & KV</span><span class="tag">Durable Objects</span><span class="tag">Edge caching</span><span class="tag">AWS migration</span></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Why teams move to the edge</h2>
+      <p>Traditional cloud deployments centralize compute in one or two regions, which means every request outside that region pays a latency tax. They also often carry idle capacity costs for traffic that's spiky rather than constant. Edge architecture runs logic closer to the user and scales to zero when it's not in use — but migrating to it correctly requires rethinking state, not just relocating code.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head"><h2>Our approach</h2></div>
+    <div class="grid grid-2"><div class="card"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4>Migration without a rewrite-from-scratch</h4><p>Incremental migration paths from traditional cloud (AWS, GCP) to Workers, validated at each stage against production traffic.</p></div><div class="card"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4>State handled deliberately</h4><p>Durable Objects, D1, and KV chosen based on actual consistency and access-pattern needs, not by default.</p></div><div class="card"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4>Cost modeled before committing</h4><p>Request-based and compute-time cost projections compared against your current infrastructure spend.</p></div><div class="card"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4>Observability at the edge</h4><p>Logging, tracing, and alerting that work across a distributed edge deployment, not just a single origin server.</p></div></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="grid grid-2" style="align-items:start;">
+      <div>
+        <h2>What's included</h2>
+        <ul class="flow" style="color:var(--ink-dim); padding-left:20px;"><li>AWS/GCP-to-Cloudflare Workers migration planning and execution</li><li>Edge-native application architecture (Workers, D1, R2, KV, Durable Objects)</li><li>API and gateway logic deployed at the edge for lower latency</li><li>Cost modeling and infrastructure spend reduction analysis</li><li>Edge security: WAF rules, rate limiting, and bot mitigation</li></ul>
+      </div>
+      <div class="card">
+        <h4>Ready to scope this?</h4>
+        <p>Tell us where things stand today and where you need to get to. We'll respond with an honest read on approach and effort.</p>
+        <a href="/contact/" class="btn btn-primary" style="width:100%;">Start a project</a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sf-section-tight">
-  <div class="sf-container sf-two-col">
-    <div data-reveal>
-      <h2>What we deliver</h2>
-      <ul class="sf-list-check"><li>Edge-native APIs and rendering on Cloudflare Workers</li><li>Migration from traditional cloud (AWS/GCP) to the edge</li><li>Durable Objects and edge-state design</li><li>Caching and routing strategy for global performance</li><li>Cost-optimized architecture (FinOps-aware from the start)</li></ul>
-    </div>
-    <div data-reveal>
-      <h2>Our approach</h2>
-      <p>We evaluate what genuinely benefits from running at the edge versus what should stay centralized, then design the split. Migrations are staged so traffic moves over gradually, with monitoring at every step to catch regressions before customers do.</p>
-      <div class="sf-tag-row"><span class="sf-tag">Cloudflare Workers</span><span class="sf-tag">Durable Objects & KV</span><span class="sf-tag">Cloudflare Pages</span><span class="sf-tag">D1 / R2</span><span class="sf-tag">Wrangler & CI/CD pipelines</span></div>
-    </div>
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head"><p class="label">Proof</p><h2>Related work</h2></div>
+    <div class="grid grid-1"><a class="card" href="/work/stellar-global-supplies/">
+        <p class="label mb-0">B2B Supply & Distribution</p>
+        <h4>Stellar Global Supplies</h4>
+        <p>Stellar Forge designed, built, and now manages Stellar Global Supplies' entire technology stack — from core operations software to an AI-dri…</p>
+        <span class="card-link">Read case study →</span>
+      </a></div>
   </div>
 </section>
 
-<section class="sf-section-tight sf-section-alt">
-  <div class="sf-container">
-    <div class="sf-section-head" data-reveal>
-      <span class="sf-eyebrow">Related work</span>
-      <h2>Where we've applied this</h2>
-    </div>
-    <div class="sf-grid sf-grid-3">
-      
-<a href="../../work/stellar-global-supplies/" class="sf-case-card">
-  <div class="sf-case-media"><span>SG</span></div>
-  <div class="sf-case-body">
-    <span class="sf-case-tag">SaaS Ecosystem · AWS → Cloudflare · SSO</span>
-    <h3>Stellar Global Supplies</h3>
-    <p>A B2B supplies operator running its analytics, quoting, workflow, advertising, orders, AI and billing tools as one connected ecosystem.</p>
-  </div>
-</a>
-    </div>
-  </div>
-</section>
-
-<section class="sf-section-tight">
-  <div class="sf-container">
-    <div class="sf-section-head" data-reveal>
-      <span class="sf-eyebrow">FAQ</span>
-      <h2>Common questions</h2>
-    </div>
-    <div class="sf-faq">
-      <div class="sf-faq-item"><summary>Is edge architecture right for every project?</summary><p>No — it's best for latency-sensitive, globally distributed workloads. We'll tell you plainly if a traditional cloud setup fits your case better.</p></div><div class="sf-faq-item"><summary>Can you migrate an existing AWS system?</summary><p>Yes — we've taken production systems from AWS to Cloudflare, including the ecosystem behind Stellar Global Supplies, with a staged migration to avoid downtime.</p></div><div class="sf-faq-item"><summary>Does moving to the edge reduce cost?</summary><p>Often, yes — especially for read-heavy, globally distributed traffic — but we size this against your actual usage rather than assuming it by default.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="sf-section">
-  <div class="sf-container">
-    <div class="sf-cta-band" data-reveal>
-      <h2>Ready to talk through your cloudflare workers & edge architecture project?</h2>
-      <p>Tell us what you're working with. We'll respond with a real technical read on scope and approach.</p>
-      <div class="sf-cta-actions">
-        <a href="../../contact/" class="sf-btn sf-btn-primary">Start a project</a>
-        <a href="mailto:workwithstellarforge@gmail.com" class="sf-btn sf-btn-ghost">Email us</a>
-      </div>
-    </div>
-    <p style="text-align:center;margin-top:24px;font-size:13.5px;">Explore other capabilities: <a href="../ai-intelligent-applications/">AI & Intelligent Applications</a> · <a href="../saas-platforms/">SaaS Platforms</a> · <a href="../api-gateways-distributed-systems/">API Gateways & Distributed Systems</a> · </p>
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head"><p class="label">Explore more</p><h2>Other capabilities</h2></div>
+    <div class="grid grid-3"><a class="card" href="/services/ai-and-intelligent-applications/"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.5 2.5M16.5 16.5L19 19M19 5l-2.5 2.5M7.5 16.5L5 19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="3.4" stroke="currentColor" stroke-width="1.6"/></svg></div><h4>AI & Intelligent Applications</h4><span class="card-link">Explore →</span></a><a class="card" href="/services/saas-platforms/"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 20h8M12 16v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div><h4>SaaS Platforms</h4><span class="card-link">Explore →</span></a><a class="card" href="/services/api-gateways-distributed-systems/"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="9" width="6" height="6" rx="1.2" stroke="currentColor" stroke-width="1.6"/><rect x="15" y="9" width="6" height="6" rx="1.2" stroke="currentColor" stroke-width="1.6"/><path d="M9 12h6" stroke="currentColor" stroke-width="1.6"/></svg></div><h4>API Gateways & Distributed Systems</h4><span class="card-link">Explore →</span></a></div>
   </div>
 </section>
 
 </main>
-<footer class="sf-footer">
-  <div class="sf-container">
-    <div class="sf-footer-grid">
-      <div class="sf-footer-brand">
-        <a href="../" class="sf-logo"><img src="../assets/img/mark.png" alt="Stellar Forge" width="28" height="28">Stellar Forge</a>
-        <p>An independent technology engineering studio building AI applications, SaaS platforms, and cloud-native systems. Engineering what's next.</p>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand"><svg width="30" height="30" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  <title>Stellar Forge</title>
+  <path d="M10,54.8 L34.8,11.6 L89.2,11.6 L70,30.8" stroke="#eef1f8" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+  <path d="M90,45.2 L65.2,88.4 L10.8,88.4 L30,69.2" stroke="#eef1f8" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+  <path d="M50 29.2 L70.8 50 L50 70.8 L29.2 50 Z" stroke="#eef1f8" stroke-width="4.5" stroke-linejoin="round" fill="none"/>
+  <circle cx="50" cy="50" r="12" fill="#3ddba0" opacity="0.4"/>
+  <rect x="43.5" y="43.5" width="13" height="13" rx="2" transform="rotate(45 50 50)" fill="#3ddba0"/>
+</svg><span>Stellar Forge</span></div>
+        <p class="small">Engineering what's next. A technology engineering studio building scalable, secure, production-grade software — from AI applications to edge-native infrastructure.</p>
+        <p class="small mono"><a href="mailto:workwithstellarforge@gmail.com">workwithstellarforge@gmail.com</a></p>
       </div>
-      <div>
+      <div class="footer-col">
         <h5>Services</h5>
-        <ul><li><a href="../services/ai-intelligent-applications/">AI-Powered Applications</a></li>
-<li><a href="../services/saas-platforms/">SaaS Platforms</a></li>
-<li><a href="../services/cloudflare-workers-edge-architecture/">Edge Architecture</a></li>
-<li><a href="../services/api-gateways-distributed-systems/">API Gateways</a></li>
-<li><a href="../services/cloud-infrastructure/">Cloud Infrastructure</a></li>
-<li><a href="../services/authentication-security/">Auth & Security</a></li>
-          <li><a href="../services/">All services</a></li>
+        <ul><li><a href="/services/ai-and-intelligent-applications/">AI & Intelligent Apps</a></li><li><a href="/services/saas-platforms/">SaaS Platforms</a></li><li><a href="/services/cloudflare-workers-edge-architecture/">Edge Architecture</a></li><li><a href="/services/api-gateways-distributed-systems/">API Gateways</a></li><li><a href="/services/cloud-infrastructure/">Cloud Infrastructure</a></li><li><a href="/services/authentication-and-security/">Auth & Security</a></li><li><a href="/services/">All services →</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h5>Studio</h5>
+        <ul>
+          <li><a href="/work/">Selected work</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/blog/">Insights</a></li>
+          <li><a href="/contact/">Contact</a></li>
         </ul>
       </div>
-      <div>
-        <h5>Company</h5>
+      <div class="footer-col">
+        <h5>Legal</h5>
         <ul>
-          <li><a href="../about/">About</a></li>
-          <li><a href="../work/">Work</a></li>
-          <li><a href="../testimonials/">Testimonials</a></li>
-          <li><a href="../insights/">Insights</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Get in touch</h5>
-        <ul>
-          <li><a href="../contact/">Contact / Enquiry</a></li>
-          <li><a href="mailto:workwithstellarforge@gmail.com">workwithstellarforge@gmail.com</a></li>
+          <li><a href="/legal/privacy-policy/">Privacy policy</a></li>
+          <li><a href="/legal/terms-of-service/">Terms of service</a></li>
+          <li><a href="/sitemap.xml">Sitemap</a></li>
         </ul>
       </div>
     </div>
-    <div class="sf-footer-bottom">
-      <span>© <span id="sf-year">2026</span> Stellar Forge. All rights reserved.</span>
-      <span>Built on Cloudflare Pages.</span>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Stellar Forge. All rights reserved.</span>
+      <span>Designed &amp; engineered by Stellar Forge — Pune, India (remote-first).</span>
     </div>
   </div>
 </footer>
-<script>document.getElementById('sf-year').textContent = new Date().getFullYear();</script>
-<script src="../assets/js/main.js" defer></script>
-
-
+<script src="/assets/main.js" defer></script>
 </body>
 </html>
