@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Building AI Agents That Survive Production | Stellar Forge Insights</title>
+<meta name="description" content="Lessons from shipping AI automation — lead scraping, post generation, and email drafting — that runs reliably without constant babysitting.">
+<link rel="canonical" href="https://stellarforge.is-a.dev/insights/building-ai-agents-that-survive-production/">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#090C14">
+<link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32">
+<link rel="icon" href="../assets/img/favicon-256.png" sizes="256x256">
+<link rel="apple-touch-icon" href="../assets/img/favicon-256.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Stellar Forge">
+<meta property="og:title" content="Building AI Agents That Survive Production | Stellar Forge Insights">
+<meta property="og:description" content="Lessons from shipping AI automation — lead scraping, post generation, and email drafting — that runs reliably without constant babysitting.">
+<meta property="og:url" content="https://stellarforge.is-a.dev/insights/building-ai-agents-that-survive-production/">
+<meta property="og:image" content="https://stellarforge.is-a.dev/assets/img/stellar-forge-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Building AI Agents That Survive Production | Stellar Forge Insights">
+<meta name="twitter:description" content="Lessons from shipping AI automation — lead scraping, post generation, and email drafting — that runs reliably without constant babysitting.">
+<meta name="twitter:image" content="https://stellarforge.is-a.dev/assets/img/stellar-forge-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Stellar Forge", "url": "https://stellarforge.is-a.dev/", "logo": "https://stellarforge.is-a.dev/assets/img/stellar-forge-logo.png", "description": "Stellar Forge is an independent technology engineering studio building AI applications, SaaS platforms, and cloud-native systems.", "email": "workwithstellarforge@gmail.com", "founder": {"@type": "Person", "name": "Founder, Stellar Forge"}, "sameAs": []}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Building AI Agents That Survive Production", "description": "Lessons from shipping AI automation — lead scraping, post generation, and email drafting — that runs reliably without constant babysitting.", "datePublished": "2026-05-20", "author": {"@type": "Organization", "name": "Stellar Forge"}, "publisher": {"@type": "Organization", "name": "Stellar Forge"}, "mainEntityOfPage": "https://stellarforge.is-a.dev/insights/building-ai-agents-that-survive-production/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://stellarforge.is-a.dev/"}, {"@type": "ListItem", "position": 2, "name": "Insights", "item": "https://stellarforge.is-a.dev/insights/"}, {"@type": "ListItem", "position": 3, "name": "Building AI Agents That Survive Production", "item": "https://stellarforge.is-a.dev/insights/building-ai-agents-that-survive-production/"}]}</script>
+
+</head>
+<body class="">
+<div class="sf-bg-field"></div>
+<div class="sf-bg-grid"></div>
+<canvas id="sf-stars" aria-hidden="true"></canvas>
+<a class="sf-skip-link" href="#main">Skip to content</a>
+<header class="sf-header">
+  <nav class="sf-nav" aria-label="Primary">
+    <a href="../" class="sf-logo" aria-label="Stellar Forge home">
+      <img src="../assets/img/mark.png" alt="Stellar Forge" width="30" height="30">
+      Stellar Forge
+    </a>
+    <div class="sf-nav-links">
+      <a href="../" data-path="/">Home</a>
+<a href="../services/" data-path="/services/">Services</a>
+<a href="../work/" data-path="/work/">Work</a>
+<a href="../about/" data-path="/about/">About</a>
+<a href="../testimonials/" data-path="/testimonials/">Testimonials</a>
+<a href="../insights/" data-path="/insights/">Insights</a>
+<a href="../contact/" data-path="/contact/">Contact</a>
+    </div>
+    <div class="sf-nav-cta-group">
+      <a href="../contact/" class="sf-btn sf-btn-ghost sf-btn-sm">Contact</a>
+      <a href="mailto:workwithstellarforge@gmail.com" class="sf-btn sf-btn-primary sf-btn-sm">Start a project</a>
+      <button class="sf-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<nav class="sf-breadcrumbs sf-container" aria-label="Breadcrumb"><a href="../">Home</a><span aria-hidden="true"> / </span><a href="../insights/">Insights</a><span aria-hidden="true"> / </span><span aria-current="page">Building AI Agents That Survive Production</span></nav>
+<section class="sf-hero sf-section-tight">
+  <div class="sf-container">
+    <div class="sf-article" data-reveal>
+      <span class="sf-eyebrow">AI & Intelligent Applications</span>
+      <h1 style="font-size:clamp(1.8rem,3.6vw,2.6rem);">Building AI Agents That Survive Production</h1>
+      <p class="sf-post-meta" style="margin-top:8px;">Published 2026-05-20 · 7 min read</p>
+    </div>
+  </div>
+</section>
+<section class="sf-section-tight">
+  <div class="sf-container">
+    <article class="sf-article" data-reveal>
+      
+<p>It's easy to get an AI agent working in a demo. It's a different problem entirely to get one that keeps working reliably three months later, after the inputs get messier, the API you depend on changes its response format, and the team stops paying close attention because it's "just working." Building AI systems that survive production means designing for that drift from the start.</p>
+
+<h2>Design around the task, not the model</h2>
+<p>The most reliable AI systems we've built — automated lead scraping, content drafting, email generation — start with a narrow, well-defined task rather than a general-purpose assistant. A system that scrapes leads from a specific set of sources and drafts outreach in a specific format is far easier to validate, monitor, and improve than an open-ended agent trying to handle anything a user might ask.</p>
+
+<h2>Treat model output as untrusted input</h2>
+<p>Generated text and structured output from an LLM should be validated the same way you'd validate any external input — check format, check for missing or malformed fields, and have a clear fallback when validation fails. This is especially true for anything that triggers a downstream action, like sending an email or writing to a database. The system should never assume the model's output is well-formed just because it usually is.</p>
+
+<h2>Cost and rate limits need to be first-class concerns</h2>
+<p>AI API costs scale with usage in a way that can surprise teams who haven't built monitoring around it. A lead-scraping pipeline that runs more often than expected, or a content generation loop that retries too aggressively on failure, can turn into an unexpectedly large bill before anyone notices. Rate limiting, retry budgets, and cost alerts should be part of the initial build, not something added after the first surprising invoice.</p>
+
+<h2>Guarding what the AI can see</h2>
+<p>When an AI system needs access to internal or customer data — to draft a relevant email, for instance — that access should be scoped deliberately. This means building a clear boundary around what data the AI layer can query, rather than giving it broad access "because it's easier." The guardrail isn't just about safety; it also keeps the system's behavior predictable, since it can only act on the data it's actually been given.</p>
+
+<h2>Monitoring for drift, not just uptime</h2>
+<p>An AI pipeline can be "up" and still be quietly producing worse output than it did a month ago — a scraping source changes its page structure, a prompt stops matching the input patterns it was tuned for, or an upstream API shifts its data format. Logging actual outputs (not just success/failure) and periodically reviewing samples is how you catch quality drift before it becomes a pattern your team has to notice manually.</p>
+
+<h2>The takeaway</h2>
+<p>AI agents that hold up in production are the ones built like any other production system: narrow scope, validated inputs and outputs, cost and rate-limit awareness, scoped data access, and monitoring that looks at quality, not just uptime. The model is one component — the system around it is what determines whether it's still reliable in six months.</p>
+
+    </article>
+  </div>
+</section>
+<section class="sf-section-tight sf-section-alt">
+  <div class="sf-container">
+    <div class="sf-section-head" data-reveal>
+      <span class="sf-eyebrow">More insights</span>
+    </div>
+    <div class="sf-grid sf-grid-2">
+<a href="../aws-to-cloudflare-migration-guide/" class="sf-post-card">
+  <div class="sf-post-meta">Cloud Infrastructure · 8 min read</div>
+  <h3>Migrating from AWS to Cloudflare: A Practical Playbook</h3>
+  <p>What actually breaks (and what gets cheaper and faster) when you move a production workload from AWS to Cloudflare's edge network.</p>
+</a>
+<a href="../sso-for-smaller-saas-teams/" class="sf-post-card">
+  <div class="sf-post-meta">Authentication & Security · 6 min read</div>
+  <h3>SSO for Smaller SaaS Teams: When and How to Build It</h3>
+  <p>A practical look at adding SSO to a growing SaaS product — what enterprise buyers actually expect, and how to scope it without over-building.</p>
+</a></div>
+  </div>
+</section>
+<section class="sf-section">
+  <div class="sf-container">
+    <div class="sf-cta-band" data-reveal>
+      <h2>Working through something similar?</h2>
+      <p>Happy to talk through the specifics of your system.</p>
+      <div class="sf-cta-actions">
+        <a href="../../contact/" class="sf-btn sf-btn-primary">Start a conversation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="sf-footer">
+  <div class="sf-container">
+    <div class="sf-footer-grid">
+      <div class="sf-footer-brand">
+        <a href="../" class="sf-logo"><img src="../assets/img/mark.png" alt="Stellar Forge" width="28" height="28">Stellar Forge</a>
+        <p>An independent technology engineering studio building AI applications, SaaS platforms, and cloud-native systems. Engineering what's next.</p>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul><li><a href="../services/ai-intelligent-applications/">AI-Powered Applications</a></li>
+<li><a href="../services/saas-platforms/">SaaS Platforms</a></li>
+<li><a href="../services/cloudflare-workers-edge-architecture/">Edge Architecture</a></li>
+<li><a href="../services/api-gateways-distributed-systems/">API Gateways</a></li>
+<li><a href="../services/cloud-infrastructure/">Cloud Infrastructure</a></li>
+<li><a href="../services/authentication-security/">Auth & Security</a></li>
+          <li><a href="../services/">All services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../about/">About</a></li>
+          <li><a href="../work/">Work</a></li>
+          <li><a href="../testimonials/">Testimonials</a></li>
+          <li><a href="../insights/">Insights</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Get in touch</h5>
+        <ul>
+          <li><a href="../contact/">Contact / Enquiry</a></li>
+          <li><a href="mailto:workwithstellarforge@gmail.com">workwithstellarforge@gmail.com</a></li>
+          <li><a href="https://wa.me/?text=Hi%20Stellar%20Forge%2C%20I%27d%20like%20to%20talk%20about%20a%20project" rel="nofollow noopener" target="_blank">WhatsApp enquiry</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="sf-footer-bottom">
+      <span>© <span id="sf-year">2026</span> Stellar Forge. All rights reserved.</span>
+      <span>Built on Cloudflare Pages.</span>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('sf-year').textContent = new Date().getFullYear();</script>
+<script src="../assets/js/main.js" defer></script>
+
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enquiries Dashboard | Stellar Forge Admin</title>
+<meta name="description" content="Stellar Forge admin dashboard.">
+<link rel="canonical" href="https://stellarforge.is-a.dev/admin/dashboard.html">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#090C14">
+<link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32">
+<link rel="icon" href="../assets/img/favicon-256.png" sizes="256x256">
+<link rel="apple-touch-icon" href="../assets/img/favicon-256.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Stellar Forge">
+<meta property="og:title" content="Enquiries Dashboard | Stellar Forge Admin">
+<meta property="og:description" content="Stellar Forge admin dashboard.">
+<meta property="og:url" content="https://stellarforge.is-a.dev/admin/dashboard.html">
+<meta property="og:image" content="https://stellarforge.is-a.dev/assets/img/stellar-forge-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Enquiries Dashboard | Stellar Forge Admin">
+<meta name="twitter:description" content="Stellar Forge admin dashboard.">
+<meta name="twitter:image" content="https://stellarforge.is-a.dev/assets/img/stellar-forge-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Stellar Forge", "url": "https://stellarforge.is-a.dev/", "logo": "https://stellarforge.is-a.dev/assets/img/stellar-forge-logo.png", "description": "Stellar Forge is an independent technology engineering studio building AI applications, SaaS platforms, and cloud-native systems.", "email": "workwithstellarforge@gmail.com", "founder": {"@type": "Person", "name": "Founder, Stellar Forge"}, "sameAs": []}</script>
+
+</head>
+<body>
+<div class="sf-bg-field"></div><div class="sf-bg-grid"></div>
+<a class="sf-skip-link" href="#main">Skip to content</a>
+<header class="sf-header">
+  <nav class="sf-nav" aria-label="Primary">
+    <a href="./" class="sf-logo" aria-label="Stellar Forge home">
+      <img src="./assets/img/mark.png" alt="Stellar Forge" width="30" height="30">
+      Stellar Forge
+    </a>
+    <div class="sf-nav-links">
+      <a href="./" data-path="/">Home</a>
+<a href="./services/" data-path="/services/">Services</a>
+<a href="./work/" data-path="/work/">Work</a>
+<a href="./about/" data-path="/about/">About</a>
+<a href="./testimonials/" data-path="/testimonials/">Testimonials</a>
+<a href="./insights/" data-path="/insights/">Insights</a>
+<a href="./contact/" data-path="/contact/">Contact</a>
+    </div>
+    <div class="sf-nav-cta-group">
+      <a href="./contact/" class="sf-btn sf-btn-ghost sf-btn-sm">Contact</a>
+      <a href="mailto:workwithstellarforge@gmail.com" class="sf-btn sf-btn-primary sf-btn-sm">Start a project</a>
+      <button class="sf-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+<div class="sf-container sf-section-tight">
+  <div class="sf-section-head-row" data-reveal>
+    <div>
+      <span class="sf-eyebrow">Admin</span>
+      <h1 style="font-size:1.6rem;">Project enquiries</h1>
+      <p style="font-size:13px;">Signed in as <span id="sf-whoami" style="color:var(--sf-mint)"></span></p>
+    </div>
+    <button id="sf-logout" class="sf-btn sf-btn-ghost sf-btn-sm">Sign out</button>
+  </div>
+  <div id="sf-empty-state" style="display:none;padding:40px;text-align:center;color:var(--sf-text-mute);border:1px dashed var(--sf-border);border-radius:12px;">
+    No enquiries yet. New form submissions will appear here.
+  </div>
+  <div style="overflow-x:auto;">
+    <table class="sf-admin-table">
+      <thead>
+        <tr><th>Status</th><th>Received</th><th>Contact</th><th>Company</th><th>Service</th><th>Message</th><th>Source</th></tr>
+      </thead>
+      <tbody id="sf-enquiries-body">
+        <tr><td colspan="7">Loading…</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</main>
+<footer class="sf-footer">
+  <div class="sf-container">
+    <div class="sf-footer-grid">
+      <div class="sf-footer-brand">
+        <a href="./" class="sf-logo"><img src="./assets/img/mark.png" alt="Stellar Forge" width="28" height="28">Stellar Forge</a>
+        <p>An independent technology engineering studio building AI applications, SaaS platforms, and cloud-native systems. Engineering what's next.</p>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul><li><a href="./services/ai-intelligent-applications/">AI-Powered Applications</a></li>
+<li><a href="./services/saas-platforms/">SaaS Platforms</a></li>
+<li><a href="./services/cloudflare-workers-edge-architecture/">Edge Architecture</a></li>
+<li><a href="./services/api-gateways-distributed-systems/">API Gateways</a></li>
+<li><a href="./services/cloud-infrastructure/">Cloud Infrastructure</a></li>
+<li><a href="./services/authentication-security/">Auth & Security</a></li>
+          <li><a href="./services/">All services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="./about/">About</a></li>
+          <li><a href="./work/">Work</a></li>
+          <li><a href="./testimonials/">Testimonials</a></li>
+          <li><a href="./insights/">Insights</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Get in touch</h5>
+        <ul>
+          <li><a href="./contact/">Contact / Enquiry</a></li>
+          <li><a href="mailto:workwithstellarforge@gmail.com">workwithstellarforge@gmail.com</a></li>
+          <li><a href="https://wa.me/?text=Hi%20Stellar%20Forge%2C%20I%27d%20like%20to%20talk%20about%20a%20project" rel="nofollow noopener" target="_blank">WhatsApp enquiry</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="sf-footer-bottom">
+      <span>© <span id="sf-year">2026</span> Stellar Forge. All rights reserved.</span>
+      <span>Built on Cloudflare Pages.</span>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('sf-year').textContent = new Date().getFullYear();</script>
+<script src="./assets/js/main.js" defer></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="../assets/js/supabase-config.js" defer></script>
+<script src="../assets/js/admin.js" defer></script>
+</body>
+</html>

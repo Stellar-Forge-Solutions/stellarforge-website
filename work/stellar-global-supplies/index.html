@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stellar Global Supplies: A Connected SaaS Ecosystem on Cloudflare | Stellar Forge</title>
+<meta name="description" content="How Stellar Forge built and migrated a full SaaS ecosystem — analytics, quoting, workflows, orders, advertising, AI, and billing — from AWS to Cloudflare, with SSO.">
+<link rel="canonical" href="https://stellarforge.is-a.dev/work/stellar-global-supplies/">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#090C14">
+<link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32">
+<link rel="icon" href="../assets/img/favicon-256.png" sizes="256x256">
+<link rel="apple-touch-icon" href="../assets/img/favicon-256.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Stellar Forge">
+<meta property="og:title" content="Stellar Global Supplies: A Connected SaaS Ecosystem on Cloudflare | Stellar Forge">
+<meta property="og:description" content="How Stellar Forge built and migrated a full SaaS ecosystem — analytics, quoting, workflows, orders, advertising, AI, and billing — from AWS to Cloudflare, with SSO.">
+<meta property="og:url" content="https://stellarforge.is-a.dev/work/stellar-global-supplies/">
+<meta property="og:image" content="https://stellarforge.is-a.dev/assets/img/stellar-forge-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Stellar Global Supplies: A Connected SaaS Ecosystem on Cloudflare | Stellar Forge">
+<meta name="twitter:description" content="How Stellar Forge built and migrated a full SaaS ecosystem — analytics, quoting, workflows, orders, advertising, AI, and billing — from AWS to Cloudflare, with SSO.">
+<meta name="twitter:image" content="https://stellarforge.is-a.dev/assets/img/stellar-forge-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Stellar Forge", "url": "https://stellarforge.is-a.dev/", "logo": "https://stellarforge.is-a.dev/assets/img/stellar-forge-logo.png", "description": "Stellar Forge is an independent technology engineering studio building AI applications, SaaS platforms, and cloud-native systems.", "email": "workwithstellarforge@gmail.com", "founder": {"@type": "Person", "name": "Founder, Stellar Forge"}, "sameAs": []}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "CreativeWork", "name": "Stellar Global Supplies", "about": "Building a connected SaaS ecosystem — and migrating it from AWS to Cloudflare", "author": {"@type": "Organization", "name": "Stellar Forge"}, "url": "https://stellarforge.is-a.dev/work/stellar-global-supplies/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://stellarforge.is-a.dev/"}, {"@type": "ListItem", "position": 2, "name": "Work", "item": "https://stellarforge.is-a.dev/work/"}, {"@type": "ListItem", "position": 3, "name": "Stellar Global Supplies", "item": "https://stellarforge.is-a.dev/work/stellar-global-supplies/"}]}</script>
+
+</head>
+<body class="">
+<div class="sf-bg-field"></div>
+<div class="sf-bg-grid"></div>
+<canvas id="sf-stars" aria-hidden="true"></canvas>
+<a class="sf-skip-link" href="#main">Skip to content</a>
+<header class="sf-header">
+  <nav class="sf-nav" aria-label="Primary">
+    <a href="../" class="sf-logo" aria-label="Stellar Forge home">
+      <img src="../assets/img/mark.png" alt="Stellar Forge" width="30" height="30">
+      Stellar Forge
+    </a>
+    <div class="sf-nav-links">
+      <a href="../" data-path="/">Home</a>
+<a href="../services/" data-path="/services/">Services</a>
+<a href="../work/" data-path="/work/">Work</a>
+<a href="../about/" data-path="/about/">About</a>
+<a href="../testimonials/" data-path="/testimonials/">Testimonials</a>
+<a href="../insights/" data-path="/insights/">Insights</a>
+<a href="../contact/" data-path="/contact/">Contact</a>
+    </div>
+    <div class="sf-nav-cta-group">
+      <a href="../contact/" class="sf-btn sf-btn-ghost sf-btn-sm">Contact</a>
+      <a href="mailto:workwithstellarforge@gmail.com" class="sf-btn sf-btn-primary sf-btn-sm">Start a project</a>
+      <button class="sf-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<nav class="sf-breadcrumbs sf-container" aria-label="Breadcrumb"><a href="../">Home</a><span aria-hidden="true"> / </span><a href="../work/">Work</a><span aria-hidden="true"> / </span><span aria-current="page">Stellar Global Supplies</span></nav>
+<section class="sf-hero sf-section-tight">
+  <div class="sf-container">
+    <div class="sf-hero-inner" data-reveal>
+      <span class="sf-eyebrow">SaaS Ecosystem · AWS → Cloudflare · SSO</span>
+      <h1 style="font-size:clamp(2rem,4vw,3rem);">Stellar Global Supplies</h1>
+      <p class="sf-lede">Building a connected SaaS ecosystem — and migrating it from AWS to Cloudflare</p>
+      <div class="sf-hero-ctas">
+        <a href="https://www.stellarglobalsupplies.com/" rel="noopener" target="_blank" class="sf-btn sf-btn-ghost">Visit live site ↗</a>
+      </div>
+      <div class="sf-hero-meta"><div><strong>7</strong>connected applications</div><div><strong>1</strong>unified data layer</div><div><strong>AWS → CF</strong>cloud migration</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sf-section-tight">
+  <div class="sf-container sf-two-col">
+    <div data-reveal>
+      <h2>The problem</h2>
+      <p>Stellar Global Supplies needed more than a website — they needed an operating system for their business: a way to run analytics, quoting, workflows, advertising, order management, billing, and AI tooling as one connected ecosystem instead of disconnected point solutions. The original infrastructure was built on AWS, which was capable but increasingly costly and complex to operate for the traffic patterns and team size involved.</p>
+    </div>
+    <div data-reveal>
+      <h2>Services applied</h2>
+      <div class="sf-tag-row"><span class="sf-tag"><a href="../../services/saas-platforms/" style="color:inherit">SaaS Platforms</a></span><span class="sf-tag"><a href="../../services/cloudflare-workers-edge-architecture/" style="color:inherit">Edge Architecture</a></span><span class="sf-tag"><a href="../../services/authentication-security/" style="color:inherit">Auth & Security</a></span><span class="sf-tag"><a href="../../services/cloud-infrastructure/" style="color:inherit">Cloud Infrastructure</a></span><span class="sf-tag"><a href="../../services/observability-monitoring/" style="color:inherit">Observability</a></span><span class="sf-tag"><a href="../../services/api-gateways-distributed-systems/" style="color:inherit">API Gateways</a></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sf-section-tight sf-section-alt">
+  <div class="sf-container">
+    <h2 data-reveal>What we built</h2>
+    <ul class="sf-list-check" data-reveal><li>Designed a shared data layer so SGS Analytics, SGS Quotes, SGS Workflows, SGS Advertise, and SGS Orders all read from and write to consistent, connected data — instead of duplicating records across separate tools.</li><li>Built Stellar AI and Stellar Bills as native modules within the same ecosystem, so AI-assisted work and billing sit alongside operational tools rather than bolted on separately.</li><li>Implemented SSO so users can move between the applications in the ecosystem under a single, secure identity — important as the number of connected tools grew.</li><li>Planned and executed a staged migration of the platform from AWS to Cloudflare Workers and edge infrastructure, moving traffic over incrementally to avoid downtime.</li><li>Set up observability (via New Relic and Cloudflare Analytics) and security tooling (Snyk, SonarCloud, SGS Security, SGS Scan) so the growing ecosystem stays monitored and auditable as it scales.</li><li>Established CI/CD and supporting tooling (SGS Docs, SGS Testing, GitHub-based workflows, DevHelm) so the team can ship changes across multiple connected applications safely.</li></ul>
+  </div>
+</section>
+
+<section class="sf-section-tight">
+  <div class="sf-container">
+    <h2 data-reveal>The outcome</h2>
+    <p data-reveal style="max-width:760px;">The result is a single, connected ecosystem rather than a patchwork of disconnected tools — with lower infrastructure overhead after the move to Cloudflare's edge network, and SSO that lets the team and their users move between applications without re-authenticating. The platform now supports the full operational surface of the business: from quoting and orders through to AI-assisted workflows and billing.</p>
+  </div>
+</section>
+
+<section class="sf-section-tight sf-section-alt">
+  <div class="sf-container">
+    <div class="sf-section-head" data-reveal>
+      <span class="sf-eyebrow">In their words</span>
+    </div>
+    <div class="sf-grid sf-grid-3" style="grid-template-columns:1fr;max-width:640px;">
+      
+<div class="sf-quote-card" data-reveal>
+  <div class="sf-quote-mark">&ldquo;</div>
+  <p class="sf-quote-text">Stellar Forge didn't just build us a website — they built the entire backbone of how Stellar Global Supplies runs. Analytics, quotes, workflows, orders, advertising and our AI tools all talk to each other now, and moving off AWS onto Cloudflare made everything faster without any of the migration headaches we were bracing for.</p>
+  <div class="sf-quote-foot">
+    <div class="sf-quote-badge"><img src="../../assets/img/stellar-global-supplies-logo.jpg" alt="Stellar Global Supplies logo" class="sf-client-logo"></div>
+    <div class="sf-quote-who"><strong>Stellar Global Supplies</strong><span>Operations</span></div>
+  </div>
+</div>
+    </div>
+  </div>
+</section>
+
+<section class="sf-section">
+  <div class="sf-container">
+    <div class="sf-cta-band" data-reveal>
+      <h2>Have a similar system in mind?</h2>
+      <p>We'll look at what you're working with and give you a real technical read on scope.</p>
+      <div class="sf-cta-actions">
+        <a href="../../contact/" class="sf-btn sf-btn-primary">Start a project</a>
+        <a href="../" class="sf-btn sf-btn-ghost">See more work</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="sf-footer">
+  <div class="sf-container">
+    <div class="sf-footer-grid">
+      <div class="sf-footer-brand">
+        <a href="../" class="sf-logo"><img src="../assets/img/mark.png" alt="Stellar Forge" width="28" height="28">Stellar Forge</a>
+        <p>An independent technology engineering studio building AI applications, SaaS platforms, and cloud-native systems. Engineering what's next.</p>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul><li><a href="../services/ai-intelligent-applications/">AI-Powered Applications</a></li>
+<li><a href="../services/saas-platforms/">SaaS Platforms</a></li>
+<li><a href="../services/cloudflare-workers-edge-architecture/">Edge Architecture</a></li>
+<li><a href="../services/api-gateways-distributed-systems/">API Gateways</a></li>
+<li><a href="../services/cloud-infrastructure/">Cloud Infrastructure</a></li>
+<li><a href="../services/authentication-security/">Auth & Security</a></li>
+          <li><a href="../services/">All services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../about/">About</a></li>
+          <li><a href="../work/">Work</a></li>
+          <li><a href="../testimonials/">Testimonials</a></li>
+          <li><a href="../insights/">Insights</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Get in touch</h5>
+        <ul>
+          <li><a href="../contact/">Contact / Enquiry</a></li>
+          <li><a href="mailto:workwithstellarforge@gmail.com">workwithstellarforge@gmail.com</a></li>
+          <li><a href="https://wa.me/?text=Hi%20Stellar%20Forge%2C%20I%27d%20like%20to%20talk%20about%20a%20project" rel="nofollow noopener" target="_blank">WhatsApp enquiry</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="sf-footer-bottom">
+      <span>© <span id="sf-year">2026</span> Stellar Forge. All rights reserved.</span>
+      <span>Built on Cloudflare Pages.</span>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('sf-year').textContent = new Date().getFullYear();</script>
+<script src="../assets/js/main.js" defer></script>
+
+
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SSO for Smaller SaaS Teams: When and How to Build It | Stellar Forge Insights</title>
+<meta name="description" content="A practical look at adding SSO to a growing SaaS product — what enterprise buyers actually expect, and how to scope it without over-building.">
+<link rel="canonical" href="https://stellarforge.is-a.dev/insights/sso-for-smaller-saas-teams/">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#090C14">
+<link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32">
+<link rel="icon" href="../assets/img/favicon-256.png" sizes="256x256">
+<link rel="apple-touch-icon" href="../assets/img/favicon-256.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Stellar Forge">
+<meta property="og:title" content="SSO for Smaller SaaS Teams: When and How to Build It | Stellar Forge Insights">
+<meta property="og:description" content="A practical look at adding SSO to a growing SaaS product — what enterprise buyers actually expect, and how to scope it without over-building.">
+<meta property="og:url" content="https://stellarforge.is-a.dev/insights/sso-for-smaller-saas-teams/">
+<meta property="og:image" content="https://stellarforge.is-a.dev/assets/img/stellar-forge-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SSO for Smaller SaaS Teams: When and How to Build It | Stellar Forge Insights">
+<meta name="twitter:description" content="A practical look at adding SSO to a growing SaaS product — what enterprise buyers actually expect, and how to scope it without over-building.">
+<meta name="twitter:image" content="https://stellarforge.is-a.dev/assets/img/stellar-forge-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Stellar Forge", "url": "https://stellarforge.is-a.dev/", "logo": "https://stellarforge.is-a.dev/assets/img/stellar-forge-logo.png", "description": "Stellar Forge is an independent technology engineering studio building AI applications, SaaS platforms, and cloud-native systems.", "email": "workwithstellarforge@gmail.com", "founder": {"@type": "Person", "name": "Founder, Stellar Forge"}, "sameAs": []}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "SSO for Smaller SaaS Teams: When and How to Build It", "description": "A practical look at adding SSO to a growing SaaS product — what enterprise buyers actually expect, and how to scope it without over-building.", "datePublished": "2026-04-30", "author": {"@type": "Organization", "name": "Stellar Forge"}, "publisher": {"@type": "Organization", "name": "Stellar Forge"}, "mainEntityOfPage": "https://stellarforge.is-a.dev/insights/sso-for-smaller-saas-teams/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://stellarforge.is-a.dev/"}, {"@type": "ListItem", "position": 2, "name": "Insights", "item": "https://stellarforge.is-a.dev/insights/"}, {"@type": "ListItem", "position": 3, "name": "SSO for Smaller SaaS Teams: When and How to Build It", "item": "https://stellarforge.is-a.dev/insights/sso-for-smaller-saas-teams/"}]}</script>
+
+</head>
+<body class="">
+<div class="sf-bg-field"></div>
+<div class="sf-bg-grid"></div>
+<canvas id="sf-stars" aria-hidden="true"></canvas>
+<a class="sf-skip-link" href="#main">Skip to content</a>
+<header class="sf-header">
+  <nav class="sf-nav" aria-label="Primary">
+    <a href="../" class="sf-logo" aria-label="Stellar Forge home">
+      <img src="../assets/img/mark.png" alt="Stellar Forge" width="30" height="30">
+      Stellar Forge
+    </a>
+    <div class="sf-nav-links">
+      <a href="../" data-path="/">Home</a>
+<a href="../services/" data-path="/services/">Services</a>
+<a href="../work/" data-path="/work/">Work</a>
+<a href="../about/" data-path="/about/">About</a>
+<a href="../testimonials/" data-path="/testimonials/">Testimonials</a>
+<a href="../insights/" data-path="/insights/">Insights</a>
+<a href="../contact/" data-path="/contact/">Contact</a>
+    </div>
+    <div class="sf-nav-cta-group">
+      <a href="../contact/" class="sf-btn sf-btn-ghost sf-btn-sm">Contact</a>
+      <a href="mailto:workwithstellarforge@gmail.com" class="sf-btn sf-btn-primary sf-btn-sm">Start a project</a>
+      <button class="sf-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<nav class="sf-breadcrumbs sf-container" aria-label="Breadcrumb"><a href="../">Home</a><span aria-hidden="true"> / </span><a href="../insights/">Insights</a><span aria-hidden="true"> / </span><span aria-current="page">SSO for Smaller SaaS Teams: When and How to Build It</span></nav>
+<section class="sf-hero sf-section-tight">
+  <div class="sf-container">
+    <div class="sf-article" data-reveal>
+      <span class="sf-eyebrow">Authentication & Security</span>
+      <h1 style="font-size:clamp(1.8rem,3.6vw,2.6rem);">SSO for Smaller SaaS Teams: When and How to Build It</h1>
+      <p class="sf-post-meta" style="margin-top:8px;">Published 2026-04-30 · 6 min read</p>
+    </div>
+  </div>
+</section>
+<section class="sf-section-tight">
+  <div class="sf-container">
+    <article class="sf-article" data-reveal>
+      
+<p>SSO often gets treated as a "someday" feature — something to build once a large enough enterprise customer asks for it. That's a reasonable default early on, but it's worth understanding what SSO actually involves before that request lands as a deal-blocking requirement with a tight deadline attached.</p>
+
+<h2>What SSO actually means for a SaaS product</h2>
+<p>At its core, SSO lets a customer's employees log into your product using their own company's identity provider — Okta, Azure AD/Entra, Google Workspace, and similar — instead of a separate username and password just for your app. For enterprise buyers, this isn't a nice-to-have; it's often a hard requirement tied to their own security and access policies, since it lets their IT team control who has access to your product without managing separate credentials.</p>
+
+<h2>SAML vs. OIDC</h2>
+<p>The two common protocols are SAML and OIDC (built on OAuth 2.0). OIDC is generally simpler to implement and is well supported by modern identity providers, while SAML remains common in larger, more traditional enterprise environments. Many SSO implementations end up supporting both, since you don't always get to choose which protocol a given customer's identity provider uses.</p>
+
+<h2>Where teams underestimate the scope</h2>
+<p>The login flow itself is usually the easy part. The parts that take real design work are: mapping an incoming SSO identity to an existing account (or deciding when to create a new one), handling users who need to belong to multiple organizations, deciding what happens when a company's IT team deprovisions a user on their end, and making sure your existing authentication code path doesn't quietly break for non-SSO customers while you build this in.</p>
+
+<h2>A practical way to scope it</h2>
+<p>Rather than building a fully generic "support any identity provider" system on day one, it's usually more practical to implement support for OIDC first (covers the majority of modern identity providers), validate it end-to-end with one real customer, and expand to SAML or additional edge cases as actual demand shows up. This keeps the initial build scoped and testable, instead of speculative.</p>
+
+<h2>Security details that are easy to miss</h2>
+<p>A few things worth being deliberate about: verifying tokens and assertions properly rather than trusting whatever the identity provider sends, deciding how session length and re-authentication should work for SSO users versus regular users, and making sure admin actions (like changing a user's role) can't be bypassed just because someone authenticated via SSO. These aren't exotic edge cases — they're the actual substance of "SSO done properly" versus "SSO that technically works."</p>
+
+<h2>The takeaway</h2>
+<p>SSO is very buildable for a smaller SaaS team, but it's more than a login screen swap — it touches account mapping, session handling, and admin permissions. Scoping it deliberately (OIDC first, validated with a real customer, expanded from there) keeps it from turning into an open-ended project when a deal deadline is on the line.</p>
+
+    </article>
+  </div>
+</section>
+<section class="sf-section-tight sf-section-alt">
+  <div class="sf-container">
+    <div class="sf-section-head" data-reveal>
+      <span class="sf-eyebrow">More insights</span>
+    </div>
+    <div class="sf-grid sf-grid-2">
+<a href="../aws-to-cloudflare-migration-guide/" class="sf-post-card">
+  <div class="sf-post-meta">Cloud Infrastructure · 8 min read</div>
+  <h3>Migrating from AWS to Cloudflare: A Practical Playbook</h3>
+  <p>What actually breaks (and what gets cheaper and faster) when you move a production workload from AWS to Cloudflare's edge network.</p>
+</a>
+<a href="../building-ai-agents-that-survive-production/" class="sf-post-card">
+  <div class="sf-post-meta">AI & Intelligent Applications · 7 min read</div>
+  <h3>Building AI Agents That Survive Production</h3>
+  <p>Lessons from shipping AI automation — lead scraping, post generation, and email drafting — that runs reliably without constant babysitting.</p>
+</a></div>
+  </div>
+</section>
+<section class="sf-section">
+  <div class="sf-container">
+    <div class="sf-cta-band" data-reveal>
+      <h2>Working through something similar?</h2>
+      <p>Happy to talk through the specifics of your system.</p>
+      <div class="sf-cta-actions">
+        <a href="../../contact/" class="sf-btn sf-btn-primary">Start a conversation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="sf-footer">
+  <div class="sf-container">
+    <div class="sf-footer-grid">
+      <div class="sf-footer-brand">
+        <a href="../" class="sf-logo"><img src="../assets/img/mark.png" alt="Stellar Forge" width="28" height="28">Stellar Forge</a>
+        <p>An independent technology engineering studio building AI applications, SaaS platforms, and cloud-native systems. Engineering what's next.</p>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul><li><a href="../services/ai-intelligent-applications/">AI-Powered Applications</a></li>
+<li><a href="../services/saas-platforms/">SaaS Platforms</a></li>
+<li><a href="../services/cloudflare-workers-edge-architecture/">Edge Architecture</a></li>
+<li><a href="../services/api-gateways-distributed-systems/">API Gateways</a></li>
+<li><a href="../services/cloud-infrastructure/">Cloud Infrastructure</a></li>
+<li><a href="../services/authentication-security/">Auth & Security</a></li>
+          <li><a href="../services/">All services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../about/">About</a></li>
+          <li><a href="../work/">Work</a></li>
+          <li><a href="../testimonials/">Testimonials</a></li>
+          <li><a href="../insights/">Insights</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Get in touch</h5>
+        <ul>
+          <li><a href="../contact/">Contact / Enquiry</a></li>
+          <li><a href="mailto:workwithstellarforge@gmail.com">workwithstellarforge@gmail.com</a></li>
+          <li><a href="https://wa.me/?text=Hi%20Stellar%20Forge%2C%20I%27d%20like%20to%20talk%20about%20a%20project" rel="nofollow noopener" target="_blank">WhatsApp enquiry</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="sf-footer-bottom">
+      <span>© <span id="sf-year">2026</span> Stellar Forge. All rights reserved.</span>
+      <span>Built on Cloudflare Pages.</span>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('sf-year').textContent = new Date().getFullYear();</script>
+<script src="../assets/js/main.js" defer></script>
+
+
+</body>
+</html>
