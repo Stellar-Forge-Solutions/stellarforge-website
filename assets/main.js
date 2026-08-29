@@ -29,8 +29,8 @@
 
   // ---- Enquiry form -> Supabase ----
   // Fill these in from your Supabase project settings (Settings -> API).
-  var SUPABASE_URL = "YOUR_SUPABASE_PROJECT_URL"; // e.g. https://xxxx.supabase.co
-  var SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+  var SUPABASE_URL = "https://rkjyyisjvqulgdxgajot.supabase.co"; // e.g. https://xxxx.supabase.co
+  var SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJranl5aXNqdnF1bGdkeGdham90Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgwMTQ0MTEsImV4cCI6MjEwMzU5MDQxMX0._iz77X8G_26zvuDC9T_NX2HvskWJTnRWo2ax-9Lq4Zw";
 
   var form = document.querySelector('#enquiry-form');
   if(form){
