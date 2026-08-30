@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Work — Stellar Forge Solutions | Products & Platforms We Build</title>
+<meta name="description" content="A visual look at Stellar Global Supplies OMS and other platforms built by Stellar Forge Solutions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#ffffff; --void-raised:#f4f6fa; --void-line:#e1e5ef;
+    --ink:#0a0e1a; --ink-dim:#495066; --ink-faint:#6b7280;
+    --signal:#00FA9A; --signal-2:#00c97e; --signal-soft:rgba(0,250,154,0.12);
+    --font-display:'Space Grotesk','Segoe UI',sans-serif;
+    --font-body:'Inter',-apple-system,'Segoe UI',sans-serif;
+    --font-mono:'JetBrains Mono','SF Mono',monospace;
+    --radius:14px; --radius-sm:8px; --container:1180px;
+    --teal:#00D9A7; --teal-dark:#00B98E; --navy:#0F172A;
+    --n50:#0F172A; --n100:#1E293B; --n200:#334155; --n300:#475569;
+    --n600:#CBD5E1; --n700:#E2E8F0; --n800:#F1F5F9;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:var(--font-body);color:var(--ink);background:var(--void);}
+  h1,h2,h3{font-family:var(--font-display);margin:0;}
+  a{color:inherit;}
+
+  /* ---- page header ---- */
+  .hero{padding:72px 24px 48px;max-width:var(--container);margin:0 auto;text-align:center;}
+  .eyebrow{display:inline-block;font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-dark);background:var(--signal-soft);padding:6px 14px;border-radius:20px;margin-bottom:18px;}
+  .hero h1{font-size:clamp(1.8rem,1.4rem+2vw,2.8rem);line-height:1.15;margin-bottom:14px;}
+  .hero p{font-size:17px;color:var(--ink-dim);max-width:620px;margin:0 auto;}
+
+  /* ---- section ---- */
+  .section{max-width:var(--container);margin:0 auto;padding:56px 24px;border-top:1px solid var(--void-line);}
+  .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:32px;flex-wrap:wrap;}
+  .section-head h2{font-size:clamp(1.4rem,1.2rem+1vw,2rem);}
+  .section-head p{color:var(--ink-dim);margin-top:6px;max-width:520px;font-size:15px;}
+  .tag{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.06em;}
+
+  /* ---- browser chrome frame ---- */
+  .browser{border-radius:var(--radius);overflow:hidden;box-shadow:0 20px 60px -20px rgba(10,14,26,.25),0 0 0 1px var(--void-line);background:#fff;margin-bottom:40px;}
+  .browser-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#eef0f4;border-bottom:1px solid var(--void-line);}
+  .dot{width:10px;height:10px;border-radius:50%;}
+  .dot.r{background:#ff5f57;} .dot.y{background:#febc2e;} .dot.g{background:#28c840;}
+  .browser-url{flex:1;margin-left:8px;background:#fff;border-radius:6px;padding:5px 12px;font-family:var(--font-mono);font-size:11.5px;color:var(--ink-faint);border:1px solid var(--void-line);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+
+  .caption{margin-top:-24px;margin-bottom:40px;color:var(--ink-dim);font-size:14px;max-width:640px;}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+  @media(max-width:860px){.grid-2{grid-template-columns:1fr;}}
+
+  /* =================== APP MOCK STYLES (Stellar Global Supplies OMS) =================== */
+  .oms{display:flex;font-family:var(--font-body);background:var(--n50);color:var(--n700);min-height:520px;}
+  .oms-sidebar{width:210px;background:#0B1420;border-right:1px solid #1E293B;padding:20px 14px;flex-shrink:0;}
+  .oms-logo{display:flex;align-items:center;gap:8px;font-family:var(--font-display);font-weight:700;color:#fff;font-size:14px;margin-bottom:26px;padding:0 6px;}
+  .oms-logo .sq{width:20px;height:20px;border-radius:5px;background:linear-gradient(135deg,var(--teal),var(--teal-dark));}
+  .oms-nav a{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:8px;font-size:13px;color:#94A3B4;margin-bottom:2px;text-decoration:none;}
+  .oms-nav a.active{background:rgba(0,217,167,.12);color:var(--teal);font-weight:600;}
+  .oms-nav .ic{width:15px;height:15px;border-radius:4px;background:currentColor;opacity:.55;flex-shrink:0;}
+  .oms-main{flex:1;padding:24px 28px;background:var(--n50);min-width:0;}
+  .oms-pagehead{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:22px;}
+  .oms-pagehead h3{color:#fff;font-size:19px;}
+  .oms-pagehead .sub{color:#64748B;font-size:12.5px;margin-top:4px;}
+  .oms-btn{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#00251C;font-weight:700;font-size:12.5px;padding:9px 16px;border-radius:8px;border:none;white-space:nowrap;}
+  .oms-btn.ghost{background:transparent;border:1px solid #334155;color:#CBD5E1;font-weight:600;}
+  .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px;}
+  .stat-card{background:#111E30;border:1px solid #1E293B;border-radius:10px;padding:14px 16px;}
+  .stat-card .v{color:#fff;font-size:20px;font-weight:700;font-family:var(--font-display);}
+  .stat-card .l{color:#64748B;font-size:11.5px;margin-top:2px;}
+  .oms-card{background:#111E30;border:1px solid #1E293B;border-radius:10px;overflow:hidden;}
+  .oms-card .head{padding:12px 16px;border-bottom:1px solid #1E293B;font-size:13px;font-weight:600;color:#E2E8F0;display:flex;justify-content:space-between;}
+  table.oms-table{width:100%;border-collapse:collapse;font-size:12.5px;}
+  table.oms-table th{text-align:left;color:#64748B;font-weight:600;padding:9px 16px;font-size:11px;text-transform:uppercase;letter-spacing:.03em;border-bottom:1px solid #1E293B;}
+  table.oms-table td{padding:11px 16px;border-bottom:1px solid #16233590;color:#CBD5E1;}
+  .badge{font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;display:inline-block;}
+  .badge.blue{background:rgba(59,130,246,.15);color:#60A5FA;}
+  .badge.amber{background:rgba(245,158,11,.15);color:#FBBF24;}
+  .badge.purple{background:rgba(139,92,246,.15);color:#A78BFA;}
+  .badge.green{background:rgba(16,185,129,.15);color:#34D399;}
+  .mono-id{font-family:var(--font-mono);font-size:11px;background:#1E293B;padding:2px 6px;border-radius:4px;color:#94A3B4;}
+
+  .oms-2col{display:grid;grid-template-columns:1fr 2fr;gap:16px;}
+  .breakdown-row{margin-bottom:12px;}
+  .breakdown-row .top{display:flex;justify-content:space-between;font-size:12px;color:#94A3B4;margin-bottom:4px;}
+  .bar-track{height:6px;background:#1E293B;border-radius:3px;overflow:hidden;}
+  .bar-fill{height:100%;border-radius:3px;}
+
+  /* login mock */
+  .oms-login{display:flex;align-items:center;justify-content:center;min-height:520px;background:radial-gradient(circle at 30% 20%,#132235,#0B1420 60%);}
+  .login-card{background:#111E30;border:1px solid #1E293B;border-radius:14px;padding:36px 34px;width:320px;text-align:center;}
+  .login-card .sq{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--teal),var(--teal-dark));margin:0 auto 18px;}
+  .login-card h4{color:#fff;font-size:18px;margin-bottom:6px;}
+  .login-card p.sub{color:#64748B;font-size:12.5px;margin-bottom:22px;}
+  .fake-input{background:#0B1420;border:1px solid #1E293B;border-radius:8px;padding:11px 14px;text-align:left;font-size:12.5px;color:#475569;margin-bottom:10px;}
+  .fake-input.filled{color:#CBD5E1;}
+
+  /* new order form mock */
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .field{margin-bottom:14px;}
+  .field label{display:block;font-size:11.5px;color:#64748B;margin-bottom:6px;font-weight:600;text-transform:uppercase;letter-spacing:.02em;}
+  .field .box{background:#0B1420;border:1px solid #1E293B;border-radius:8px;padding:10px 12px;font-size:13px;color:#E2E8F0;}
+
+  /* order detail timeline */
+  .timeline{display:flex;gap:0;margin:6px 0 22px;}
+  .tl-step{flex:1;text-align:center;position:relative;}
+  .tl-dot{width:26px;height:26px;border-radius:50%;background:#1E293B;color:#64748B;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-size:12px;font-weight:700;border:2px solid #1E293B;}
+  .tl-step.done .tl-dot{background:var(--teal);color:#00251C;border-color:var(--teal);}
+  .tl-step.current .tl-dot{border-color:var(--teal);color:var(--teal);background:transparent;}
+  .tl-line{position:absolute;top:13px;left:-50%;width:100%;height:2px;background:#1E293B;z-index:-1;}
+  .tl-step.done .tl-line, .tl-step.current .tl-line{background:var(--teal);}
+  .tl-step:first-child .tl-line{display:none;}
+  .tl-label{font-size:11px;color:#94A3B4;}
+
+  /* public track order — matches production tracking page */
+  .track-wrap{background:#EEF1F5;min-height:520px;padding:0 0 40px;}
+  .track-topbar{background:#0B1420;padding:12px 20px;display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;color:#00D9A7;text-transform:uppercase;font-weight:700;}
+  .track-body{max-width:520px;margin:0 auto;padding:26px 20px 0;}
+  .track-status-card{background:#0F1B2B;border-radius:14px;padding:22px 24px;color:#fff;margin-bottom:16px;}
+  .track-status-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;}
+  .track-status-top .lbl{font-size:10.5px;color:#64748B;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;}
+  .track-status-top .idnum{font-size:22px;font-weight:700;font-family:var(--font-display);}
+  .pill-status{background:rgba(251,191,36,.16);color:#FBBF24;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;white-space:nowrap;}
+  .track-steps{display:flex;justify-content:space-between;position:relative;margin-bottom:18px;}
+  .track-steps::before{content:'';position:absolute;top:15px;left:8%;right:8%;height:2px;background:#1E293B;z-index:0;}
+  .tstep{position:relative;z-index:1;flex:1;text-align:center;}
+  .tstep .dot{width:30px;height:30px;border-radius:50%;background:#1E293B;color:#64748B;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;font-size:13px;}
+  .tstep.done .dot{background:#3B82F6;color:#fff;}
+  .tstep.active .dot{background:#F59E0B;color:#fff;}
+  .tstep .lbl{font-size:10px;color:#64748B;line-height:1.3;}
+  .tstep.done .lbl,.tstep.active .lbl{color:#CBD5E1;}
+  .track-delivery{background:#16233A;border-radius:9px;padding:11px 14px;font-size:12.5px;color:#94A3B4;}
+  .track-delivery b{color:#fff;}
+  .track-reminder{background:#FFFBEA;border:1px solid #FDE68A;border-radius:12px;padding:16px 18px;margin-bottom:16px;}
+  .track-reminder .t{display:flex;gap:8px;align-items:center;color:#B45309;font-weight:700;font-size:13.5px;margin-bottom:3px;}
+  .track-reminder .s{font-size:12px;color:#92400E;margin-bottom:8px;}
+  .track-reminder p{font-size:12px;color:#92400E;margin:0;line-height:1.5;}
+  .track-details-card{background:#fff;border:1px solid #E2E8F0;border-radius:12px;overflow:hidden;margin-bottom:16px;}
+  .track-details-head{padding:14px 18px;font-weight:700;font-size:13.5px;color:#0F172A;border-bottom:1px solid #EEF1F5;display:flex;gap:8px;align-items:center;}
+  .track-kv{display:flex;justify-content:space-between;padding:10px 18px;font-size:12.5px;border-bottom:1px solid #F1F5F9;}
+  .track-kv span:first-child{color:#94A3B4;}
+  .track-kv span:last-child{font-weight:700;color:#0F172A;}
+  .track-prod-head{padding:12px 18px 4px;font-size:11px;font-weight:700;color:#00996f;letter-spacing:.04em;}
+  .ttable-wrap{overflow-x:auto;}
+  table.ttable{width:100%;border-collapse:collapse;font-size:11.5px;min-width:520px;}
+  table.ttable th{background:#F8FAFB;color:#94A3B4;font-weight:700;text-align:left;padding:8px 12px;font-size:10px;text-transform:uppercase;letter-spacing:.02em;border-bottom:1px solid #EEF1F5;}
+  table.ttable td{padding:9px 12px;border-bottom:1px solid #F8FAFB;color:#334155;}
+  table.ttable td.name{font-weight:700;color:#0F172A;}
+  .track-help-card{background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:18px;text-align:center;}
+  .track-help-card .t{font-weight:700;font-size:13.5px;color:#0F172A;margin-bottom:12px;display:flex;gap:6px;justify-content:center;align-items:center;}
+  .track-btn{display:block;width:100%;text-align:center;border-radius:9px;padding:11px;font-size:13px;font-weight:700;margin-bottom:8px;border:1px solid #E2E8F0;color:#334155;}
+  .track-btn.wa{background:#22C55E;color:#fff;border:none;}
+  .track-help-card .site{font-size:11.5px;color:#00996f;font-weight:600;margin-top:6px;}
+
+  footer{text-align:center;padding:50px 24px 70px;color:var(--ink-faint);font-size:13px;}
+  footer a{color:var(--teal-2,#00996f);font-weight:600;text-decoration:none;}
+  .cta-strip{background:var(--ink);color:#fff;border-radius:var(--radius);padding:36px;text-align:center;margin:0 24px;max-width:calc(var(--container) - 0px);margin-left:auto;margin-right:auto;}
+  .cta-strip h3{font-size:22px;margin-bottom:8px;}
+  .cta-strip p{color:#a9b0c2;margin-bottom:20px;font-size:14.5px;}
+  .cta-btn{display:inline-block;background:var(--signal);color:#00281c;font-weight:700;padding:12px 26px;border-radius:9px;text-decoration:none;font-size:14px;}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <span class="eyebrow">Product Tour</span>
+  <h1>What we build, in your browser</h1>
+  <p>A quick visual walkthrough of platforms Stellar Forge Solutions has designed and shipped for clients — starting with the order management system we run end-to-end for Stellar Global Supplies.</p>
+</div>
+
+<!-- ================= SECTION: OMS OVERVIEW ================= -->
+<div class="section">
+  <div class="section-head">
+    <div>
+      <span class="tag">Case Study 01</span>
+      <h2>Stellar Global Supplies — Order Management System</h2>
+      <p>A full internal OMS: order intake, GST-ready invoicing, dispatch tracking, and a public order-status page for end customers. Built and maintained by us, in production today.</p>
+    </div>
+  </div>
+
+  <!-- LOGIN -->
+  <div class="browser">
+    <div class="browser-bar">
+      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <span class="browser-url">🔒 orders.stellarglobalsupplies.com/login</span>
+    </div>
+    <div class="oms-login">
+      <div class="login-card">
+        <div class="sq"></div>
+        <h4>Stellar OMS</h4>
+        <p class="sub">Sign in to manage orders</p>
+        <div class="fake-input filled">team@stellarglobalsupplies.com</div>
+        <div class="fake-input">••••••••••</div>
+        <div class="oms-btn" style="width:100%;margin-top:6px;">Sign In</div>
+      </div>
+    </div>
+  </div>
+  <p class="caption">Simple, secure staff login — no clutter, gets the team into the dashboard fast.</p>
+
+  <!-- DASHBOARD -->
+  <div class="browser">
+    <div class="browser-bar">
+      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <span class="browser-url">🔒 orders.stellarglobalsupplies.com/dashboard</span>
+    </div>
+    <div class="oms">
+      <div class="oms-sidebar">
+        <div class="oms-logo"><span class="sq"></span>Stellar OMS</div>
+        <div class="oms-nav">
+          <a class="active">📊 Dashboard</a>
+          <a>📦 Orders</a>
+          <a>➕ New Order</a>
+          <a>🔍 Track Order</a>
+          <a>⚙️ Settings</a>
+        </div>
+      </div>
+      <div class="oms-main">
+        <div class="oms-pagehead">
+          <div><h3>Dashboard</h3><div class="sub">Welcome back — here's what's happening today</div></div>
+          <button class="oms-btn">+ New Order</button>
+        </div>
+        <div class="stat-row">
+          <div class="stat-card"><div class="v">128</div><div class="l">Total Orders</div></div>
+          <div class="stat-card"><div class="v">₹9.4L</div><div class="l">Total Revenue</div></div>
+          <div class="stat-card"><div class="v">34</div><div class="l">In Progress</div></div>
+          <div class="stat-card"><div class="v">81</div><div class="l">Delivered</div></div>
+        </div>
+        <div class="oms-2col">
+          <div class="oms-card">
+            <div class="head">Status Breakdown</div>
+            <div style="padding:16px;">
+              <div class="breakdown-row"><div class="top"><span>Order Received</span><span>18</span></div><div class="bar-track"><div class="bar-fill" style="width:14%;background:#3B82F6;"></div></div></div>
+              <div class="breakdown-row"><div class="top"><span>Processing</span><span>16</span></div><div class="bar-track"><div class="bar-fill" style="width:12%;background:#F59E0B;"></div></div></div>
+              <div class="breakdown-row"><div class="top"><span>Ready to Dispatch</span><span>13</span></div><div class="bar-track"><div class="bar-fill" style="width:10%;background:#8B5CF6;"></div></div></div>
+              <div class="breakdown-row"><div class="top"><span>Delivered</span><span>81</span></div><div class="bar-track"><div class="bar-fill" style="width:63%;background:#10B981;"></div></div></div>
+            </div>
+          </div>
+          <div class="oms-card">
+            <div class="head">Recent Orders <span style="color:#00D9A7;font-weight:600;">View all →</span></div>
+            <table class="oms-table">
+              <thead><tr><th>Order</th><th>Customer</th><th>Product</th><th>Cost</th><th>Status</th><th>Date</th></tr></thead>
+              <tbody>
+                <tr><td><span class="mono-id">#A93F21</span></td><td>Ramesh Traders</td><td>Steel Fittings</td><td>₹18,400</td><td><span class="badge amber">Processing</span></td><td>28 Aug</td></tr>
+                <tr><td><span class="mono-id">#B02C88</span></td><td>Nikhil Enterprises</td><td>Pipe Fixtures</td><td>₹9,200</td><td><span class="badge green">Delivered</span></td><td>27 Aug</td></tr>
+                <tr><td><span class="mono-id">#C71A09</span></td><td>Om Sai Hardware</td><td>Valve Assembly</td><td>₹32,750</td><td><span class="badge purple">Ready to Dispatch</span></td><td>26 Aug</td></tr>
+                <tr><td><span class="mono-id">#D44E67</span></td><td>Patil Supplies</td><td>Steel Rods</td><td>₹14,000</td><td><span class="badge blue">Order Received</span></td><td>25 Aug</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="caption">Live snapshot of order volume, revenue, and pipeline health — the first thing the team sees every morning.</p>
+
+  <!-- ORDERS LIST -->
+  <div class="browser">
+    <div class="browser-bar">
+      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <span class="browser-url">🔒 orders.stellarglobalsupplies.com/orders</span>
+    </div>
+    <div class="oms">
+      <div class="oms-sidebar">
+        <div class="oms-logo"><span class="sq"></span>Stellar OMS</div>
+        <div class="oms-nav">
+          <a>📊 Dashboard</a>
+          <a class="active">📦 Orders</a>
+          <a>➕ New Order</a>
+          <a>🔍 Track Order</a>
+          <a>⚙️ Settings</a>
+        </div>
+      </div>
+      <div class="oms-main">
+        <div class="oms-pagehead">
+          <div><h3>All Orders</h3><div class="sub">128 orders · filter, search, and export</div></div>
+          <button class="oms-btn ghost">⬇ Export CSV</button>
+        </div>
+        <div class="oms-card">
+          <table class="oms-table">
+            <thead><tr><th>Order</th><th>Customer</th><th>Product</th><th>Qty</th><th>Amount</th><th>Status</th><th>Date</th></tr></thead>
+            <tbody>
+              <tr><td><span class="mono-id">#A93F21</span></td><td>Ramesh Traders</td><td>Steel Fittings</td><td>240</td><td>₹18,400</td><td><span class="badge amber">Processing</span></td><td>28 Aug</td></tr>
+              <tr><td><span class="mono-id">#B02C88</span></td><td>Nikhil Enterprises</td><td>Pipe Fixtures</td><td>120</td><td>₹9,200</td><td><span class="badge green">Delivered</span></td><td>27 Aug</td></tr>
+              <tr><td><span class="mono-id">#C71A09</span></td><td>Om Sai Hardware</td><td>Valve Assembly</td><td>60</td><td>₹32,750</td><td><span class="badge purple">Ready to Dispatch</span></td><td>26 Aug</td></tr>
+              <tr><td><span class="mono-id">#D44E67</span></td><td>Patil Supplies</td><td>Steel Rods</td><td>500</td><td>₹14,000</td><td><span class="badge blue">Order Received</span></td><td>25 Aug</td></tr>
+              <tr><td><span class="mono-id">#E19B34</span></td><td>Deshmukh Metals</td><td>Bolt Sets</td><td>1000</td><td>₹6,300</td><td><span class="badge green">Delivered</span></td><td>24 Aug</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="caption">Searchable, filterable order log with CSV export for accounting and GST filing.</p>
+
+  <div class="grid-2">
+    <!-- NEW ORDER -->
+    <div>
+      <div class="browser">
+        <div class="browser-bar">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="browser-url">🔒 .../new-order</span>
+        </div>
+        <div class="oms">
+          <div class="oms-main" style="width:100%;padding:22px 24px;">
+            <div class="oms-pagehead"><div><h3 style="font-size:16px;">New Order</h3><div class="sub">Customer & product details</div></div></div>
+            <div class="form-grid">
+              <div class="field"><label>Customer Name</label><div class="box">Ramesh Traders</div></div>
+              <div class="field"><label>Contact Number</label><div class="box">+91 98xxxxxx21</div></div>
+              <div class="field"><label>Product Type</label><div class="box">Steel Fittings</div></div>
+              <div class="field"><label>Quantity</label><div class="box">240 units</div></div>
+              <div class="field"><label>Sale Cost</label><div class="box">₹18,400</div></div>
+              <div class="field"><label>GST (CGST+SGST)</label><div class="box">Auto-calculated</div></div>
+            </div>
+            <button class="oms-btn" style="margin-top:6px;">Create Order</button>
+          </div>
+        </div>
+      </div>
+      <p class="caption">GST auto-calculated at entry — no spreadsheet math for the team.</p>
+    </div>
+
+    <!-- ORDER DETAIL -->
+    <div>
+      <div class="browser">
+        <div class="browser-bar">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="browser-url">🔒 .../orders/A93F21</span>
+        </div>
+        <div class="oms">
+          <div class="oms-main" style="width:100%;padding:22px 24px;">
+            <div class="oms-pagehead"><div><h3 style="font-size:16px;">Order #A93F21</h3><div class="sub">Ramesh Traders · Steel Fittings</div></div></div>
+            <div class="timeline">
+              <div class="tl-step done"><div class="tl-line"></div><div class="tl-dot">✓</div><div class="tl-label">Received</div></div>
+              <div class="tl-step current"><div class="tl-line"></div><div class="tl-dot">2</div><div class="tl-label">Processing</div></div>
+              <div class="tl-step"><div class="tl-line"></div><div class="tl-dot">3</div><div class="tl-label">Dispatch</div></div>
+              <div class="tl-step"><div class="tl-line"></div><div class="tl-dot">4</div><div class="tl-label">Delivered</div></div>
+            </div>
+            <div class="oms-card">
+              <div class="head">Order Summary</div>
+              <table class="oms-table">
+                <tbody>
+                  <tr><td>Sale Cost</td><td style="text-align:right;">₹16,000</td></tr>
+                  <tr><td>CGST</td><td style="text-align:right;">₹1,200</td></tr>
+                  <tr><td>SGST</td><td style="text-align:right;">₹1,200</td></tr>
+                  <tr><td style="font-weight:700;color:#fff;">Total</td><td style="text-align:right;font-weight:700;color:#fff;">₹18,400</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="caption">Full order lifecycle, GST breakdown, and status history in one view.</p>
+    </div>
+  </div>
+
+  <!-- TRACK ORDER -->
+  <div class="browser">
+    <div class="browser-bar">
+      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <span class="browser-url">stellarglobalsupplies.com/track/8CA05E2A</span>
+    </div>
+    <div class="track-wrap">
+      <div class="track-topbar">📦 Order Tracking</div>
+      <div class="track-body">
+
+        <div class="track-status-card">
+          <div class="track-status-top">
+            <div>
+              <div class="lbl">Order</div>
+              <div class="idnum">#8CA05E2A</div>
+            </div>
+            <span class="pill-status">● Processing</span>
+          </div>
+          <div class="track-steps">
+            <div class="tstep done"><div class="dot">✓</div><div class="lbl">Order<br>Received</div></div>
+            <div class="tstep active"><div class="dot">●</div><div class="lbl">Processing</div></div>
+            <div class="tstep"><div class="dot">3</div><div class="lbl">Ready to<br>Dispatch</div></div>
+            <div class="tstep"><div class="dot">4</div><div class="lbl">Delivered</div></div>
+          </div>
+          <div class="track-delivery">📅 Expected delivery: <b>30 Aug 2026</b></div>
+        </div>
+
+        <div class="track-reminder">
+          <div class="t">⚠️ Payment Reminder</div>
+          <div class="s">Your payment status: <b>After 30 days</b></div>
+          <p>We'd appreciate it if you could complete your payment at the earliest. We're here to help if you have any questions!</p>
+        </div>
+
+        <div class="track-details-card">
+          <div class="track-details-head">📋 Order Details</div>
+          <div class="track-kv"><span>Payment</span><span>After 30 days</span></div>
+          <div class="track-kv"><span>Order Placed</span><span>28 Aug 2026</span></div>
+          <div class="track-prod-head">PRODUCTS (5)</div>
+          <div class="ttable-wrap">
+            <table class="ttable">
+              <thead><tr><th>Product</th><th>Material</th><th>Description</th><th>Qty</th><th>Unit Cost</th><th>CGST (9%)</th></tr></thead>
+              <tbody>
+                <tr><td class="name">MS Angle</td><td>MS</td><td>50 x 50 x 6mm, 6000 LG</td><td>18 Pcs</td><td>₹620</td><td>₹1,004.40</td></tr>
+                <tr><td class="name">GI Pipe</td><td>GI</td><td>25 NB x Sch 40, 3000 LG</td><td>32 Pcs</td><td>₹410</td><td>₹1,180.80</td></tr>
+                <tr><td class="name">MS Flange</td><td>MS</td><td>100 NB, Class 150, Slip-On</td><td>12 Pcs</td><td>₹340</td><td>₹367.20</td></tr>
+                <tr><td class="name">SS Elbow 90°</td><td>SS304</td><td>50 NB, Sch 10, Butt Weld</td><td>24 Pcs</td><td>₹275</td><td>₹594.00</td></tr>
+                <tr><td class="name">Gasket Set</td><td>Rubber</td><td>100 NB, 3mm Thick</td><td>10 Pcs</td><td>₹95</td><td>₹85.50</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="track-help-card">
+          <div class="t">💬 Need Help?</div>
+          <div class="track-btn">📞 +91 98xxx xxxxx</div>
+          <div class="track-btn wa">💬 WhatsApp Us</div>
+          <div class="site">stellarglobalsupplies.com →</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <p class="caption">A public, no-login page customers can bookmark — live order status, payment reminders, and a full itemised product breakdown, no account needed.</p>
+</div>
+
+<div class="cta-strip">
+  <h3>Want something like this for your business?</h3>
+  <p>We design, build, and run custom web apps end-to-end — from the first mockup to production support.</p>
+  <a class="cta-btn" href="https://stellarforgesolutions.com/contact">Get in touch →</a>
+</div>
+
+<footer>
+  Screens shown use placeholder data for demonstration only. Built &amp; maintained by <a href="https://stellarforgesolutions.com">Stellar Forge Solutions</a>.
+</footer>
+
+</body>
+</html>
