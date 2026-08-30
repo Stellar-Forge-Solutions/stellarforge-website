@@ -1,7 +1,7 @@
 /* ==========================================================================
    Stellar Forge — Design System
-   Cosmic + engineering + premium. Clean white base, restrained signal-green/
-   violet accent, geometric display type, monospace used as structural
+   Cosmic + engineering + premium. Clean white base, restrained signal-green
+   accent, geometric display type, monospace used as structural
    labeling (the way engineers label things), not decoration.
    ========================================================================== */
 
@@ -14,7 +14,7 @@
   --ink-dim:     #495066;   /* secondary text */
   --ink-faint:   #6b7280;   /* tertiary / labels */
   --signal:      #00FA9A;   /* spring green — primary accent */
-  --signal-2:    #9b6bff;   /* violet — secondary accent */
+  --signal-2:    #00c97e;   /* darker green — secondary accent */
   --signal-soft: rgba(0,250,154,0.12);
   --glow:        rgba(0,250,154,0.35);
   --ok:          #4ade80;
@@ -79,7 +79,7 @@ body{
   background:
     linear-gradient(180deg, rgba(255,255,255,0) 0%, var(--void) 92%),
     radial-gradient(ellipse 900px 500px at 15% -10%, rgba(0,250,154,0.14), transparent 60%),
-    radial-gradient(ellipse 700px 500px at 100% 10%, rgba(155,107,255,0.10), transparent 60%);
+    radial-gradient(ellipse 700px 500px at 100% 10%, rgba(0,250,154,0.08), transparent 60%);
 }
 
 /* Skip link */
