@@ -1,22 +1,22 @@
 /* ==========================================================================
    Stellar Forge — Design System
-   Cosmic + engineering + premium. Deep space base, restrained signal-blue/
+   Cosmic + engineering + premium. Clean white base, restrained signal-green/
    violet accent, geometric display type, monospace used as structural
    labeling (the way engineers label things), not decoration.
    ========================================================================== */
 
 :root{
   /* --- Color: named tokens --- */
-  --void:        #0a0e1a;   /* base background */
-  --void-raised: #0e1424;   /* card / elevated surface */
-  --void-line:   #161d33;   /* hairline borders */
-  --ink:         #e9edf7;   /* primary text */
-  --ink-dim:     #97a1bd;   /* secondary text */
-  --ink-faint:   #5b6480;   /* tertiary / labels */
-  --signal:      #5b8cff;   /* electric blue — primary accent */
+  --void:        #ffffff;   /* base background */
+  --void-raised: #f4f6fa;   /* card / elevated surface */
+  --void-line:   #e1e5ef;   /* hairline borders */
+  --ink:         #0a0e1a;   /* primary text */
+  --ink-dim:     #495066;   /* secondary text */
+  --ink-faint:   #6b7280;   /* tertiary / labels */
+  --signal:      #00FA9A;   /* spring green — primary accent */
   --signal-2:    #9b6bff;   /* violet — secondary accent */
-  --signal-soft: rgba(91,140,255,0.12);
-  --glow:        rgba(91,140,255,0.35);
+  --signal-soft: rgba(0,250,154,0.12);
+  --glow:        rgba(0,250,154,0.35);
   --ok:          #4ade80;
 
   /* --- Type --- */
@@ -62,14 +62,14 @@ body{
 .cosmos::before{
   content:""; position:absolute; inset:-10%;
   background-image:
-    radial-gradient(1px 1px at 20px 30px, rgba(233,237,247,0.5) 50%, transparent 51%),
-    radial-gradient(1px 1px at 140px 90px, rgba(233,237,247,0.35) 50%, transparent 51%),
-    radial-gradient(1.5px 1.5px at 300px 60px, rgba(233,237,247,0.4) 50%, transparent 51%),
-    radial-gradient(1px 1px at 420px 200px, rgba(233,237,247,0.3) 50%, transparent 51%),
-    radial-gradient(1px 1px at 90px 260px, rgba(233,237,247,0.4) 50%, transparent 51%),
-    radial-gradient(1.5px 1.5px at 520px 320px, rgba(233,237,247,0.3) 50%, transparent 51%),
-    radial-gradient(1px 1px at 640px 40px, rgba(233,237,247,0.35) 50%, transparent 51%),
-    radial-gradient(1px 1px at 760px 180px, rgba(233,237,247,0.3) 50%, transparent 51%);
+    radial-gradient(1px 1px at 20px 30px, rgba(10,14,26,0.5) 50%, transparent 51%),
+    radial-gradient(1px 1px at 140px 90px, rgba(10,14,26,0.35) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 300px 60px, rgba(10,14,26,0.4) 50%, transparent 51%),
+    radial-gradient(1px 1px at 420px 200px, rgba(10,14,26,0.3) 50%, transparent 51%),
+    radial-gradient(1px 1px at 90px 260px, rgba(10,14,26,0.4) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 520px 320px, rgba(10,14,26,0.3) 50%, transparent 51%),
+    radial-gradient(1px 1px at 640px 40px, rgba(10,14,26,0.35) 50%, transparent 51%),
+    radial-gradient(1px 1px at 760px 180px, rgba(10,14,26,0.3) 50%, transparent 51%);
   background-repeat:repeat;
   background-size:800px 400px;
   opacity:0.5;
@@ -77,8 +77,8 @@ body{
 .cosmos::after{
   content:""; position:absolute; inset:0;
   background:
-    linear-gradient(180deg, rgba(10,14,26,0) 0%, var(--void) 92%),
-    radial-gradient(ellipse 900px 500px at 15% -10%, rgba(91,140,255,0.14), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,0) 0%, var(--void) 92%),
+    radial-gradient(ellipse 900px 500px at 15% -10%, rgba(0,250,154,0.14), transparent 60%),
     radial-gradient(ellipse 700px 500px at 100% 10%, rgba(155,107,255,0.10), transparent 60%);
 }
 
@@ -132,7 +132,7 @@ a:hover{ text-decoration:underline; }
 /* ---------- Header ---------- */
 .site-header{
   position:sticky; top:0; z-index:50;
-  background:rgba(10,14,26,0.78); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  background:rgba(255,255,255,0.78); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
   border-bottom:1px solid var(--void-line);
 }
 .header-inner{ display:flex; align-items:center; justify-content:space-between; gap:24px; padding-block:14px; }
@@ -163,7 +163,7 @@ nav.main-nav a:hover{ color:var(--ink); text-decoration:none; }
 .btn:hover{ text-decoration:none; }
 .btn-primary{
   background:linear-gradient(135deg, var(--signal), var(--signal-2));
-  color:#050810; box-shadow:0 0 0 rgba(91,140,255,0);
+  color:#050810; box-shadow:0 0 0 rgba(0,250,154,0);
 }
 .btn-primary:hover{ box-shadow:0 8px 30px -6px var(--glow); transform:translateY(-1px); }
 .btn-ghost{ background:transparent; border-color:var(--void-line); color:var(--ink); }
@@ -190,7 +190,7 @@ nav.main-nav a:hover{ color:var(--ink); text-decoration:none; }
   opacity:0; transition:opacity .25s ease; pointer-events:none;
 }
 a.card{ color:inherit; display:block; }
-a.card:hover{ text-decoration:none; border-color:rgba(91,140,255,0.45); transform:translateY(-3px); box-shadow:0 16px 40px -20px rgba(91,140,255,0.35); }
+a.card:hover{ text-decoration:none; border-color:rgba(0,250,154,0.45); transform:translateY(-3px); box-shadow:0 16px 40px -20px rgba(0,250,154,0.35); }
 .card-icon{
   width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
   background:var(--signal-soft); color:var(--signal); margin-bottom:18px; flex-shrink:0;
@@ -220,7 +220,7 @@ a.card:hover{ text-decoration:none; border-color:rgba(91,140,255,0.45); transfor
 /* ---------- Case study cards ---------- */
 .case-card{ display:grid; grid-template-columns:1fr; gap:0; border:1px solid var(--void-line); border-radius:var(--radius); overflow:hidden; background:var(--void-raised); }
 @media (min-width:820px){ .case-card{ grid-template-columns:1.1fr 1fr; } }
-.case-card .case-visual{ padding:32px; background:radial-gradient(ellipse at top left, rgba(91,140,255,0.14), transparent 60%), var(--void); border-bottom:1px solid var(--void-line); display:flex; flex-direction:column; justify-content:center; }
+.case-card .case-visual{ padding:32px; background:radial-gradient(ellipse at top left, rgba(0,250,154,0.14), transparent 60%), var(--void); border-bottom:1px solid var(--void-line); display:flex; flex-direction:column; justify-content:center; }
 @media (min-width:820px){ .case-card .case-visual{ border-bottom:none; border-right:1px solid var(--void-line); } }
 .case-card .case-body{ padding:32px; }
 .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 0; }
@@ -248,7 +248,7 @@ input::placeholder, textarea::placeholder{ color:var(--ink-faint); }
 fieldset{ border:none; padding:0; margin:0; }
 
 /* ---------- CTA band ---------- */
-.cta-band{ border:1px solid var(--void-line); border-radius:20px; padding:clamp(32px,6vw,64px); text-align:center; background:radial-gradient(ellipse 700px 300px at 50% 0%, rgba(91,140,255,0.16), transparent 70%), var(--void-raised); }
+.cta-band{ border:1px solid var(--void-line); border-radius:20px; padding:clamp(32px,6vw,64px); text-align:center; background:radial-gradient(ellipse 700px 300px at 50% 0%, rgba(0,250,154,0.16), transparent 70%), var(--void-raised); }
 .cta-band h2{ margin-bottom:0.3em; }
 .cta-band .lede{ margin-inline:auto; }
 .cta-band .btn-row{ justify-content:center; }
