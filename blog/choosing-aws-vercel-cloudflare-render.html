@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Choosing Between AWS, Vercel, Cloudflare and Render | Stellar Forge</title>
+<meta name="description" content="A practical framework for picking your deployment stack — AWS, Vercel, Cloudflare or Render — based on traffic shape, budget and how much infrastructure you want to manage.">
+<link rel="canonical" href="https://stellarforge.stellarglobalsupplies.com/blog/choosing-aws-vercel-cloudflare-render.html">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="/assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+  article{max-width:720px;}
+  article h2{margin-top:40px; margin-bottom:14px; font-size:1.5rem;}
+  article p{max-width:none; margin-bottom:16px;}
+  article ul{margin:0 0 20px 20px; color:var(--ink-soft);}
+  article li{margin-bottom:8px;}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Choosing between AWS, Vercel, Cloudflare and Render for a new app",
+  "author": {"@type": "Organization", "name": "Stellar Forge"},
+  "datePublished": "2026-09-05",
+  "publisher": {"@type": "Organization", "name": "Stellar Forge"}
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a href="/" class="brand"><img src="/assets/img/logo.png" alt="Stellar Forge logo"> Stellar Forge</a>
+    <nav class="main-nav" aria-label="Primary">
+      <div class="nav-links" id="nav-links">
+        <a href="/#work">Work</a>
+        <a href="/#services">Services</a>
+        <a href="/#process">Process</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/blog/">Blog</a>
+        <a href="/#contact" class="btn btn-primary">Get a quote</a>
+      </div>
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+<main>
+  <section style="padding-top:64px;">
+    <div class="wrap">
+      <span class="kicker">Sep 2026 · Deployment</span>
+      <h1 style="font-size:clamp(2rem,4vw,2.8rem); max-width:800px; margin:14px 0 40px;">Choosing between AWS, Vercel, Cloudflare and Render for a new app</h1>
+      <article>
+        <p>Every new project starts with the same question: where does this actually run? The honest answer is that AWS, Vercel, Cloudflare and Render solve different problems, and picking the wrong one costs you months later — not up front.</p>
+
+        <h2>Start with your traffic shape, not the brand name</h2>
+        <p>A marketing site with predictable, low traffic doesn't need the same infrastructure as an order management system processing millions of requests a month. We ask three questions before touching any config: how spiky is the traffic, how much state does the app hold, and who's maintaining this in a year.</p>
+
+        <h2>When we reach for Vercel or Cloudflare</h2>
+        <p>Frontend-heavy apps, marketing sites, and anything that benefits from edge caching go on Vercel or Cloudflare Pages. Both give you near-instant global delivery without managing a single server, which matters when a client's traffic can be 90% from one country and 10% scattered across a dozen others.</p>
+
+        <h2>When AWS earns its complexity</h2>
+        <p>AWS is the right call once an app needs fine-grained control — custom queuing, specific compliance requirements, or a database that needs to live close to a specific data pipeline. It's more setup, but it scales in ways a managed platform can't match.</p>
+
+        <h2>Where Render fits</h2>
+        <p>Render sits in between: full backend services and databases without AWS-level configuration overhead. It's often our default for internal tools and billing platforms that need a persistent server but not a full AWS stack.</p>
+
+        <h2>The real answer: mixed stacks</h2>
+        <p>In practice, most of our client platforms run on more than one of these at once — a Vercel frontend, an AWS-hosted API, Cloudflare in front for caching and DDoS protection. The goal isn't platform loyalty, it's matching each piece of the system to what it actually needs to do.</p>
+      </article>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <a href="/" class="foot-brand"><img src="/assets/img/logo.png" alt="Stellar Forge logo"> Stellar Forge</a>
+    <small>© 2026 Stellar Forge. Built &amp; deployed on our own stack.</small>
+  </div>
+</footer>
+<script src="/assets/script.js"></script>
+</body>
+</html>

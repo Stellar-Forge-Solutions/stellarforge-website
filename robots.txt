@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /legal/
-Sitemap: https://stellarforge.is-a.dev/sitemap.xml
+
+Sitemap: https://stellarforge.stellarglobalsupplies.com/sitemap.xml

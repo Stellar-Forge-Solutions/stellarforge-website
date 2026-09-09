@@ -1,123 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://stellarforge.is-a.dev/</loc>
+    <loc>https://stellarforge.stellarglobalsupplies.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://stellarforge.is-a.dev/services/</loc>
+    <loc>https://stellarforge.stellarglobalsupplies.com/blog/</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://stellarforge.is-a.dev/work/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://stellarforge.stellarglobalsupplies.com/blog/choosing-aws-vercel-cloudflare-render.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://stellarforge.is-a.dev/about/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://stellarforge.is-a.dev/contact/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://stellarforge.is-a.dev/blog/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://stellarforge.is-a.dev/legal/privacy-policy/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://stellarforge.is-a.dev/legal/terms-of-service/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://stellarforge.is-a.dev/services/ai-and-intelligent-applications/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://stellarforge.is-a.dev/services/saas-platforms/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://stellarforge.is-a.dev/services/cloudflare-workers-edge-architecture/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://stellarforge.is-a.dev/services/api-gateways-distributed-systems/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://stellarforge.is-a.dev/services/cloud-infrastructure/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://stellarforge.is-a.dev/services/authentication-and-security/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://stellarforge.is-a.dev/services/observability-and-monitoring/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://stellarforge.is-a.dev/services/automation-and-integrations/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://stellarforge.is-a.dev/services/high-performance-web-applications/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://stellarforge.is-a.dev/services/technical-consulting/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://stellarforge.is-a.dev/work/stellar-global-supplies/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://stellarforge.is-a.dev/work/mayur-masala-center/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://stellarforge.is-a.dev/work/snehal-printers/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://stellarforge.is-a.dev/blog/cloudflare-workers-vs-traditional-cloud-when-to-move-to-the-edge/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://stellarforge.is-a.dev/blog/observability-for-small-engineering-teams-what-actually-matters/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://stellarforge.is-a.dev/blog/api-gateway-patterns-that-prevent-cascading-failures/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://stellarforge.stellarglobalsupplies.com/blog/scaling-order-management-system.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
