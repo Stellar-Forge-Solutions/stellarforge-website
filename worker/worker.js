@@ -24,9 +24,9 @@
 // Find the Account ID on the right sidebar of any domain's Overview page in the
 // Cloudflare dashboard (it's the same for every domain under that account).
 const ACCOUNTS = [
-  { accountId: "YOUR_STELLAR_GLOBAL_SUPPLIES_ACCOUNT_ID", client: "stellar-global-supplies" },
-  { accountId: "YOUR_MAYUR_MASALA_ACCOUNT_ID", client: "mayur-masala" },
-  { accountId: "YOUR_SNEHAL_PRINTERS_ACCOUNT_ID", client: "snehal-printers" },
+  { accountId: "d781cda05787a81fa928d810ec63322f", client: "stellar-global-supplies" },
+  { accountId: "125c7b5f30851e413b8f19c3767b00e8", client: "mayur-masala" },
+  { accountId: "144fd3ec4764045dca6c4ddc777cc8a1", client: "snehal-printers" },
 ];
 
 export default {
