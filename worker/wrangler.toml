@@ -1,0 +1,6 @@
+name = "stellarforge-stats-sync"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+# No scheduler — this Worker only runs when you (or your automation) hit its
+# URL directly. No [triggers] / cron block on purpose.
