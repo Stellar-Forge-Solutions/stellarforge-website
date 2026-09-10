@@ -88,6 +88,8 @@ p{max-width:62ch; color:var(--ink-soft);}
 nav.main-nav{display:flex; align-items:center; gap:34px;}
 nav.main-nav a{font-size:0.95rem; color:var(--ink-soft); transition:color 0.15s ease;}
 nav.main-nav a:hover{color:var(--ink);}
+nav.main-nav a.btn-primary,
+nav.main-nav a.btn-primary:hover{color:var(--white);}
 .nav-links{display:flex; gap:34px;}
 .menu-toggle{display:none; background:none; border:none; cursor:pointer;}
 .menu-toggle svg{stroke:var(--ink);}
@@ -127,7 +129,55 @@ nav.main-nav a:hover{color:var(--ink);}
 .hero-proof .item b{display:block; font-family:var(--display); font-size:1.5rem; color:var(--ink); font-weight:600;}
 
 .hero-visual{position:relative; aspect-ratio:1/1; max-width:460px; margin-left:auto;}
-.hero-visual svg{width:100%; height:100%;}
+.hero-visual svg{width:100%; height:100%; overflow:visible;}
+
+/* Nodes pulse like live traffic pings */
+.hero-visual .pulse-node{
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: nodePulse 2.4s ease-in-out infinite;
+}
+@keyframes nodePulse{
+  0%, 100%{ transform:scale(1); opacity:1; }
+  50%{ transform:scale(1.9); opacity:0.3; }
+}
+
+/* Connector lines animate like data flowing toward the core */
+.hero-visual .flow-line{
+  stroke-dasharray: 5 9;
+  animation: flowDash 2.6s linear infinite;
+}
+@keyframes flowDash{
+  to{ stroke-dashoffset: -140; }
+}
+
+/* Slow rotating scan ring for a "live system" feel */
+.hero-visual .scan-ring{
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: scanSpin 14s linear infinite;
+}
+@keyframes scanSpin{
+  to{ transform:rotate(360deg); }
+}
+
+/* Core dot breathes gently */
+.hero-visual .pulse-node:nth-of-type(1){animation-delay:0s;}
+.hero-visual .pulse-node:nth-of-type(2){animation-delay:0.6s;}
+.hero-visual .pulse-node:nth-of-type(3){animation-delay:1.2s;}
+.hero-visual .pulse-node:nth-of-type(4){animation-delay:1.8s;}
+.hero-visual .flow-line:nth-of-type(1){animation-delay:0s;}
+.hero-visual .flow-line:nth-of-type(2){animation-delay:0.4s;}
+.hero-visual .flow-line:nth-of-type(3){animation-delay:0.8s;}
+.hero-visual .flow-line:nth-of-type(4){animation-delay:1.2s;}
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: corePulse 2.4s ease-in-out infinite;
+}
+@keyframes corePulse{
+  0%, 100%{ transform:scale(1); }
+  50%{ transform:scale(1.35); }
+}
 
 /* ===== Stat ticker bar ===== */
 .ticker-bar{

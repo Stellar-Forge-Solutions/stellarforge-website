@@ -44,10 +44,8 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.4 });
 counters.forEach(el => io.observe(el));
 
-// Live "request pulse" ticker on hero graph nodes
-document.querySelectorAll('.pulse-node').forEach((node, i) => {
-  node.style.animationDelay = `${i * 0.35}s`;
-});
+// Node/line stagger delays are now handled purely in CSS (nth-of-type),
+// so no JS timing logic is needed here.
 
 // ===== Supabase client (loaded via CDN in the page) =====
 let supabaseClient = null;

@@ -118,21 +118,31 @@
             </radialGradient>
           </defs>
           <circle cx="200" cy="200" r="120" fill="url(#glow)"/>
+
+          <!-- slow rotating scan ring -->
+          <circle class="scan-ring" cx="200" cy="200" r="150" fill="none"
+            stroke="#4FB98D" stroke-width="1.5" stroke-dasharray="2 14" opacity="0.55"/>
+
           <!-- forged diamond outline echoing logo mark -->
           <polygon points="200,70 300,150 200,230 100,150" fill="none" stroke="#17231F" stroke-width="3"/>
           <polygon points="200,170 260,215 200,260 140,215" fill="none" stroke="#2F8465" stroke-width="3"/>
-          <!-- infra nodes -->
-          <g stroke="#B7C4BB" stroke-width="1.5">
-            <line x1="200" y1="70" x2="60" y2="40"/>
-            <line x1="300" y1="150" x2="360" y2="110"/>
-            <line x1="200" y1="230" x2="200" y2="330"/>
-            <line x1="100" y1="150" x2="30" y2="200"/>
+
+          <!-- infra connector lines, animated like live data flow -->
+          <g stroke="#8FA398" stroke-width="1.5">
+            <line class="flow-line" x1="200" y1="70" x2="60" y2="40"/>
+            <line class="flow-line" x1="300" y1="150" x2="360" y2="110"/>
+            <line class="flow-line" x1="200" y1="230" x2="200" y2="330"/>
+            <line class="flow-line" x1="100" y1="150" x2="30" y2="200"/>
           </g>
+
+          <!-- pinging infra nodes -->
           <circle class="pulse-node" cx="60" cy="40" r="6" fill="#4FB98D"/>
           <circle class="pulse-node" cx="360" cy="110" r="6" fill="#4FB98D"/>
           <circle class="pulse-node" cx="200" cy="330" r="6" fill="#4FB98D"/>
           <circle class="pulse-node" cx="30" cy="200" r="6" fill="#4FB98D"/>
-          <circle cx="200" cy="215" r="5" fill="#17231F"/>
+
+          <!-- breathing core -->
+          <circle class="core-dot" cx="200" cy="215" r="5" fill="#17231F"/>
         </svg>
       </div>
     </div>
@@ -364,10 +374,10 @@
           <div>
             <label for="budget">Approximate budget</label>
             <select id="budget" name="budget">
-              <option>Under Rs 2,000</option>
-              <option>Rs 2,000 – Rs 5,000</option>
-              <option>Rs 5,000 – Rs 15,000</option>
-              <option>Rs 15,000+</option>
+              <option>Under $2,000</option>
+              <option>$2,000 – $5,000</option>
+              <option>$5,000 – $15,000</option>
+              <option>$15,000+</option>
             </select>
           </div>
           <div>
