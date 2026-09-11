@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>Order Management System | Stellar Forge — Built for Industrial Suppliers</title>
+<meta name="description" content="A GST-ready order management system with live customer tracking and WhatsApp updates — built by Stellar Forge and running Stellar Global Supplies' own order desk every day.">
+<link rel="canonical" href="https://stellarforge.stellarglobalsupplies.com/order-management-system/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#F5F6F1">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Order Management System | Stellar Forge">
+<meta property="og:description" content="GST-ready invoicing, live customer tracking, and WhatsApp order updates — the same system running Stellar Global Supplies' order desk every day.">
+<meta property="og:url" content="https://stellarforge.stellarglobalsupplies.com/order-management-system/">
+<meta property="og:image" content="https://stellarforge.stellarglobalsupplies.com/assets/img/og-image.jpg">
+<meta property="og:locale" content="en_IN">
+<meta property="og:site_name" content="Stellar Forge">
+
+<link rel="icon" href="/assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Stellar Forge Order Management System",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "GST-ready order management system with live customer tracking, WhatsApp updates, and enforced order pipelines, built for industrial suppliers.",
+  "brand": {"@type": "Organization", "name": "Stellar Forge"},
+  "offers": {"@type": "Offer", "priceCurrency": "INR", "availability": "https://schema.org/InStock"}
+}
+</script>
+
+<style>
+  /* Page-specific: device-frame mockups showing the real product's real (dark-mode) UI.
+     Intentionally uses the OMS app's own dark palette — a screenshot carries its own
+     chrome, it isn't meant to match the light marketing page around it. */
+  :root{
+    --p-bg:#0F172A; --p-card:#1E293B; --p-border:#334155;
+    --p-text:#F1F5F9; --p-text-soft:#CBD5E1; --p-text-mute:#94A3B4;
+    --p-teal:#00D9A7; --p-teal-dark:#00B98E; --p-teal-lt:#0A2E25;
+  }
+  .frame{ background:var(--p-bg); border-radius:14px; border:1px solid rgba(255,255,255,0.08); box-shadow:0 24px 56px rgba(23,35,31,0.18); overflow:hidden; }
+  .frame-bar{ display:flex; align-items:center; gap:8px; padding:11px 15px; background:var(--p-card); border-bottom:1px solid var(--p-border); }
+  .frame-bar .dots{ display:flex; gap:6px; }
+  .frame-bar .dots span{ width:9px; height:9px; border-radius:50%; background:rgba(255,255,255,0.15); }
+  .frame-bar .url{ flex:1; text-align:center; font-size:11px; color:var(--p-text-mute); font-family:var(--mono); }
+  .frame-body{ padding:20px; }
+
+  .p-stats-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px; }
+  .p-stat{ background:var(--p-card); border:1px solid var(--p-border); border-radius:11px; padding:13px; display:flex; flex-direction:column; gap:7px; }
+  .p-stat .ic{ width:28px; height:28px; border-radius:7px; display:flex; align-items:center; justify-content:center; font-size:13px; }
+  .p-stat .lbl{ font-size:9px; font-weight:600; text-transform:uppercase; letter-spacing:.4px; color:var(--p-text-mute); font-family:var(--mono); }
+  .p-stat .val{ font-family:var(--display); font-size:18px; font-weight:700; color:var(--p-text); }
+
+  .p-panel{ background:var(--p-card); border:1px solid var(--p-border); border-radius:11px; padding:15px; }
+  .p-panel h4{ font-family:var(--body); font-size:12px; font-weight:600; color:var(--p-text); margin:0 0 11px; }
+  .p-row{ display:flex; align-items:center; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--p-border); font-size:11.5px; }
+  .p-row:last-child{ border-bottom:none; }
+  .p-row .who{ color:var(--p-text); font-weight:600; }
+  .p-row .what{ color:var(--p-text-mute); font-size:10.5px; }
+
+  .p-badge{ display:inline-flex; align-items:center; gap:5px; padding:3px 9px; border-radius:20px; font-size:9.5px; font-weight:700; font-family:var(--mono); }
+  .p-badge::before{ content:''; width:5px; height:5px; border-radius:50%; background:currentColor; opacity:.8; }
+  .p-badge.received{ background:#1E3A5F; color:#93C5FD; }
+  .p-badge.processing{ background:#3B2F0A; color:#FDE68A; }
+  .p-badge.ready{ background:#2D1B69; color:#C4B5FD; }
+  .p-badge.delivered{ background:#0A2E1A; color:#6EE7B7; }
+  .p-badge.terms{ background:#1E3A5F; color:#93C5FD; }
+
+  .p-btn{ display:inline-flex; align-items:center; gap:6px; padding:7px 12px; border-radius:6px; font-size:11px; font-weight:600; font-family:var(--body); }
+  .p-btn.ghost{ background:transparent; border:1px solid var(--p-border); color:var(--p-text-soft); }
+
+  .p-timeline{ display:flex; align-items:flex-start; width:100%; margin:5px 0 2px; }
+  .p-tstep{ display:flex; flex-direction:column; align-items:center; flex:1; position:relative; }
+  .p-tstep:not(:last-child)::after{ content:''; position:absolute; top:11px; left:50%; right:-50%; height:2px; background:var(--p-border); z-index:0; }
+  .p-tstep.done:not(:last-child)::after{ background:linear-gradient(90deg,var(--p-teal) 0%, var(--p-teal-lt) 100%); }
+  .p-tdot{ width:22px; height:22px; border-radius:50%; border:2px solid var(--p-border); background:var(--p-card); display:flex; align-items:center; justify-content:center; position:relative; z-index:1; font-size:9px; color:var(--p-text-mute); }
+  .p-tstep.done .p-tdot{ background:var(--p-teal); border-color:var(--p-teal); color:#08120F; box-shadow:0 0 0 4px var(--p-teal-lt); }
+  .p-tstep.active .p-tdot{ border-color:var(--p-teal); box-shadow:0 0 0 4px var(--p-teal-lt); color:var(--p-teal); }
+  .p-tlabel{ margin-top:6px; font-size:8.5px; font-weight:600; color:var(--p-text-mute); text-align:center; font-family:var(--mono); }
+  .p-tstep.done .p-tlabel, .p-tstep.active .p-tlabel{ color:var(--p-teal); }
+  .p-audit{ font-size:10px; color:var(--p-text-mute); margin-top:9px; display:flex; align-items:center; gap:6px; font-family:var(--mono); }
+  .p-audit .av{ width:15px; height:15px; border-radius:50%; background:var(--p-teal-lt); color:var(--p-teal); display:flex; align-items:center; justify-content:center; font-size:7.5px; font-weight:700; }
+
+  table.p-table{ width:100%; border-collapse:collapse; font-size:11px; }
+  table.p-table th{ text-align:left; font-size:9px; text-transform:uppercase; letter-spacing:.3px; color:var(--p-text-mute); font-weight:600; padding:0 7px 7px; font-family:var(--mono); }
+  table.p-table td{ padding:8px 7px; border-top:1px solid var(--p-border); color:var(--p-text-soft); }
+  table.p-table td.strong{ color:var(--p-text); font-weight:600; }
+  table.p-table td.num{ font-family:var(--display); font-weight:700; color:var(--p-text); }
+
+  .p-input{ background:var(--p-bg); border:1px solid var(--p-border); border-radius:7px; padding:8px 10px; font-size:11px; color:var(--p-text); position:relative; }
+  .p-label{ font-size:9px; font-weight:600; color:var(--p-text-mute); text-transform:uppercase; letter-spacing:.3px; margin-bottom:5px; display:block; font-family:var(--mono); }
+  .p-dropdown{ position:absolute; top:calc(100% + 4px); left:0; right:0; background:var(--p-card); border:1px solid var(--p-border); border-radius:7px; box-shadow:0 12px 24px rgba(0,0,0,0.4); overflow:hidden; z-index:5; }
+  .p-dropdown .opt{ padding:8px 10px; font-size:10.5px; color:var(--p-text-soft); border-bottom:1px solid var(--p-border); }
+  .p-dropdown .opt:last-child{ border-bottom:none; }
+  .p-dropdown .opt b{ color:var(--p-text); }
+  .p-dropdown .opt small{ display:block; color:var(--p-text-mute); font-size:9px; margin-top:2px; }
+
+  .wa-mock{ background:#0B141A; border-radius:13px; padding:15px; }
+  .wa-head{ display:flex; align-items:center; gap:9px; padding-bottom:11px; border-bottom:1px solid rgba(255,255,255,0.06); margin-bottom:11px; }
+  .wa-head .avatar{ width:30px; height:30px; border-radius:50%; background:#2A3942; display:flex; align-items:center; justify-content:center; font-size:12px; }
+  .wa-head b{ font-size:12.5px; color:#E9EDEF; font-family:var(--body); }
+  .wa-head small{ display:block; font-size:10px; color:#8696A0; }
+  .wa-bubble{ background:#005C4B; color:#E9EDEF; border-radius:10px 10px 2px 10px; padding:9px 11px; font-size:11.5px; line-height:1.5; max-width:88%; margin-left:auto; font-family:var(--body); }
+  .wa-time{ font-size:9px; color:#8696A0; text-align:right; margin-top:4px; font-family:var(--mono); }
+
+  .mail-mock{ background:var(--p-card); border-radius:10px; overflow:hidden; border:1px solid var(--p-border); }
+  .mail-head{ background:#0F172A; padding:15px 17px; }
+  .mail-head .to{ font-size:10px; color:var(--p-text-mute); margin-bottom:6px; font-family:var(--mono); }
+  .mail-head .subj{ font-size:12.5px; font-weight:600; color:var(--p-text); font-family:var(--body); }
+  .mail-band{ height:3px; background:linear-gradient(90deg,var(--p-teal),var(--p-teal-dark)); }
+  .mail-body{ padding:17px; font-size:11px; color:var(--p-text-soft); line-height:1.7; font-family:var(--body); }
+  .mail-body .foot{ margin-top:13px; padding-top:11px; border-top:1px solid var(--p-border); font-size:9.5px; color:var(--p-text-mute); }
+  .mail-body .foot a{ color:var(--p-teal); text-decoration:none; font-weight:600; }
+
+  /* pillar overview cards — mirrors homepage's .service-row / .service-index pattern but as a 4-up grid */
+  .pillar-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+  .pillar{ background:var(--white); padding:28px 22px; }
+  .pillar .p-idx{ font-family:var(--mono); font-size:0.8rem; color:var(--mint-dark); }
+  .pillar h3{ margin-top:14px; font-size:1.05rem; }
+  .pillar p{ margin-top:8px; font-size:0.86rem; }
+  @media (max-width:900px){ .pillar-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:560px){ .pillar-grid{ grid-template-columns:1fr; } }
+
+  /* case-strip: contextual proof line, not a full duplicate of the homepage work-feature */
+  .case-strip{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; background:var(--sage); border:1px solid var(--line); border-radius:100px; padding:14px 24px; }
+  .case-strip .tag{ font-family:var(--mono); font-size:0.78rem; color:var(--mint-dark); background:var(--white); border:1px solid var(--line); padding:5px 12px; border-radius:100px; }
+
+  .feature-row{ display:grid; grid-template-columns:0.85fr 1.15fr; gap:56px; align-items:center; }
+  .feature-row + .feature-row{ margin-top:88px; }
+  .feature-row.reverse .feature-copy{ order:2; }
+  .feature-row.reverse .feature-visual{ order:1; }
+  .feature-copy .f-index{ font-family:var(--mono); color:var(--mint-dark); font-size:0.82rem; margin-bottom:10px; display:block; }
+  .feature-copy h3{ font-size:1.55rem; }
+  .feature-copy .lede{ margin-top:12px; font-size:0.98rem; }
+  .feature-list{ margin-top:20px; display:flex; flex-direction:column; gap:13px; }
+  .feature-list li{ list-style:none; display:flex; gap:10px; align-items:flex-start; }
+  .feature-list .chk{ flex-shrink:0; width:18px; height:18px; border-radius:5px; background:var(--sage); border:1px solid var(--line); color:var(--mint-dark); display:flex; align-items:center; justify-content:center; margin-top:2px; font-size:10px; }
+  .feature-list .txt b{ display:block; font-size:0.9rem; font-weight:600; color:var(--ink); font-family:var(--body); }
+  .feature-list .txt span{ font-size:0.82rem; color:var(--ink-soft); }
+  @media (max-width:860px){
+    .feature-row, .feature-row.reverse{ grid-template-columns:1fr; }
+    .feature-row.reverse .feature-copy, .feature-row.reverse .feature-visual{ order:initial; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="/" class="brand"><img src="/assets/img/logo.png" alt="Stellar Forge logo"> Stellar Forge</a>
+    <nav class="main-nav" aria-label="Primary">
+      <div class="nav-links" id="nav-links">
+        <a href="/#work">Work</a>
+        <a href="/#services">Services</a>
+        <details class="nav-drop">
+          <summary>Our Products</summary>
+          <div class="drop-panel">
+            <a href="/order-management-system/">Order Management System</a>
+          </div>
+        </details>
+        <a href="/blog/">Blog</a>
+        <a href="#contact" class="btn btn-primary">Request a demo</a>
+      </div>
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" style="padding-bottom:0;">
+    <div class="wrap" style="display:block;">
+      <span class="eyebrow-tag"><span class="dot"></span> Live in production at Stellar Global Supplies</span>
+      <h1 style="max-width:800px;">We forged our own order system. <span class="accent">Now it's yours to run on.</span></h1>
+      <p class="lead" style="max-width:560px;">GST-ready invoicing, live customer tracking, and WhatsApp order updates — built by Stellar Forge, running our own supply business every day.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Request a demo login</a>
+        <a href="#inside" class="btn btn-ghost">See what's inside</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker-bar">
+    <div class="wrap">
+      <div class="ticker-stat">
+        <div class="num"><span data-count="16">0</span></div>
+        <div class="label">apps in the same real stack this order system runs in</div>
+      </div>
+      <div class="ticker-stat">
+        <div class="num"><span data-count="4">0</span></div>
+        <div class="label">order stages, enforced end to end</div>
+      </div>
+      <div class="ticker-stat">
+        <div class="num"><span data-count="100" data-suffix="%">0</span></div>
+        <div class="label">GST-compliant, CGST/SGST split automatically</div>
+      </div>
+      <div class="ticker-stat">
+        <div class="num"><span data-count="24" data-suffix="/7">0</span></div>
+        <div class="label">customer order tracking, no login required</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT'S INSIDE -->
+  <section id="inside">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">What's inside</span>
+        <h2>One system, everything your order desk needs.</h2>
+        <p>Most order tools break down the moment GST, credit terms, or a staff handover gets involved. This one was built around exactly those problems.</p>
+      </div>
+      <div class="pillar-grid">
+        <div class="pillar">
+          <span class="p-idx mono">01 — Sell</span>
+          <h3>Order creation &amp; invoicing</h3>
+          <p>Multi-product orders with automatic GST calculation and real credit terms.</p>
+        </div>
+        <div class="pillar">
+          <span class="p-idx mono">02 — Track</span>
+          <h3>Pipeline &amp; live tracking</h3>
+          <p>Enforced status pipeline, full audit trail, real-time customer visibility.</p>
+        </div>
+        <div class="pillar">
+          <span class="p-idx mono">03 — Notify</span>
+          <h3>WhatsApp &amp; email updates</h3>
+          <p>One-click WhatsApp summaries and automatic branded emails at every stage.</p>
+        </div>
+        <div class="pillar">
+          <span class="p-idx mono">04 — Run</span>
+          <h3>Dashboard &amp; operations</h3>
+          <p>Live revenue and order data, secure team logins, installable on any device.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEE IT RUNNING -->
+  <section id="work" style="background:var(--bg-alt);">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">See it running</span>
+        <h2>Built for one client. Ready for yours.</h2>
+        <p>This isn't a demo built for a sales page — it's one of 16 real applications running Stellar Global Supplies' operations today.</p>
+      </div>
+
+      <div class="case-strip" style="margin-bottom:72px;">
+        <strong style="font-family:var(--display); font-size:0.95rem;">Also in that stack:</strong>
+        <span class="tag">Billing Platform</span><span class="tag">Quote Generation</span><span class="tag">Analytics Platform</span><span class="tag">AI Workflows</span>
+        <a href="/#work" style="margin-left:auto; font-family:var(--mono); font-size:0.82rem; color:var(--mint-dark);">See the full case study →</a>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-copy">
+          <span class="f-index mono">01</span>
+          <h3>Invoicing your accountant won't argue with.</h3>
+          <p class="lede">GST is calculated correctly the first time, and credit terms are built for how industrial buyers actually pay.</p>
+          <ul class="feature-list">
+            <li><span class="chk">✓</span><div class="txt"><b>Automatic CGST / SGST split</b><span>Calculated per line item, matches your GST filing.</span></div></li>
+            <li><span class="chk">✓</span><div class="txt"><b>Real credit terms</b><span>Pending, partial, paid, or "after 30 days."</span></div></li>
+            <li><span class="chk">✓</span><div class="txt"><b>Proof-of-delivery invoicing</b><span>Captured and sent the moment goods are delivered.</span></div></li>
+          </ul>
+        </div>
+        <div class="feature-visual frame">
+          <div class="frame-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">orders.yourbusiness.com/order/2201</div></div>
+          <div class="frame-body">
+            <div class="p-panel">
+              <h4>Order #SGS-2201 · Anand Pipes & Fittings</h4>
+              <table class="p-table">
+                <tr><th>Item</th><th>Qty</th><th>CGST</th><th>SGST</th><th>Total</th></tr>
+                <tr><td class="strong">GI Pipe Class-B 25mm</td><td>1.2T</td><td>₹1,278</td><td>₹1,278</td><td class="num">₹28,300</td></tr>
+                <tr><td class="strong">MS Round Bar 12mm</td><td>0.6T</td><td>₹648</td><td>₹648</td><td class="num">₹14,300</td></tr>
+              </table>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px;">
+                <span class="p-badge terms">After 30 days</span>
+                <span class="p-btn ghost">Download invoice ↓</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row reverse">
+        <div class="feature-copy">
+          <span class="f-index mono">02</span>
+          <h3>A pipeline that can't be skipped or faked.</h3>
+          <p class="lede">Every order moves through the same four stages in order — and every change is stamped with who made it and when.</p>
+          <ul class="feature-list">
+            <li><span class="chk">✓</span><div class="txt"><b>Enforced status stages</b><span>Nobody can mark "delivered" before it's dispatched.</span></div></li>
+            <li><span class="chk">✓</span><div class="txt"><b>Full audit trail</b><span>Every edit is tied to the staff member who made it.</span></div></li>
+            <li><span class="chk">✓</span><div class="txt"><b>Real-time customer tracking</b><span>Your customers see the live status — never a stale page.</span></div></li>
+          </ul>
+        </div>
+        <div class="feature-visual frame">
+          <div class="frame-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">track.yourbusiness.com/SGS-2200</div></div>
+          <div class="frame-body">
+            <div class="p-panel">
+              <h4>Order #SGS-2200 · Bharat Fabricators</h4>
+              <div class="p-timeline">
+                <div class="p-tstep done"><div class="p-tdot">✓</div><div class="p-tlabel">Received</div></div>
+                <div class="p-tstep active"><div class="p-tdot">●</div><div class="p-tlabel">Processing</div></div>
+                <div class="p-tstep"><div class="p-tdot">○</div><div class="p-tlabel">Ready to ship</div></div>
+                <div class="p-tstep"><div class="p-tdot">○</div><div class="p-tlabel">Delivered</div></div>
+              </div>
+              <div class="p-audit"><span class="av">R</span> Updated by Ramesh · 6 minutes ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-copy">
+          <span class="f-index mono">03</span>
+          <h3>Built for buyers who reorder the same things.</h3>
+          <p class="lede">Industrial buyers order the same materials every month. Your staff shouldn't have to retype it every time.</p>
+          <ul class="feature-list">
+            <li><span class="chk">✓</span><div class="txt"><b>Customer autocomplete</b><span>Start typing a name, get their details and history instantly.</span></div></li>
+            <li><span class="chk">✓</span><div class="txt"><b>Multi-product orders</b><span>Bundle several materials into a single order and invoice.</span></div></li>
+          </ul>
+        </div>
+        <div class="feature-visual frame">
+          <div class="frame-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">orders.yourbusiness.com/new</div></div>
+          <div class="frame-body">
+            <div class="p-panel">
+              <h4>New order</h4>
+              <span class="p-label">Customer</span>
+              <div style="position:relative;margin-bottom:13px;">
+                <div class="p-input">Shree G...</div>
+                <div class="p-dropdown">
+                  <div class="opt"><b>Shree Ganesh Metals</b><small>Pune · 14 previous orders</small></div>
+                  <div class="opt"><b>Shree Guru Traders</b><small>Nashik · 3 previous orders</small></div>
+                </div>
+              </div>
+              <span class="p-label">Items</span>
+              <table class="p-table">
+                <tr><th>Product</th><th>Qty</th><th>Rate</th></tr>
+                <tr><td class="strong">SS 304 Sheet 2mm</td><td>0.4T</td><td class="num">₹1,92,000</td></tr>
+                <tr><td class="strong">MS Angle 40×40×5mm</td><td>1.0T</td><td class="num">₹64,500</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row reverse">
+        <div class="feature-copy">
+          <span class="f-index mono">04</span>
+          <h3>Updates where your customers already are.</h3>
+          <p class="lede">Nobody wants to log into a portal to check an order. Meet them on WhatsApp and email instead.</p>
+          <ul class="feature-list">
+            <li><span class="chk">✓</span><div class="txt"><b>One-click WhatsApp updates</b><span>An order summary, ready to send, in one tap.</span></div></li>
+            <li><span class="chk">✓</span><div class="txt"><b>Automatic branded emails</b><span>Sent at every stage, without anyone writing a word.</span></div></li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+            <div class="frame">
+              <div class="frame-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">WhatsApp</div></div>
+              <div class="frame-body"><div class="wa-mock">
+                <div class="wa-head"><div class="avatar">🏭</div><div><b>Om Sai Engineering</b><small>online</small></div></div>
+                <div class="wa-bubble">Your order #SGS-2199 (GI Pipe Class-B, 25mm) is Ready to ship. Expected dispatch: tomorrow.</div>
+                <div class="wa-time">10:42 AM ✓✓</div>
+              </div></div>
+            </div>
+            <div class="frame">
+              <div class="frame-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">Inbox</div></div>
+              <div class="frame-body"><div class="mail-mock">
+                <div class="mail-head"><div class="to">To: shreeganesh@example.com</div><div class="subj">Order #SGS-2198 delivered ✓</div></div>
+                <div class="mail-band"></div>
+                <div class="mail-body">Your order has been delivered. Invoice is attached.
+                  <div class="foot">Crafted by <a href="/">Stellar Forge</a> — have a project in mind?</div>
+                </div>
+              </div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-copy">
+          <span class="f-index mono">05</span>
+          <h3>Runs itself, so your team doesn't have to.</h3>
+          <p class="lede">No server to maintain, no IT hire required. It scales automatically as your order volume grows.</p>
+          <ul class="feature-list">
+            <li><span class="chk">✓</span><div class="txt"><b>Secure team login</b><span>Every staff member gets their own access.</span></div></li>
+            <li><span class="chk">✓</span><div class="txt"><b>Installable on any device</b><span>Works like an app on a warehouse tablet or phone.</span></div></li>
+            <li><span class="chk">✓</span><div class="txt"><b>Serverless cloud infrastructure</b><span>Built on Cloudflare and AWS — scales without a sysadmin.</span></div></li>
+          </ul>
+        </div>
+        <div class="feature-visual frame">
+          <div class="frame-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">orders.yourbusiness.com</div></div>
+          <div class="frame-body">
+            <div class="p-panel">
+              <h4>Dashboard</h4>
+              <div class="p-stats-grid">
+                <div class="p-stat"><div class="ic" style="background:rgba(0,217,167,.12);color:var(--p-teal)">◆</div><div class="lbl">Total Orders</div><div class="val">312</div></div>
+                <div class="p-stat"><div class="ic" style="background:#0A2E1A;color:#6EE7B7">₹</div><div class="lbl">Revenue (MTD)</div><div class="val">₹8.4L</div></div>
+              </div>
+              <div style="text-align:center;font-size:9.5px;color:var(--p-text-mute);font-family:var(--mono);">Installable · Works offline · Light &amp; dark mode</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW YOU GET IT -->
+  <section id="process">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">How you get it</span>
+        <h2>Four steps, no surprises in between.</h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-step">
+          <span class="p-num mono">01</span>
+          <h3>Discovery</h3>
+          <p>We map your actual ordering process — WhatsApp, Excel, phone calls — so nothing falls through the cracks.</p>
+        </div>
+        <div class="process-step">
+          <span class="p-num mono">02</span>
+          <h3>Configure</h3>
+          <p>Your products, GST rates, and credit terms get built in before your team ever logs in.</p>
+        </div>
+        <div class="process-step">
+          <span class="p-num mono">03</span>
+          <h3>Go live</h3>
+          <p>Your team gets trained, your first real orders go through, your customers get tracking links.</p>
+        </div>
+        <div class="process-step">
+          <span class="p-num mono">04</span>
+          <h3>Scale &amp; support</h3>
+          <p>We stay on to monitor, tune, and extend it as your order volume grows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section style="background:var(--bg-alt);">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Client feedback</span>
+        <h2>What it's like to run on it.</h2>
+      </div>
+      <div class="testi-grid" style="grid-template-columns:1fr; max-width:640px;">
+        <div class="testi-card">
+          <blockquote>"Stellar Forge combined strong design with an engineering-first approach to build a scalable digital foundation for our business."</blockquote>
+          <cite>— Stellar Global Supplies</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div>
+          <span class="kicker" style="color:var(--mint);">Get in touch</span>
+          <h2>Tell us how you take orders today.</h2>
+          <p>Send a few details and we'll reply with next steps — including setting you up with a free demo login — usually within a day.</p>
+          <div class="contact-info" style="margin-top:32px;">
+            <div class="info-row">
+              <div class="k">Email</div>
+              <div class="v"><a href="mailto:workwithstellarforge@gmail.com">workwithstellarforge@gmail.com</a></div>
+            </div>
+            <div class="info-row">
+              <div class="k">WhatsApp</div>
+              <div class="v"><a href="https://wa.me/919637655556?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20the%20Order%20Management%20System." target="_blank" rel="noopener">+91 96376 55556</a></div>
+            </div>
+            <div class="info-row">
+              <div class="k">Availability</div>
+              <div class="v">Onboarding new supply businesses now</div>
+            </div>
+          </div>
+        </div>
+        <form class="quote-form" aria-label="Order management system inquiry form">
+          <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div>
+            <label for="project">What are you looking for?</label>
+            <select id="project" name="project">
+              <option selected>Order Management System — demo login</option>
+              <option>Order Management System — full rollout</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div>
+            <label for="budget">How do you take orders today?</label>
+            <select id="budget" name="budget">
+              <option>WhatsApp</option>
+              <option>Excel / paper</option>
+              <option>Phone calls only</option>
+              <option>Another software</option>
+            </select>
+          </div>
+          <div>
+            <label for="message">Anything else we should know?</label>
+            <textarea id="message" name="message" placeholder="Business name, rough order volume, anything that helps us set up your demo."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Request a demo login</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="/" class="foot-brand"><img src="/assets/img/logo.png" alt="Stellar Forge logo"> Stellar Forge</a>
+    <small>© 2026 Stellar Forge. Built &amp; deployed on our own stack.</small>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/assets/supabase-config.js"></script>
+<script src="/assets/script.js"></script>
+</body>
+</html>
