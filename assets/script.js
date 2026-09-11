@@ -47,25 +47,31 @@ counters.forEach(el => io.observe(el));
 // Node/line stagger delays are now handled purely in CSS (nth-of-type),
 // so no JS timing logic is needed here.
 
-// ===== Hero visual: mouse-tilt stage + traveling circuit pulses =====
+// ===== Hero visual: 2D depth-parallax on mouse move + traveling circuit pulses =====
 (function heroVisual() {
   const heroVisualEl = document.getElementById('heroVisual');
-  const tiltStage = document.getElementById('tiltStage');
-  if (!heroVisualEl || !tiltStage) return;
+  const svg = document.getElementById('heroSvg');
+  if (!heroVisualEl || !svg) return;
 
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const layers = Array.from(svg.querySelectorAll('.parallax-layer'));
 
-  // --- Mouse tilt (desktop only; harmless no-op on touch) ---
-  if (!reduced) {
-    const maxTilt = 10;
+  // --- Mouse parallax (desktop only; safe no-op on touch) ---
+  if (!reduced && layers.length) {
+    const maxShift = 26; // max px shift, in the 400-unit viewBox space, for the deepest layer
     heroVisualEl.addEventListener('mousemove', (e) => {
       const rect = heroVisualEl.getBoundingClientRect();
       const px = (e.clientX - rect.left) / rect.width - 0.5;
       const py = (e.clientY - rect.top) / rect.height - 0.5;
-      tiltStage.style.transform = `rotateY(${px * maxTilt * 2}deg) rotateX(${-py * maxTilt * 2}deg)`;
+      layers.forEach((layer) => {
+        const depth = parseFloat(layer.dataset.depth) || 0;
+        const tx = px * maxShift * depth * 10;
+        const ty = py * maxShift * depth * 10;
+        layer.style.transform = `translate(${tx.toFixed(1)}px, ${ty.toFixed(1)}px)`;
+      });
     });
     heroVisualEl.addEventListener('mouseleave', () => {
-      tiltStage.style.transform = 'rotateY(0deg) rotateX(0deg)';
+      layers.forEach((layer) => { layer.style.transform = 'translate(0px, 0px)'; });
     });
   }
 
@@ -82,7 +88,6 @@ counters.forEach(el => io.observe(el));
   const lengths = traces.map(t => t.path.getTotalLength());
 
   if (reduced) {
-    // Static: park each dot at the midpoint of its trace, no animation loop
     traces.forEach((t, i) => {
       const pt = t.path.getPointAtLength(lengths[i] * 0.5);
       t.dot.setAttribute('cx', pt.x);

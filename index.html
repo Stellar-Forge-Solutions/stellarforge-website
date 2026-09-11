@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css?v=5">
+<link rel="stylesheet" href="/assets/style.css?v=6">
 
 <script type="application/ld+json">
 {
@@ -110,21 +110,21 @@
       </div>
 
       <div class="hero-visual" id="heroVisual" aria-hidden="true">
-        <div class="tilt-stage" id="tiltStage">
+        <svg id="heroSvg" viewBox="0 0 400 400">
+          <defs>
+            <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#4FB98D" stop-opacity="0.5"/>
+              <stop offset="100%" stop-color="#4FB98D" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
 
-          <svg class="layer layer-back" viewBox="0 0 400 400">
-            <defs>
-              <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#4FB98D" stop-opacity="0.5"/>
-                <stop offset="100%" stop-color="#4FB98D" stop-opacity="0"/>
-              </radialGradient>
-            </defs>
+          <g class="parallax-layer" data-depth="0.04">
             <circle cx="200" cy="200" r="130" fill="url(#glow)"/>
             <circle class="scan-ring" cx="200" cy="200" r="155" fill="none"
               stroke="#4FB98D" stroke-width="1.5" stroke-dasharray="2 14" opacity="0.5"/>
-          </svg>
+          </g>
 
-          <svg class="layer layer-traces" viewBox="0 0 400 400">
+          <g class="parallax-layer" data-depth="0.10">
             <path id="trace-top" class="circuit-trace" d="M200,70 V45 H60" fill="none" stroke="#8FA398" stroke-width="1.5"/>
             <path id="trace-right" class="circuit-trace" d="M300,150 H345 V110 H355" fill="none" stroke="#8FA398" stroke-width="1.5"/>
             <path id="trace-bottom" class="circuit-trace" d="M200,230 V335" fill="none" stroke="#8FA398" stroke-width="1.5"/>
@@ -139,21 +139,20 @@
             <circle class="pulse-node" cx="355" cy="110" r="6" fill="#4FB98D"/>
             <circle class="pulse-node" cx="200" cy="335" r="6" fill="#4FB98D"/>
             <circle class="pulse-node" cx="30" cy="195" r="6" fill="#4FB98D"/>
-          </svg>
+          </g>
 
-          <svg class="layer layer-diamond-outer" viewBox="0 0 400 400">
+          <g class="parallax-layer" data-depth="0.18">
             <polygon points="200,70 300,150 200,230 100,150" fill="none" stroke="#17231F" stroke-width="3"/>
-          </svg>
+          </g>
 
-          <svg class="layer layer-diamond-inner" viewBox="0 0 400 400">
+          <g class="parallax-layer" data-depth="0.30">
             <polygon points="200,170 260,215 200,260 140,215" fill="none" stroke="#2F8465" stroke-width="3"/>
-          </svg>
+          </g>
 
-          <svg class="layer layer-core" viewBox="0 0 400 400">
+          <g class="parallax-layer" data-depth="0.42">
             <circle class="core-dot" cx="200" cy="215" r="5" fill="#17231F"/>
-          </svg>
-
-        </div>
+          </g>
+        </svg>
       </div>
     </div>
   </section>
@@ -411,6 +410,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="/assets/supabase-config.js"></script>
-<script src="/assets/script.js?v=3"></script>
+<script src="/assets/script.js?v=2"></script>
 </body>
 </html>
