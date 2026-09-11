@@ -109,41 +109,51 @@
         </div>
       </div>
 
-      <div class="hero-visual" aria-hidden="true">
-        <svg viewBox="0 0 400 400">
-          <defs>
-            <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#4FB98D" stop-opacity="0.55"/>
-              <stop offset="100%" stop-color="#4FB98D" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
-          <circle cx="200" cy="200" r="120" fill="url(#glow)"/>
+      <div class="hero-visual" id="heroVisual" aria-hidden="true">
+        <div class="tilt-stage" id="tiltStage">
 
-          <!-- slow rotating scan ring -->
-          <circle class="scan-ring" cx="200" cy="200" r="150" fill="none"
-            stroke="#4FB98D" stroke-width="1.5" stroke-dasharray="2 14" opacity="0.55"/>
+          <svg class="layer layer-back" viewBox="0 0 400 400">
+            <defs>
+              <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#4FB98D" stop-opacity="0.5"/>
+                <stop offset="100%" stop-color="#4FB98D" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <circle cx="200" cy="200" r="130" fill="url(#glow)"/>
+            <circle class="scan-ring" cx="200" cy="200" r="155" fill="none"
+              stroke="#4FB98D" stroke-width="1.5" stroke-dasharray="2 14" opacity="0.5"/>
+          </svg>
 
-          <!-- forged diamond outline echoing logo mark -->
-          <polygon points="200,70 300,150 200,230 100,150" fill="none" stroke="#17231F" stroke-width="3"/>
-          <polygon points="200,170 260,215 200,260 140,215" fill="none" stroke="#2F8465" stroke-width="3"/>
+          <svg class="layer layer-traces" viewBox="0 0 400 400">
+            <path id="trace-top" class="circuit-trace" d="M200,70 V45 H60" fill="none" stroke="#8FA398" stroke-width="1.5"/>
+            <path id="trace-right" class="circuit-trace" d="M300,150 H345 V110 H355" fill="none" stroke="#8FA398" stroke-width="1.5"/>
+            <path id="trace-bottom" class="circuit-trace" d="M200,230 V335" fill="none" stroke="#8FA398" stroke-width="1.5"/>
+            <path id="trace-left" class="circuit-trace" d="M100,150 H55 V195 H30" fill="none" stroke="#8FA398" stroke-width="1.5"/>
 
-          <!-- infra connector lines, animated like live data flow -->
-          <g stroke="#8FA398" stroke-width="1.5">
-            <line class="flow-line" x1="200" y1="70" x2="60" y2="40"/>
-            <line class="flow-line" x1="300" y1="150" x2="360" y2="110"/>
-            <line class="flow-line" x1="200" y1="230" x2="200" y2="330"/>
-            <line class="flow-line" x1="100" y1="150" x2="30" y2="200"/>
-          </g>
+            <circle id="pulse-top" class="trace-pulse" r="4" fill="#4FB98D"/>
+            <circle id="pulse-right" class="trace-pulse" r="4" fill="#4FB98D"/>
+            <circle id="pulse-bottom" class="trace-pulse" r="4" fill="#4FB98D"/>
+            <circle id="pulse-left" class="trace-pulse" r="4" fill="#4FB98D"/>
 
-          <!-- pinging infra nodes -->
-          <circle class="pulse-node" cx="60" cy="40" r="6" fill="#4FB98D"/>
-          <circle class="pulse-node" cx="360" cy="110" r="6" fill="#4FB98D"/>
-          <circle class="pulse-node" cx="200" cy="330" r="6" fill="#4FB98D"/>
-          <circle class="pulse-node" cx="30" cy="200" r="6" fill="#4FB98D"/>
+            <circle class="pulse-node" cx="60" cy="45" r="6" fill="#4FB98D"/>
+            <circle class="pulse-node" cx="355" cy="110" r="6" fill="#4FB98D"/>
+            <circle class="pulse-node" cx="200" cy="335" r="6" fill="#4FB98D"/>
+            <circle class="pulse-node" cx="30" cy="195" r="6" fill="#4FB98D"/>
+          </svg>
 
-          <!-- breathing core -->
-          <circle class="core-dot" cx="200" cy="215" r="5" fill="#17231F"/>
-        </svg>
+          <svg class="layer layer-diamond-outer" viewBox="0 0 400 400">
+            <polygon points="200,70 300,150 200,230 100,150" fill="none" stroke="#17231F" stroke-width="3"/>
+          </svg>
+
+          <svg class="layer layer-diamond-inner" viewBox="0 0 400 400">
+            <polygon points="200,170 260,215 200,260 140,215" fill="none" stroke="#2F8465" stroke-width="3"/>
+          </svg>
+
+          <svg class="layer layer-core" viewBox="0 0 400 400">
+            <circle class="core-dot" cx="200" cy="215" r="5" fill="#17231F"/>
+          </svg>
+
+        </div>
       </div>
     </div>
   </section>

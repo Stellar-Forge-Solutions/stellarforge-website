@@ -47,6 +47,62 @@ counters.forEach(el => io.observe(el));
 // Node/line stagger delays are now handled purely in CSS (nth-of-type),
 // so no JS timing logic is needed here.
 
+// ===== Hero visual: mouse-tilt stage + traveling circuit pulses =====
+(function heroVisual() {
+  const heroVisualEl = document.getElementById('heroVisual');
+  const tiltStage = document.getElementById('tiltStage');
+  if (!heroVisualEl || !tiltStage) return;
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // --- Mouse tilt (desktop only; harmless no-op on touch) ---
+  if (!reduced) {
+    const maxTilt = 10;
+    heroVisualEl.addEventListener('mousemove', (e) => {
+      const rect = heroVisualEl.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width - 0.5;
+      const py = (e.clientY - rect.top) / rect.height - 0.5;
+      tiltStage.style.transform = `rotateY(${px * maxTilt * 2}deg) rotateX(${-py * maxTilt * 2}deg)`;
+    });
+    heroVisualEl.addEventListener('mouseleave', () => {
+      tiltStage.style.transform = 'rotateY(0deg) rotateX(0deg)';
+    });
+  }
+
+  // --- Traveling pulse dots along the bent circuit traces ---
+  const traces = [
+    { path: document.getElementById('trace-top'), dot: document.getElementById('pulse-top'), duration: 2200, offset: 0 },
+    { path: document.getElementById('trace-right'), dot: document.getElementById('pulse-right'), duration: 2600, offset: 500 },
+    { path: document.getElementById('trace-bottom'), dot: document.getElementById('pulse-bottom'), duration: 1900, offset: 900 },
+    { path: document.getElementById('trace-left'), dot: document.getElementById('pulse-left'), duration: 2400, offset: 1300 },
+  ].filter(t => t.path && t.dot);
+
+  if (!traces.length) return;
+
+  const lengths = traces.map(t => t.path.getTotalLength());
+
+  if (reduced) {
+    // Static: park each dot at the midpoint of its trace, no animation loop
+    traces.forEach((t, i) => {
+      const pt = t.path.getPointAtLength(lengths[i] * 0.5);
+      t.dot.setAttribute('cx', pt.x);
+      t.dot.setAttribute('cy', pt.y);
+    });
+    return;
+  }
+
+  function tick(now) {
+    traces.forEach((t, i) => {
+      const progress = ((now + t.offset) / t.duration) % 1;
+      const pt = t.path.getPointAtLength(progress * lengths[i]);
+      t.dot.setAttribute('cx', pt.x);
+      t.dot.setAttribute('cy', pt.y);
+    });
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+
 // ===== Supabase client (loaded via CDN in the page) =====
 let supabaseClient = null;
 if (window.supabase && window.SUPABASE_URL && window.SUPABASE_URL.indexOf('YOUR-PROJECT-REF') === -1) {
