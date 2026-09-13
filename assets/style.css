@@ -208,7 +208,7 @@
     padding:14px 18px; border-bottom:1px solid var(--line);
     background:var(--paper-alt);
   }
-  .terminal-bar .dot{width:9px; height:9px; border-radius:50%; background:var(--line-soft); border:1px solid var(--line);}
+  .terminal-bar .dot{display:inline-block; flex-shrink:0; width:9px; height:9px; border-radius:50%; background:#C7CCD6;}
   .terminal-bar .t-title{margin-left:10px; font-family:var(--mono); font-size:0.74rem; color:var(--ink-faint);}
   .terminal-body{
     padding:30px 26px 34px;
