@@ -11,7 +11,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css">
+<meta name="theme-color" content="#F5F6FA">
+<link rel="stylesheet" href="/assets/style.css?v=7">
 <style>
   article{max-width:720px;}
   article h2{margin-top:40px; margin-bottom:14px; font-size:1.5rem;}
@@ -47,6 +48,7 @@
         <a href="/#process">Process</a>
         <a href="/#testimonials">Testimonials</a>
         <a href="/blog/">Blog</a>
+        <a href="/contact/">Contact</a>
         <a href="/#contact" class="btn btn-primary">Get a quote</a>
       </div>
       <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
@@ -60,7 +62,7 @@
     <div class="wrap">
       <span class="kicker">Sep 2026 · Case study</span>
       <h1 style="font-size:clamp(2rem,4vw,2.8rem); max-width:800px; margin:14px 0 40px;">What we learned scaling an order management system to 2M+ monthly requests</h1>
-      <article>
+      <article data-reveal>
         <p>Stellar Global Supplies came to us needing a single order management system. Eighteen months later, they're running 16 connected applications — order management, billing, analytics, an advertisement platform, AI-driven workflows — all handling over 2 million requests a month with 99%+ of traffic encrypted end to end.</p>
 
         <h2>It didn't start as a platform</h2>
@@ -90,6 +92,9 @@
     <small>© 2026 Stellar Forge. Built &amp; deployed on our own stack.</small>
   </div>
 </footer>
-<script src="/assets/script.js"></script>
+<script src="/assets/script.js?v=3"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="/assets/motion.js"></script>
 </body>
 </html>

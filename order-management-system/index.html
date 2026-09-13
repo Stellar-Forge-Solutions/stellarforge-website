@@ -7,7 +7,7 @@
 <meta name="description" content="A GST-ready order management system with live customer tracking and WhatsApp updates — built by Stellar Forge and running Stellar Global Supplies' own order desk every day.">
 <link rel="canonical" href="https://stellarforge.stellarglobalsupplies.com/order-management-system/">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<meta name="theme-color" content="#F5F6F1">
+<meta name="theme-color" content="#F5F6FA">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Order Management System | Stellar Forge">
@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/style.css?v=7">
 
 <script type="application/ld+json">
 {
@@ -121,27 +121,27 @@
 
   /* pillar overview cards — mirrors homepage's .service-row / .service-index pattern but as a 4-up grid */
   .pillar-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden; }
-  .pillar{ background:var(--white); padding:28px 22px; }
-  .pillar .p-idx{ font-family:var(--mono); font-size:0.8rem; color:var(--mint-dark); }
+  .pillar{ background:var(--surface); padding:28px 22px; }
+  .pillar .p-idx{ font-family:var(--mono); font-size:0.8rem; color:var(--signal-deep); }
   .pillar h3{ margin-top:14px; font-size:1.05rem; }
   .pillar p{ margin-top:8px; font-size:0.86rem; }
   @media (max-width:900px){ .pillar-grid{ grid-template-columns:1fr 1fr; } }
   @media (max-width:560px){ .pillar-grid{ grid-template-columns:1fr; } }
 
   /* case-strip: contextual proof line, not a full duplicate of the homepage work-feature */
-  .case-strip{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; background:var(--sage); border:1px solid var(--line); border-radius:100px; padding:14px 24px; }
-  .case-strip .tag{ font-family:var(--mono); font-size:0.78rem; color:var(--mint-dark); background:var(--white); border:1px solid var(--line); padding:5px 12px; border-radius:100px; }
+  .case-strip{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; background:var(--paper-alt); border:1px solid var(--line); border-radius:100px; padding:14px 24px; }
+  .case-strip .tag{ font-family:var(--mono); font-size:0.78rem; color:var(--signal-deep); background:var(--surface); border:1px solid var(--line); padding:5px 12px; border-radius:100px; }
 
   .feature-row{ display:grid; grid-template-columns:0.85fr 1.15fr; gap:56px; align-items:center; }
   .feature-row + .feature-row{ margin-top:88px; }
   .feature-row.reverse .feature-copy{ order:2; }
   .feature-row.reverse .feature-visual{ order:1; }
-  .feature-copy .f-index{ font-family:var(--mono); color:var(--mint-dark); font-size:0.82rem; margin-bottom:10px; display:block; }
+  .feature-copy .f-index{ font-family:var(--mono); color:var(--signal-deep); font-size:0.82rem; margin-bottom:10px; display:block; }
   .feature-copy h3{ font-size:1.55rem; }
   .feature-copy .lede{ margin-top:12px; font-size:0.98rem; }
   .feature-list{ margin-top:20px; display:flex; flex-direction:column; gap:13px; }
   .feature-list li{ list-style:none; display:flex; gap:10px; align-items:flex-start; }
-  .feature-list .chk{ flex-shrink:0; width:18px; height:18px; border-radius:5px; background:var(--sage); border:1px solid var(--line); color:var(--mint-dark); display:flex; align-items:center; justify-content:center; margin-top:2px; font-size:10px; }
+  .feature-list .chk{ flex-shrink:0; width:18px; height:18px; border-radius:5px; background:var(--paper-alt); border:1px solid var(--line); color:var(--signal-deep); display:flex; align-items:center; justify-content:center; margin-top:2px; font-size:10px; }
   .feature-list .txt b{ display:block; font-size:0.9rem; font-weight:600; color:var(--ink); font-family:var(--body); }
   .feature-list .txt span{ font-size:0.82rem; color:var(--ink-soft); }
   @media (max-width:860px){
@@ -166,6 +166,7 @@
           </div>
         </details>
         <a href="/blog/">Blog</a>
+        <a href="/contact/">Contact</a>
         <a href="#contact" class="btn btn-primary">Request a demo</a>
       </div>
       <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
@@ -219,7 +220,7 @@
         <h2>One system, everything your order desk needs.</h2>
         <p>Most order tools break down the moment GST, credit terms, or a staff handover gets involved. This one was built around exactly those problems.</p>
       </div>
-      <div class="pillar-grid">
+      <div class="pillar-grid" data-reveal-group>
         <div class="pillar">
           <span class="p-idx mono">01 — Sell</span>
           <h3>Order creation &amp; invoicing</h3>
@@ -245,7 +246,7 @@
   </section>
 
   <!-- SEE IT RUNNING -->
-  <section id="work" style="background:var(--bg-alt);">
+  <section id="work" style="background:var(--paper-alt);">
     <div class="wrap">
       <div class="section-head">
         <span class="kicker">See it running</span>
@@ -253,13 +254,13 @@
         <p>This isn't a demo built for a sales page — it's one of 16 real applications running Stellar Global Supplies' operations today.</p>
       </div>
 
-      <div class="case-strip" style="margin-bottom:72px;">
+      <div class="case-strip" style="margin-bottom:72px;" data-reveal>
         <strong style="font-family:var(--display); font-size:0.95rem;">Also in that stack:</strong>
         <span class="tag">Billing Platform</span><span class="tag">Quote Generation</span><span class="tag">Analytics Platform</span><span class="tag">AI Workflows</span>
-        <a href="/#work" style="margin-left:auto; font-family:var(--mono); font-size:0.82rem; color:var(--mint-dark);">See the full case study →</a>
+        <a href="/#work" style="margin-left:auto; font-family:var(--mono); font-size:0.82rem; color:var(--signal-deep);">See the full case study →</a>
       </div>
 
-      <div class="feature-row">
+      <div class="feature-row" data-reveal>
         <div class="feature-copy">
           <span class="f-index mono">01</span>
           <h3>Invoicing your accountant won't argue with.</h3>
@@ -289,7 +290,7 @@
         </div>
       </div>
 
-      <div class="feature-row reverse">
+      <div class="feature-row reverse" data-reveal>
         <div class="feature-copy">
           <span class="f-index mono">02</span>
           <h3>A pipeline that can't be skipped or faked.</h3>
@@ -317,7 +318,7 @@
         </div>
       </div>
 
-      <div class="feature-row">
+      <div class="feature-row" data-reveal>
         <div class="feature-copy">
           <span class="f-index mono">03</span>
           <h3>Built for buyers who reorder the same things.</h3>
@@ -351,7 +352,7 @@
         </div>
       </div>
 
-      <div class="feature-row reverse">
+      <div class="feature-row reverse" data-reveal>
         <div class="feature-copy">
           <span class="f-index mono">04</span>
           <h3>Updates where your customers already are.</h3>
@@ -385,7 +386,7 @@
         </div>
       </div>
 
-      <div class="feature-row">
+      <div class="feature-row" data-reveal>
         <div class="feature-copy">
           <span class="f-index mono">05</span>
           <h3>Runs itself, so your team doesn't have to.</h3>
@@ -420,7 +421,8 @@
         <span class="kicker">How you get it</span>
         <h2>Four steps, no surprises in between.</h2>
       </div>
-      <div class="process-grid">
+      <div class="process-grid" data-reveal-group>
+        <div class="process-rail"><div class="fill"></div></div>
         <div class="process-step">
           <span class="p-num mono">01</span>
           <h3>Discovery</h3>
@@ -446,13 +448,13 @@
   </section>
 
   <!-- TESTIMONIAL -->
-  <section style="background:var(--bg-alt);">
+  <section style="background:var(--paper-alt);">
     <div class="wrap">
       <div class="section-head">
         <span class="kicker">Client feedback</span>
         <h2>What it's like to run on it.</h2>
       </div>
-      <div class="testi-grid" style="grid-template-columns:1fr; max-width:640px;">
+      <div class="testi-grid" style="grid-template-columns:1fr; max-width:640px;" data-reveal>
         <div class="testi-card">
           <blockquote>"Stellar Forge combined strong design with an engineering-first approach to build a scalable digital foundation for our business."</blockquote>
           <cite>— Stellar Global Supplies</cite>
@@ -466,7 +468,7 @@
     <div class="wrap">
       <div class="contact-grid">
         <div>
-          <span class="kicker" style="color:var(--mint);">Get in touch</span>
+          <span class="kicker" style="color:var(--signal-deep);">Get in touch</span>
           <h2>Tell us how you take orders today.</h2>
           <p>Send a few details and we'll reply with next steps — including setting you up with a free demo login — usually within a day.</p>
           <div class="contact-info" style="margin-top:32px;">
@@ -529,8 +531,11 @@
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="/assets/supabase-config.js"></script>
-<script src="/assets/script.js"></script>
+<script src="/assets/script.js?v=3"></script>
+<script src="/assets/motion.js"></script>
 </body>
 </html>

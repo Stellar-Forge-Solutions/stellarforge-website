@@ -7,19 +7,12 @@
 <meta name="description" content="Practical notes from Stellar Forge on custom app development, AWS/Cloudflare/Render/Vercel deployment, and scaling software that handles real traffic.">
 <link rel="canonical" href="https://stellarforge.stellarglobalsupplies.com/blog/">
 <meta name="robots" content="index, follow">
+<meta name="theme-color" content="#F5F6FA">
 <link rel="icon" href="/assets/img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css">
-<style>
-  .post-list{display:flex; flex-direction:column;}
-  .post-row{padding:32px 0; border-top:1px solid var(--line);}
-  .post-row:last-child{border-bottom:1px solid var(--line);}
-  .post-row .date{font-family:var(--mono); font-size:0.78rem; color:var(--mint-dark); display:block; margin-bottom:8px;}
-  .post-row h2{font-size:1.5rem; margin-bottom:8px;}
-  .post-row a.title-link:hover{color:var(--mint-dark);}
-</style>
+<link rel="stylesheet" href="/assets/style.css?v=7">
 </head>
 <body>
 <header class="site-header">
@@ -38,6 +31,7 @@
         <a href="/#process">Process</a>
         <a href="/#testimonials">Testimonials</a>
         <a href="/blog/">Blog</a>
+        <a href="/contact/">Contact</a>
         <a href="/#contact" class="btn btn-primary">Get a quote</a>
       </div>
       <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
@@ -53,9 +47,9 @@
       <div class="section-head">
         <span class="kicker">The Stellar Forge blog</span>
         <h1 style="font-size:clamp(2rem,4vw,3rem);">Notes on building software that survives real traffic.</h1>
-        <p>Field notes from client projects — deployment decisions, scaling trade-offs, and what actually breaks first.</p>
+        <p data-reveal>Field notes from client projects — deployment decisions, scaling trade-offs, and what actually breaks first.</p>
       </div>
-      <div class="post-list">
+      <div class="post-list" data-reveal-group>
         <div class="post-row">
           <span class="date">Sep 2026</span>
           <h2><a class="title-link" href="/blog/choosing-aws-vercel-cloudflare-render.html">Choosing between AWS, Vercel, Cloudflare and Render for a new app</a></h2>
@@ -77,6 +71,9 @@
     <small>© 2026 Stellar Forge. Built &amp; deployed on our own stack.</small>
   </div>
 </footer>
-<script src="/assets/script.js"></script>
+<script src="/assets/script.js?v=3"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="/assets/motion.js"></script>
 </body>
 </html>

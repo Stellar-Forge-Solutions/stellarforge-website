@@ -44,70 +44,6 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.4 });
 counters.forEach(el => io.observe(el));
 
-// Node/line stagger delays are now handled purely in CSS (nth-of-type),
-// so no JS timing logic is needed here.
-
-// ===== Hero visual: 2D depth-parallax on mouse move + traveling circuit pulses =====
-(function heroVisual() {
-  const heroVisualEl = document.getElementById('heroVisual');
-  const svg = document.getElementById('heroSvg');
-  if (!heroVisualEl || !svg) return;
-
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const layers = Array.from(svg.querySelectorAll('.parallax-layer'));
-
-  // --- Mouse parallax (desktop only; safe no-op on touch) ---
-  if (!reduced && layers.length) {
-    const maxShift = 26; // max px shift, in the 400-unit viewBox space, for the deepest layer
-    heroVisualEl.addEventListener('mousemove', (e) => {
-      const rect = heroVisualEl.getBoundingClientRect();
-      const px = (e.clientX - rect.left) / rect.width - 0.5;
-      const py = (e.clientY - rect.top) / rect.height - 0.5;
-      layers.forEach((layer) => {
-        const depth = parseFloat(layer.dataset.depth) || 0;
-        const tx = px * maxShift * depth * 10;
-        const ty = py * maxShift * depth * 10;
-        layer.style.transform = `translate(${tx.toFixed(1)}px, ${ty.toFixed(1)}px)`;
-      });
-    });
-    heroVisualEl.addEventListener('mouseleave', () => {
-      layers.forEach((layer) => { layer.style.transform = 'translate(0px, 0px)'; });
-    });
-  }
-
-  // --- Traveling pulse dots along the bent circuit traces ---
-  const traces = [
-    { path: document.getElementById('trace-top'), dot: document.getElementById('pulse-top'), duration: 2200, offset: 0 },
-    { path: document.getElementById('trace-right'), dot: document.getElementById('pulse-right'), duration: 2600, offset: 500 },
-    { path: document.getElementById('trace-bottom'), dot: document.getElementById('pulse-bottom'), duration: 1900, offset: 900 },
-    { path: document.getElementById('trace-left'), dot: document.getElementById('pulse-left'), duration: 2400, offset: 1300 },
-  ].filter(t => t.path && t.dot);
-
-  if (!traces.length) return;
-
-  const lengths = traces.map(t => t.path.getTotalLength());
-
-  if (reduced) {
-    traces.forEach((t, i) => {
-      const pt = t.path.getPointAtLength(lengths[i] * 0.5);
-      t.dot.setAttribute('cx', pt.x);
-      t.dot.setAttribute('cy', pt.y);
-    });
-    return;
-  }
-
-  function tick(now) {
-    traces.forEach((t, i) => {
-      const progress = ((now + t.offset) / t.duration) % 1;
-      const pt = t.path.getPointAtLength(progress * lengths[i]);
-      t.dot.setAttribute('cx', pt.x);
-      t.dot.setAttribute('cy', pt.y);
-    });
-    requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
-})();
-
 // ===== Supabase client (loaded via CDN in the page) =====
 let supabaseClient = null;
 if (window.supabase && window.SUPABASE_URL && window.SUPABASE_URL.indexOf('YOUR-PROJECT-REF') === -1) {
@@ -167,7 +103,7 @@ if (form) {
       submitBtn.disabled = false;
       submitBtn.textContent = originalLabel;
       if (!error) {
-        form.innerHTML = '<p style="color:#4FB98D; font-family:var(--display); font-size:1.1rem;">Thanks — your inquiry is in. We\'ll reply within a day.</p>';
+        form.innerHTML = '<p style="color:#1E8A52; font-family:var(--display); font-size:1.1rem;">Thanks — your inquiry is in. We\'ll reply within a day.</p>';
         return;
       }
       console.warn('Supabase insert failed, falling back to email.', error);

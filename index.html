@@ -7,7 +7,7 @@
 <meta name="description" content="Stellar Forge builds custom web &amp; mobile applications and scales them on AWS, Cloudflare, Render and Vercel. Order management, AI platforms, billing systems and more — engineered to grow.">
 <link rel="canonical" href="https://stellarforge.stellarglobalsupplies.com/">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<meta name="theme-color" content="#17231F">
+<meta name="theme-color" content="#F5F6FA">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css?v=6">
+<link rel="stylesheet" href="/assets/style.css?v=7">
 
 <script type="application/ld+json">
 {
@@ -86,6 +86,7 @@
         <a href="#process">Process</a>
         <a href="#testimonials">Testimonials</a>
         <a href="/blog/">Blog</a>
+        <a href="/contact/">Contact</a>
         <a href="#contact" class="btn btn-primary">Get a quote</a>
       </div>
       <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
@@ -116,56 +117,18 @@
       </div>
 
       <div class="hero-visual" id="heroVisual" aria-hidden="true">
-        <svg id="heroSvg" viewBox="0 0 400 400">
-          <defs>
-            <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#4FB98D" stop-opacity="0.5"/>
-              <stop offset="100%" stop-color="#4FB98D" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
-
-          <g class="parallax-layer" data-depth="0.04">
-            <circle cx="200" cy="200" r="130" fill="url(#glow)"/>
-            <circle class="scan-ring" cx="200" cy="200" r="155" fill="none"
-              stroke="#4FB98D" stroke-width="1.5" stroke-dasharray="2 14" opacity="0.5"/>
-          </g>
-
-          <g class="parallax-layer" data-depth="0.10">
-            <path id="trace-top" class="circuit-trace" d="M200,70 V45 H60" fill="none" stroke="#8FA398" stroke-width="1.5"/>
-            <path id="trace-right" class="circuit-trace" d="M300,150 H345 V110 H355" fill="none" stroke="#8FA398" stroke-width="1.5"/>
-            <path id="trace-bottom" class="circuit-trace" d="M200,230 V335" fill="none" stroke="#8FA398" stroke-width="1.5"/>
-            <path id="trace-left" class="circuit-trace" d="M100,150 H55 V195 H30" fill="none" stroke="#8FA398" stroke-width="1.5"/>
-
-            <circle id="pulse-top" class="trace-pulse" r="4" fill="#4FB98D"/>
-            <circle id="pulse-right" class="trace-pulse" r="4" fill="#4FB98D"/>
-            <circle id="pulse-bottom" class="trace-pulse" r="4" fill="#4FB98D"/>
-            <circle id="pulse-left" class="trace-pulse" r="4" fill="#4FB98D"/>
-
-            <circle class="pulse-node" cx="60" cy="45" r="6" fill="#4FB98D"/>
-            <circle class="pulse-node" cx="355" cy="110" r="6" fill="#4FB98D"/>
-            <circle class="pulse-node" cx="200" cy="335" r="6" fill="#4FB98D"/>
-            <circle class="pulse-node" cx="30" cy="195" r="6" fill="#4FB98D"/>
-          </g>
-
-          <g class="parallax-layer" data-depth="0.18">
-            <polygon points="200,70 300,150 200,230 100,150" fill="none" stroke="#17231F" stroke-width="3"/>
-          </g>
-
-          <g class="parallax-layer" data-depth="0.30">
-            <polygon points="200,170 260,215 200,260 140,215" fill="none" stroke="#2F8465" stroke-width="3"/>
-          </g>
-
-          <g class="parallax-layer" data-depth="0.42">
-            <circle class="core-dot" cx="200" cy="215" r="5" fill="#17231F"/>
-          </g>
-        </svg>
+        <canvas id="forgeCanvas"></canvas>
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+        <div class="hud hud-tl mono"><span class="status-dot"></span><b>CORE.STATUS</b> assembling</div>
+        <div class="hud hud-br mono">FORGE-01 · <span id="hudUptime">00:00:00</span></div>
       </div>
     </div>
   </section>
 
   <!-- LIVE STAT TICKER (real numbers from Stellar Global Supplies infra) -->
   <div class="ticker-bar">
-    <div class="wrap">
+    <div class="wrap" data-reveal-group>
       <div class="ticker-stat">
         <div class="num"><span data-live="requests" data-count="2.05" data-decimals="2">0</span>M</div>
         <div class="label">requests served (30d) across clients</div>
@@ -191,9 +154,9 @@
       <div class="section-head">
         <span class="kicker">What we do</span>
         <h2>Software built for what happens after launch.</h2>
-        <p>Most apps break under real usage, not in the demo. We design for the second month, not just the first.</p>
+        <p data-reveal>Most apps break under real usage, not in the demo. We design for the second month, not just the first.</p>
       </div>
-      <div class="services-list">
+      <div class="services-list" data-reveal-group>
         <div class="service-row">
           <div class="service-index">01 — Build</div>
           <div>
@@ -231,15 +194,16 @@
   </section>
 
   <!-- WORK -->
-  <section id="work" style="background:var(--bg-alt);">
+  <section id="work" style="background:var(--paper-alt);">
     <div class="wrap">
       <div class="section-head">
         <span class="kicker">Client work</span>
         <h2>Real platforms, running in production right now.</h2>
       </div>
 
-      <div class="work-feature">
+      <div class="case-file" data-reveal>
         <div>
+          <span class="file-tag"><span class="status-dot"></span>LIVE SYSTEM · 16 APPS</span>
           <h3>Stellar Global Supplies</h3>
           <p>An industrial supply company running its entire operation on software we built — from customer-facing storefront to internal billing and AI-driven workflow tools.</p>
           <div class="stats-grid">
@@ -248,23 +212,70 @@
             <div><div class="s-num" data-count="9.39" data-decimals="2">0</div><div class="s-label">GB bandwidth served</div></div>
           </div>
           <div class="app-tags">
-            <a href="/order-management-system/" style="font-size:0.78rem; font-family:var(--mono); color:var(--mint); border:1px solid var(--mint); padding:5px 10px; border-radius:5px; font-weight:600;">Order Management ↗</a><span>Billing Platform</span><span>Advertisement Platform</span>
+            <a href="/order-management-system/">Order Management ↗</a><span>Billing Platform</span><span>Advertisement Platform</span>
             <span>AI Platform</span><span>Analytics Platform</span><span>Quote Generation</span>
             <span>Data Drive Platform</span><span>AI Workflows</span><span>Website</span>
           </div>
-          <a href="https://stellarglobalsupplies.com/" target="_blank" rel="noopener" class="client-url" style="margin-top:20px; display:inline-block; color:var(--mint);">stellarglobalsupplies.com ↗</a>
+          <a href="https://stellarglobalsupplies.com/" target="_blank" rel="noopener" class="client-url">stellarglobalsupplies.com ↗</a>
         </div>
-        <div class="live-graph" aria-hidden="true">
-          <svg viewBox="0 0 300 160" width="100%">
-            <polyline points="0,120 30,110 60,115 90,90 120,95 150,60 180,70 210,40 240,45 270,20 300,25"
-              fill="none" stroke="#4FB98D" stroke-width="3"/>
-            <text x="0" y="150" fill="#9FB0A6" font-family="IBM Plex Mono" font-size="11">30-day request trend, all 16 apps</text>
+
+        <div class="system-map" aria-hidden="true">
+          <svg viewBox="0 0 300 300" width="100%">
+            <g class="sm-lines">
+              <path class="sm-line" d="M150,150 L150,55"/>
+              <path class="sm-line" d="M150,150 L226,84"/>
+              <path class="sm-line" d="M150,150 L248,150"/>
+              <path class="sm-line" d="M150,150 L226,216"/>
+              <path class="sm-line" d="M150,150 L150,245"/>
+              <path class="sm-line" d="M150,150 L74,216"/>
+              <path class="sm-line" d="M150,150 L52,150"/>
+              <path class="sm-line" d="M150,150 L74,84"/>
+              <path class="sm-line" d="M150,150 L110,55"/>
+            </g>
+            <g class="sm-nodes">
+              <circle class="sm-node-ring" cx="150" cy="55" r="9"/><circle class="sm-node-dot" cx="150" cy="55" r="3"/>
+              <text class="sm-label" x="150" y="40" text-anchor="middle">ORDERS</text>
+
+              <circle class="sm-node-ring" cx="226" cy="84" r="9"/><circle class="sm-node-dot" cx="226" cy="84" r="3"/>
+              <text class="sm-label" x="238" y="72" text-anchor="start">BILLING</text>
+
+              <circle class="sm-node-ring" cx="248" cy="150" r="9"/><circle class="sm-node-dot" cx="248" cy="150" r="3"/>
+              <text class="sm-label" x="260" y="150" text-anchor="start">ADS</text>
+
+              <circle class="sm-node-ring" cx="226" cy="216" r="9"/><circle class="sm-node-dot" cx="226" cy="216" r="3"/>
+              <text class="sm-label" x="238" y="234" text-anchor="start">AI</text>
+
+              <circle class="sm-node-ring" cx="150" cy="245" r="9"/><circle class="sm-node-dot" cx="150" cy="245" r="3"/>
+              <text class="sm-label" x="150" y="266" text-anchor="middle">ANALYTICS</text>
+
+              <circle class="sm-node-ring" cx="74" cy="216" r="9"/><circle class="sm-node-dot" cx="74" cy="216" r="3"/>
+              <text class="sm-label" x="62" y="234" text-anchor="end">QUOTES</text>
+
+              <circle class="sm-node-ring" cx="52" cy="150" r="9"/><circle class="sm-node-dot" cx="52" cy="150" r="3"/>
+              <text class="sm-label" x="40" y="150" text-anchor="end">DATA DRIVE</text>
+
+              <circle class="sm-node-ring" cx="74" cy="84" r="9"/><circle class="sm-node-dot" cx="74" cy="84" r="3"/>
+              <text class="sm-label" x="62" y="72" text-anchor="end">WORKFLOWS</text>
+
+              <circle class="sm-node-ring" cx="110" cy="55" r="9"/><circle class="sm-node-dot" cx="110" cy="55" r="3"/>
+              <text class="sm-label" x="100" y="40" text-anchor="middle">WEBSITE</text>
+            </g>
+            <circle class="sm-core" cx="150" cy="150" r="15"/>
+            <circle class="sm-pulse" cx="150" cy="150" r="3.5" opacity="0"/>
+            <text class="sm-caption" x="150" y="290" text-anchor="middle">9 platforms mapped · 16 apps total, one shared stack</text>
           </svg>
+
+          <svg class="sparkline" viewBox="0 0 300 90" width="100%" style="margin-top:8px;">
+            <polyline points="0,70 30,64 60,67 90,52 120,55 150,34 180,40 210,22 240,25 270,10 300,13"
+              fill="none" stroke="#9CF0B7" stroke-width="2.5"/>
+          </svg>
+          <p class="sm-caption-text mono" style="font-size:0.7rem; color:var(--forge-soft); margin-top:6px;">30-day request trend, all 16 apps</p>
         </div>
       </div>
 
-      <div class="work-grid">
+      <div class="work-grid" data-reveal-group>
         <div class="work-card">
+          <span class="file-tag">CASE FILE · E-COMMERCE &amp; BILLING</span>
           <h3>Mayur Masala &amp; Pooja Center</h3>
           <p>An e-commerce storefront and a billing app with barcode generation, plus an expense-tracker-cum-analytics platform for a business trading since 1992.</p>
           <ul>
@@ -275,6 +286,7 @@
           <a href="https://www.mayurmasalacenter.in/" target="_blank" rel="noopener" class="client-url">mayurmasalacenter.in ↗</a>
         </div>
         <div class="work-card">
+          <span class="file-tag">CASE FILE · WEBSITE &amp; AI WORKFLOWS</span>
           <h3>Snehal Printers</h3>
           <p>A modern website and AI workflow tooling for a 31-year-old offset and digital printing business in Pimpri-Chinchwad, Pune.</p>
           <ul>
@@ -295,7 +307,8 @@
         <span class="kicker">How we work</span>
         <h2>Four steps, no surprises in between.</h2>
       </div>
-      <div class="process-grid">
+      <div class="process-grid" data-reveal-group>
+        <div class="process-rail"><div class="fill"></div></div>
         <div class="process-step">
           <span class="p-num mono">01</span>
           <h3>Discovery</h3>
@@ -321,13 +334,13 @@
   </section>
 
   <!-- TESTIMONIALS -->
-  <section id="testimonials" style="background:var(--bg-alt);">
+  <section id="testimonials" style="background:var(--paper-alt);">
     <div class="wrap">
       <div class="section-head">
         <span class="kicker">Client feedback</span>
         <h2>What it's like to work with us.</h2>
       </div>
-      <div class="testi-grid">
+      <div class="testi-grid" data-reveal-group>
         <div class="testi-card">
           <blockquote>"Stellar Forge helped us build a much stronger digital presence for our business. They understood our requirements, handled everything professionally and made the entire process simple for us."</blockquote>
           <cite>— Mayur Masala Center</cite>
@@ -348,8 +361,8 @@
   <section id="contact" class="contact-section">
     <div class="wrap">
       <div class="contact-grid">
-        <div>
-          <span class="kicker" style="color:var(--mint);">Get in touch</span>
+        <div data-reveal>
+          <span class="kicker mono">Get in touch</span>
           <h2>Tell us what you're building.</h2>
           <p>Send a few details and we'll reply with next steps — usually within a day.</p>
           <div class="contact-info" style="margin-top:32px;">
@@ -367,7 +380,7 @@
             </div>
           </div>
         </div>
-        <form class="quote-form" aria-label="Project inquiry form">
+        <form class="quote-form" aria-label="Project inquiry form" data-reveal>
           <div>
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required>
@@ -414,8 +427,27 @@
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="/assets/supabase-config.js"></script>
-<script src="/assets/script.js?v=2"></script>
+<script src="/assets/script.js?v=3"></script>
+<script src="/assets/motion.js"></script>
+<script type="module" src="/assets/forge-scene.js"></script>
+<script>
+  // Tiny decorative uptime readout in the hero HUD — cosmetic, not measuring anything real.
+  (function(){
+    const el = document.getElementById('hudUptime');
+    if (!el) return;
+    const start = performance.now();
+    setInterval(() => {
+      const s = Math.floor((performance.now() - start) / 1000);
+      const hh = String(Math.floor(s / 3600)).padStart(2, '0');
+      const mm = String(Math.floor((s % 3600) / 60)).padStart(2, '0');
+      const ss = String(s % 60).padStart(2, '0');
+      el.textContent = `${hh}:${mm}:${ss}`;
+    }, 1000);
+  })();
+</script>
 </body>
 </html>

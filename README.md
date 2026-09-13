@@ -6,10 +6,15 @@ Static site (HTML/CSS/JS). No build step — upload as-is to any static host
 ## File structure
 ```
 index.html                  → homepage
+contact/index.html          → standalone contact page (same info + form)
+order-management-system/index.html → product page
 blog/index.html             → blog listing
 blog/*.html                 → individual posts
-assets/style.css            → all styles
+404.html                    → not-found page
+assets/style.css            → design tokens + all component styles
 assets/script.js            → counters, nav, form, Supabase wiring
+assets/motion.js            → GSAP scroll reveals, magnetic buttons, diagram draw-ins
+assets/forge-scene.js       → Three.js hero visual (loads as an ES module)
 assets/supabase-config.js   → YOUR Supabase URL + anon key go here
 assets/img/logo.png         → Stellar Forge logo
 robots.txt / sitemap.xml    → SEO
