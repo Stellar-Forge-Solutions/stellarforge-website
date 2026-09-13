@@ -26,7 +26,7 @@
     const heroLead = document.querySelector('.hero p.lead');
     const heroActions = document.querySelector('.hero-actions');
     const heroProofItems = document.querySelectorAll('.hero-proof .item');
-    const hudEls = document.querySelectorAll('.hero-visual .hud, .hero-visual .corner');
+    const heroVisual = document.querySelector('.hero-visual');
   
     if (eyebrow) heroTl.from(eyebrow, { y: 12, opacity: 0, duration: 0.6 }, 0.05);
     if (heroH1) {
@@ -36,7 +36,7 @@
     if (heroLead) heroTl.from(heroLead, { y: 14, opacity: 0, duration: 0.7 }, 0.45);
     if (heroActions) heroTl.from(heroActions.children, { y: 14, opacity: 0, duration: 0.6, stagger: 0.08 }, 0.6);
     if (heroProofItems.length) heroTl.from(heroProofItems, { y: 10, opacity: 0, duration: 0.5, stagger: 0.06 }, 0.75);
-    if (hudEls.length) heroTl.from(hudEls, { opacity: 0, duration: 0.8 }, 0.5);
+    if (heroVisual) heroTl.from(heroVisual, { y: 18, opacity: 0, duration: 0.8 }, 0.35);
   
     // ---- Generic scroll reveals ----
     document.querySelectorAll('[data-reveal]').forEach((el) => {

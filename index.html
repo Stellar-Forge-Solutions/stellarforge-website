@@ -116,12 +116,23 @@
         </div>
       </div>
 
-      <div class="hero-visual" id="heroVisual" aria-hidden="true">
-        <canvas id="forgeCanvas"></canvas>
-        <span class="corner tl"></span><span class="corner tr"></span>
-        <span class="corner bl"></span><span class="corner br"></span>
-        <div class="hud hud-tl mono"><span class="status-dot"></span><b>CORE.STATUS</b> assembling</div>
-        <div class="hud hud-br mono">FORGE-01 · <span id="hudUptime">00:00:00</span></div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="terminal-bar">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="t-title">stellarforge — deploy</span>
+        </div>
+        <div class="terminal-body" id="terminalBody">
+          <div class="t-line cmd">stellarforge init stellarglobalsupplies.com</div>
+          <div class="t-line out">scanning operations: orders, billing, ads, analytics…</div>
+          <div class="t-line out">provisioning 9 platforms across AWS · Cloudflare · Render · Vercel</div>
+          <div class="t-line ok">order management system ........ online</div>
+          <div class="t-line ok">billing &amp; GST automation ...... online</div>
+          <div class="t-line ok">AI workflows ..................... online</div>
+          <div class="t-line ok">encrypted uptime ................. 99.7%</div>
+          <div class="t-line cmd">stellarforge status</div>
+          <div class="t-line out">16 apps · 2.05M requests/30d · 13+ countries</div>
+          <div class="t-line final">→ LIVE. Ready to forge yours.<span class="t-cursor"></span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -402,10 +413,10 @@
           <div>
             <label for="budget">Approximate budget</label>
             <select id="budget" name="budget">
-              <option>Under $2,000</option>
-              <option>$2,000 – $5,000</option>
-              <option>$5,000 – $15,000</option>
-              <option>$15,000+</option>
+              <option>Under Rs 2,000</option>
+              <option>Rs 2,000 – Rs 5,000</option>
+              <option>Rs 5,000 – Rs 15,000</option>
+              <option>Rs 15,000+</option>
             </select>
           </div>
           <div>
@@ -433,21 +444,6 @@
 <script src="/assets/supabase-config.js"></script>
 <script src="/assets/script.js?v=3"></script>
 <script src="/assets/motion.js"></script>
-<script type="module" src="/assets/forge-scene.js"></script>
-<script>
-  // Tiny decorative uptime readout in the hero HUD — cosmetic, not measuring anything real.
-  (function(){
-    const el = document.getElementById('hudUptime');
-    if (!el) return;
-    const start = performance.now();
-    setInterval(() => {
-      const s = Math.floor((performance.now() - start) / 1000);
-      const hh = String(Math.floor(s / 3600)).padStart(2, '0');
-      const mm = String(Math.floor((s % 3600) / 60)).padStart(2, '0');
-      const ss = String(s % 60).padStart(2, '0');
-      el.textContent = `${hh}:${mm}:${ss}`;
-    }, 1000);
-  })();
-</script>
+<script src="/assets/terminal.js"></script>
 </body>
 </html>
