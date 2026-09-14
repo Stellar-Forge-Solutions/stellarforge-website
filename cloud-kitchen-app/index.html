@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>Cloud Kitchen Ordering &amp; Operations System | Stellar Forge</title>
+<meta name="description" content="A complete ordering system for home &amp; cloud kitchens — public ordering site, WhatsApp order updates, auto-generated bills, delivery tracking and sales analytics. Built by Stellar Forge.">
+<link rel="canonical" href="https://stellarforge.stellarglobalsupplies.com/cloud-kitchen-app/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#F5F6FA">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cloud Kitchen Ordering &amp; Operations System | Stellar Forge">
+<meta property="og:description" content="Public ordering site, WhatsApp order updates, auto-generated bills, delivery tracking and sales analytics — one system for home &amp; cloud kitchens.">
+<meta property="og:url" content="https://stellarforge.stellarglobalsupplies.com/cloud-kitchen-app/">
+<meta property="og:image" content="https://stellarforge.stellarglobalsupplies.com/assets/img/og-image.jpg">
+<meta property="og:locale" content="en_IN">
+<meta property="og:site_name" content="Stellar Forge">
+
+<link rel="icon" href="/assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css?v=9">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Stellar Forge Cloud Kitchen App",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "Ordering and operations system for home and cloud kitchens: public ordering site, kitchen-side order pipeline, auto-generated bills, WhatsApp updates, delivery tracking and sales analytics.",
+  "brand": {"@type": "Organization", "name": "Stellar Forge"},
+  "offers": {"@type": "Offer", "priceCurrency": "INR", "availability": "https://schema.org/InStock"}
+}
+</script>
+
+<style>
+  /* Page-specific: device-frame mockups showing the product's own (dark-mode) UI.
+     Shares the same mockup language as the Order Management System page —
+     a screenshot carries its own chrome, it isn't meant to match the light page around it. */
+  :root{
+    --p-bg:#0F172A; --p-card:#1E293B; --p-border:#334155;
+    --p-text:#F1F5F9; --p-text-soft:#CBD5E1; --p-text-mute:#94A3B4;
+    --p-teal:#00D9A7; --p-teal-dark:#00B98E; --p-teal-lt:#0A2E25;
+    --p-amber:#FBBF24; --p-amber-lt:#3B2F0A;
+  }
+  .frame{ background:var(--p-bg); border-radius:14px; border:1px solid rgba(255,255,255,0.08); box-shadow:0 24px 56px rgba(23,35,31,0.18); overflow:hidden; }
+  .frame-bar{ display:flex; align-items:center; gap:8px; padding:11px 15px; background:var(--p-card); border-bottom:1px solid var(--p-border); }
+  .frame-bar .dots{ display:flex; gap:6px; }
+  .frame-bar .dots span{ width:9px; height:9px; border-radius:50%; background:rgba(255,255,255,0.15); }
+  .frame-bar .url{ flex:1; text-align:center; font-size:11px; color:var(--p-text-mute); font-family:var(--mono); }
+  .frame-body{ padding:20px; }
+
+  .p-stats-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px; }
+  .p-stat{ background:var(--p-card); border:1px solid var(--p-border); border-radius:11px; padding:13px; display:flex; flex-direction:column; gap:7px; }
+  .p-stat .ic{ width:28px; height:28px; border-radius:7px; display:flex; align-items:center; justify-content:center; font-size:13px; }
+  .p-stat .lbl{ font-size:9px; font-weight:600; text-transform:uppercase; letter-spacing:.4px; color:var(--p-text-mute); font-family:var(--mono); }
+  .p-stat .val{ font-family:var(--display); font-size:18px; font-weight:700; color:var(--p-text); }
+
+  .p-panel{ background:var(--p-card); border:1px solid var(--p-border); border-radius:11px; padding:15px; }
+  .p-panel h4{ font-family:var(--body); font-size:12px; font-weight:600; color:var(--p-text); margin:0 0 11px; }
+  .p-row{ display:flex; align-items:center; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--p-border); font-size:11.5px; }
+  .p-row:last-child{ border-bottom:none; }
+  .p-row .who{ color:var(--p-text); font-weight:600; }
+  .p-row .what{ color:var(--p-text-mute); font-size:10.5px; }
+
+  .p-badge{ display:inline-flex; align-items:center; gap:5px; padding:3px 9px; border-radius:20px; font-size:9.5px; font-weight:700; font-family:var(--mono); }
+  .p-badge::before{ content:''; width:5px; height:5px; border-radius:50%; background:currentColor; opacity:.8; }
+  .p-badge.received{ background:#1E3A5F; color:#93C5FD; }
+  .p-badge.preparing{ background:#3B2F0A; color:#FDE68A; }
+  .p-badge.otd{ background:#2D1B69; color:#C4B5FD; }
+  .p-badge.delivered{ background:#0A2E1A; color:#6EE7B7; }
+  .p-badge.partial{ background:var(--p-amber-lt); color:var(--p-amber); }
+  .p-badge.paid{ background:#0A2E1A; color:#6EE7B7; }
+  .p-badge.unpaid{ background:#3B1616; color:#FCA5A5; }
+
+  .p-btn{ display:inline-flex; align-items:center; gap:6px; padding:7px 12px; border-radius:6px; font-size:11px; font-weight:600; font-family:var(--body); }
+  .p-btn.ghost{ background:transparent; border:1px solid var(--p-border); color:var(--p-text-soft); }
+
+  .p-timeline{ display:flex; align-items:flex-start; width:100%; margin:5px 0 2px; }
+  .p-tstep{ display:flex; flex-direction:column; align-items:center; flex:1; position:relative; }
+  .p-tstep:not(:last-child)::after{ content:''; position:absolute; top:11px; left:50%; right:-50%; height:2px; background:var(--p-border); z-index:0; }
+  .p-tstep.done:not(:last-child)::after{ background:linear-gradient(90deg,var(--p-teal) 0%, var(--p-teal-lt) 100%); }
+  .p-tdot{ width:22px; height:22px; border-radius:50%; border:2px solid var(--p-border); background:var(--p-card); display:flex; align-items:center; justify-content:center; position:relative; z-index:1; font-size:9px; color:var(--p-text-mute); }
+  .p-tstep.done .p-tdot{ background:var(--p-teal); border-color:var(--p-teal); color:#08120F; box-shadow:0 0 0 4px var(--p-teal-lt); }
+  .p-tstep.active .p-tdot{ border-color:var(--p-teal); box-shadow:0 0 0 4px var(--p-teal-lt); color:var(--p-teal); }
+  .p-tlabel{ margin-top:6px; font-size:8.5px; font-weight:600; color:var(--p-text-mute); text-align:center; font-family:var(--mono); }
+  .p-tstep.done .p-tlabel, .p-tstep.active .p-tlabel{ color:var(--p-teal); }
+  .p-audit{ font-size:10px; color:var(--p-text-mute); margin-top:9px; display:flex; align-items:center; gap:6px; font-family:var(--mono); }
+  .p-audit .av{ width:15px; height:15px; border-radius:50%; background:var(--p-teal-lt); color:var(--p-teal); display:flex; align-items:center; justify-content:center; font-size:7.5px; font-weight:700; }
+
+  table.p-table{ width:100%; border-collapse:collapse; font-size:11px; }
+  table.p-table th{ text-align:left; font-size:9px; text-transform:uppercase; letter-spacing:.3px; color:var(--p-text-mute); font-weight:600; padding:0 7px 7px; font-family:var(--mono); }
+  table.p-table td{ padding:8px 7px; border-top:1px solid var(--p-border); color:var(--p-text-soft); }
+  table.p-table td.strong{ color:var(--p-text); font-weight:600; }
+  table.p-table td.num{ font-family:var(--display); font-weight:700; color:var(--p-text); }
+
+  .p-masked{ color:var(--p-text-mute); font-style:italic; }
+
+  .wa-mock{ background:#0B141A; border-radius:13px; padding:15px; }
+  .wa-head{ display:flex; align-items:center; gap:9px; padding-bottom:11px; border-bottom:1px solid rgba(255,255,255,0.06); margin-bottom:11px; }
+  .wa-head .avatar{ width:30px; height:30px; border-radius:50%; background:#2A3942; display:flex; align-items:center; justify-content:center; font-size:12px; }
+  .wa-head b{ font-size:12.5px; color:#E9EDEF; font-family:var(--body); }
+  .wa-head small{ display:block; font-size:10px; color:#8696A0; }
+  .wa-bubble{ background:#005C4B; color:#E9EDEF; border-radius:10px 10px 2px 10px; padding:9px 11px; font-size:11.5px; line-height:1.5; max-width:92%; margin-left:auto; font-family:var(--body); }
+  .wa-bubble a{ color:#9CF0B7; }
+  .wa-time{ font-size:9px; color:#8696A0; text-align:right; margin-top:4px; font-family:var(--mono); }
+
+  /* pillar overview cards */
+  .pillar-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+  .pillar{ background:var(--surface); padding:28px 22px; }
+  .pillar .p-idx{ font-family:var(--mono); font-size:0.8rem; color:var(--signal-deep); }
+  .pillar h3{ margin-top:14px; font-size:1.05rem; }
+  .pillar p{ margin-top:8px; font-size:0.86rem; }
+  @media (max-width:900px){ .pillar-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:560px){ .pillar-grid{ grid-template-columns:1fr; } }
+
+  .case-strip{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; background:var(--paper-alt); border:1px solid var(--line); border-radius:100px; padding:14px 24px; }
+  .case-strip .tag{ font-family:var(--mono); font-size:0.78rem; color:var(--signal-deep); background:var(--surface); border:1px solid var(--line); padding:5px 12px; border-radius:100px; }
+
+  .feature-row{ display:grid; grid-template-columns:0.85fr 1.15fr; gap:56px; align-items:center; }
+  .feature-row + .feature-row{ margin-top:88px; }
+  .feature-row.reverse .feature-copy{ order:2; }
+  .feature-row.reverse .feature-visual{ order:1; }
+  .feature-copy .f-index{ font-family:var(--mono); color:var(--signal-deep); font-size:0.82rem; margin-bottom:10px; display:block; }
+  .feature-copy h3{ font-size:1.55rem; }
+  .feature-copy .lede{ margin-top:12px; font-size:0.98rem; }
+  .feature-list{ margin-top:20px; display:flex; flex-direction:column; gap:13px; }
+  .feature-list li{ list-style:none; display:flex; gap:10px; align-items:flex-start; }
+  .feature-list .chk{ flex-shrink:0; width:18px; height:18px; border-radius:5px; background:var(--paper-alt); border:1px solid var(--line); color:var(--signal-deep); display:flex; align-items:center; justify-content:center; margin-top:2px; font-size:10px; }
+  .feature-list .txt b{ display:block; font-size:0.9rem; font-weight:600; color:var(--ink); font-family:var(--body); }
+  .feature-list .txt span{ font-size:0.82rem; color:var(--ink-soft); }
+  @media (max-width:860px){
+    .feature-row, .feature-row.reverse{ grid-template-columns:1fr; }
+    .feature-row.reverse .feature-copy, .feature-row.reverse .feature-visual{ order:initial; }
+  }
+  /* extra mockup gallery: mini bar charts, phone mockup, settings/expense mini screens */
+  .mini-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  @media (max-width:900px){ .mini-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:620px){ .mini-grid{ grid-template-columns:1fr; } }
+  .mini-title{ font-family:var(--mono); font-size:0.78rem; color:var(--ink-soft); margin-bottom:10px; }
+
+  .mini-bars{ display:flex; align-items:flex-end; gap:6px; height:64px; margin:6px 0 2px; }
+  .mini-bars .bar{ flex:1; background:linear-gradient(180deg,var(--p-teal),var(--p-teal-dark)); border-radius:3px 3px 0 0; }
+  .mini-bar-labels{ display:flex; gap:6px; }
+  .mini-bar-labels span{ flex:1; text-align:center; font-size:8px; color:var(--p-text-mute); font-family:var(--mono); }
+
+  .p-toggle{ width:30px; height:17px; border-radius:20px; background:var(--p-border); position:relative; flex-shrink:0; }
+  .p-toggle.on{ background:var(--p-teal); }
+  .p-toggle::after{ content:''; position:absolute; width:13px; height:13px; border-radius:50%; background:#fff; top:2px; left:2px; transition:.15s; }
+  .p-toggle.on::after{ left:15px; }
+  .p-menu-item{ display:flex; align-items:center; gap:9px; padding:8px 0; border-bottom:1px solid var(--p-border); }
+  .p-menu-item:last-child{ border-bottom:none; }
+  .p-menu-item .thumb{ width:30px; height:30px; border-radius:7px; background:linear-gradient(135deg,var(--p-teal-lt),var(--p-teal)); flex-shrink:0; }
+  .p-menu-item .n{ font-size:11px; font-weight:600; color:var(--p-text); }
+  .p-menu-item .s{ font-size:9.5px; color:var(--p-text-mute); }
+  .p-menu-item .meta{ flex:1; }
+
+  .p-form-row{ margin-bottom:10px; }
+  .p-form-row label{ display:block; font-size:8.5px; font-weight:600; color:var(--p-text-mute); text-transform:uppercase; letter-spacing:.3px; margin-bottom:4px; font-family:var(--mono); }
+  .p-form-row .val{ background:var(--p-bg); border:1px solid var(--p-border); border-radius:7px; padding:8px 10px; font-size:11px; color:var(--p-text); }
+
+  .phone-frame{ background:var(--p-bg); border-radius:28px; border:7px solid #05070C; max-width:220px; margin:0 auto; overflow:hidden; box-shadow:0 24px 56px rgba(23,35,31,0.2); }
+  .phone-notch{ height:16px; display:flex; justify-content:center; align-items:flex-start; }
+  .phone-notch span{ width:60px; height:14px; background:#05070C; border-radius:0 0 10px 10px; }
+  .phone-body{ padding:12px 12px 6px; }
+  .phone-hero{ font-family:var(--body); font-size:10.5px; font-weight:700; color:var(--p-text); margin-bottom:2px; }
+  .phone-hero small{ display:block; font-size:8px; color:var(--p-text-mute); font-weight:400; }
+  .phone-menu-item{ display:flex; align-items:center; gap:8px; background:var(--p-card); border:1px solid var(--p-border); border-radius:9px; padding:7px; margin-top:8px; }
+  .phone-menu-item .thumb{ width:32px; height:32px; border-radius:7px; background:linear-gradient(135deg,var(--p-teal-lt),var(--p-teal)); flex-shrink:0; }
+  .phone-menu-item .info{ flex:1; }
+  .phone-menu-item .info .n{ font-size:9.5px; font-weight:600; color:var(--p-text); }
+  .phone-menu-item .info .p{ font-size:9px; color:var(--p-text-mute); margin-top:1px; }
+  .phone-menu-item .add{ width:22px; height:22px; border-radius:6px; background:var(--p-teal-lt); color:var(--p-teal); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; flex-shrink:0; }
+  .phone-bottomnav{ display:flex; justify-content:space-around; padding:9px 4px 3px; border-top:1px solid var(--p-border); margin-top:10px; }
+  .phone-bottomnav span{ font-size:7.5px; color:var(--p-text-mute); display:flex; flex-direction:column; align-items:center; gap:2px; font-family:var(--mono); }
+  .phone-bottomnav span.active{ color:var(--p-teal); font-weight:700; }
+  .phone-cart-badge{ background:var(--p-amber); color:#1a1300; font-size:7px; font-weight:800; border-radius:20px; padding:0 4px; margin-left:2px; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="/" class="brand"><img src="/assets/img/logo.png" alt="Stellar Forge logo"> Stellar Forge</a>
+    <nav class="main-nav" aria-label="Primary">
+      <div class="nav-links" id="nav-links">
+        <a href="/#work">Work</a>
+        <a href="/#services">Services</a>
+        <details class="nav-drop">
+          <summary>Our Products</summary>
+          <div class="drop-panel">
+            <a href="/order-management-system/">Order Management System</a>
+            <a href="/cloud-kitchen-app/">Cloud Kitchen App</a>
+          </div>
+        </details>
+        <a href="/blog/">Blog</a>
+        <a href="/contact/">Contact</a>
+        <a href="#contact" class="btn btn-primary">Request a demo</a>
+      </div>
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" style="padding-bottom:0;">
+    <div class="wrap" style="display:block;">
+      <span class="eyebrow-tag"><span class="dot"></span> Built for home &amp; cloud kitchens</span>
+      <h1 style="max-width:800px;">Keep 100% of every order. <span class="accent">No commission, no platform fees.</span></h1>
+      <p class="lead" style="max-width:580px;">A public ordering site, a kitchen-side order pipeline, auto-generated bills, WhatsApp order updates and sales analytics — one system, built and deployed by Stellar Forge.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Request a demo login</a>
+        <a href="#inside" class="btn btn-ghost">See what's inside</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker-bar">
+    <div class="wrap">
+      <div class="ticker-stat">
+        <div class="num"><span data-count="4">0</span></div>
+        <div class="label">order stages, enforced end to end</div>
+      </div>
+      <div class="ticker-stat">
+        <div class="num"><span data-count="6">0</span></div>
+        <div class="label">months of rolling sales &amp; P&amp;L history, built in</div>
+      </div>
+      <div class="ticker-stat">
+        <div class="num"><span data-count="100" data-suffix="%">0</span></div>
+        <div class="label">of every order stays yours — zero commission</div>
+      </div>
+      <div class="ticker-stat">
+        <div class="num"><span data-count="24" data-suffix="/7">0</span></div>
+        <div class="label">customer order tracking, no login required</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT'S INSIDE -->
+  <section id="inside">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">What's inside</span>
+        <h2>One system, everything your kitchen's front and back office needs.</h2>
+        <p>Most kitchens run their ordering on WhatsApp, a notebook, and whatever Zomato/Swiggy give them — and pay 20-30% commission for the privilege. This replaces all three, on infrastructure you actually own.</p>
+      </div>
+      <div class="pillar-grid" data-reveal-group>
+        <div class="pillar">
+          <span class="p-idx mono">01 — Sell</span>
+          <h3>Ordering site &amp; punch-in</h3>
+          <p>A branded public ordering site, plus manual order entry for phone, DM or walk-in orders.</p>
+        </div>
+        <div class="pillar">
+          <span class="p-idx mono">02 — Track</span>
+          <h3>Kitchen pipeline &amp; live tracking</h3>
+          <p>Enforced status pipeline, payment capture at every stage, real-time customer visibility.</p>
+        </div>
+        <div class="pillar">
+          <span class="p-idx mono">03 — Bill</span>
+          <h3>Auto-billing &amp; WhatsApp updates</h3>
+          <p>A PDF invoice generated automatically and a one-tap WhatsApp message, every status change.</p>
+        </div>
+        <div class="pillar">
+          <span class="p-idx mono">04 — Grow</span>
+          <h3>Analytics &amp; exports</h3>
+          <p>Pincode, item and customer insights, plus sales/expense/P&amp;L with one-click CSV export.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEE IT RUNNING -->
+  <section id="work" style="background:var(--paper-alt);">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">See what's inside</span>
+        <h2>A complete system, ready to configure for your kitchen.</h2>
+        <p>Public ordering site, admin dashboard, and billing engine — built once, ready to launch under your kitchen's own name and domain.</p>
+      </div>
+
+      <div class="case-strip" style="margin-bottom:72px;" data-reveal>
+        <strong style="font-family:var(--display); font-size:0.95rem;">Everything included:</strong>
+        <span class="tag">Public Ordering Site</span><span class="tag">Admin Dashboard</span><span class="tag">Auto-Billing</span><span class="tag">Analytics</span>
+        <a href="/#work" style="margin-left:auto; font-family:var(--mono); font-size:0.82rem; color:var(--signal-deep);">See our other work →</a>
+      </div>
+
+      <div class="feature-row" data-reveal>
+        <div class="feature-copy">
+          <span class="f-index mono">01</span>
+          <h3>Every order lands in one place.</h3>
+          <p class="lede">Whether a customer orders through your site or calls it in, it goes through the same clean pipeline — with validation built in.</p>
+          <ul class="feature-list">
+            <li><span class="chk">✓</span><div class="txt"><b>Public ordering site</b><span>Full menu, cart, and checkout, listed with images just like Zomato/Swiggy.</span></div></li>
+            <li><span class="chk">✓</span><div class="txt"><b>Manual order punch-in</b><span>For phone, Instagram DM, or walk-in orders — same item catalog, one form.</span></div></li>
+            <li><span class="chk">✓</span><div class="txt"><b>Validated at entry</b><span>Indian mobile number and pincode format checked before an order is placed.</span></div></li>
+          </ul>
+        </div>
+        <div class="feature-visual frame">
+          <div class="frame-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">yourkitchen.com/checkout</div></div>
+          <div class="frame-body">
+            <div class="p-panel">
+              <h4>New order · Priya Nair</h4>
+              <table class="p-table">
+                <tr><th>Item</th><th>Qty</th><th>Amount</th></tr>
+                <tr><td class="strong">Butter Chicken</td><td>2 plate</td><td class="num">₹520</td></tr>
+                <tr><td class="strong">Jeera Rice</td><td>3 plate</td><td class="num">₹360</td></tr>
+                <tr><td class="strong">Gulab Jamun</td><td>4 piece</td><td class="num">₹160</td></tr>
+              </table>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px;">
+                <span class="p-badge received">Pincode verified</span>
+                <span class="p-btn ghost">Total ₹1,040</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row reverse" data-reveal>
+        <div class="feature-copy">
+          <span class="f-index mono">02</span>
+          <h3>A pipeline your kitchen can't skip a step in.</h3>
+          <p class="lede">Every order moves Received → Preparing → Out for delivery → Delivered. Marking it "out for delivery" asks for the payment status — and lets you drop in a delivery tracking link before it goes out.</p>
+          <ul class="feature-list">
+            <li><span class="chk">✓</span><div class="txt"><b>Enforced status pipeline</b><span>Nobody can mark "delivered" before it's out for delivery.</span></div></li>
+            <li><span class="chk">✓</span><div class="txt"><b>Payment captured at any stage</b><span>Unpaid, partially paid with amount, or paid in full.</span></div></li>
+            <li><span class="chk">✓</span><div class="txt"><b>Optional delivery tracking link</b><span>Added when marking "out for delivery," shared straight to the customer.</span></div></li>
+          </ul>
+        </div>
+        <div class="feature-visual frame">
+          <div class="frame-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">yourkitchen.com/admin/orders</div></div>
+          <div class="frame-body">
+            <div class="p-panel">
+              <h4>Order #CK20260914-007 · Priya Nair</h4>
+              <div class="p-timeline">
+                <div class="p-tstep done"><div class="p-tdot">✓</div><div class="p-tlabel">Received</div></div>
+                <div class="p-tstep done"><div class="p-tdot">✓</div><div class="p-tlabel">Preparing</div></div>
+                <div class="p-tstep active"><div class="p-tdot">●</div><div class="p-tlabel">Out for delivery</div></div>
+                <div class="p-tstep"><div class="p-tdot">○</div><div class="p-tlabel">Delivered</div></div>
+              </div>
+              <div style="display:flex;gap:8px;margin-top:12px;">
+                <span class="p-badge partial">Partially paid ₹500</span>
+                <span class="p-badge otd">Tracking link added</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row" data-reveal>
+        <div class="feature-copy">
+          <span class="f-index mono">03</span>
+          <h3>Bills that generate themselves, and land on WhatsApp.</h3>
+          <p class="lede">No manual invoicing. Every order gets a proper PDF bill the moment it's placed, regenerated on every status or payment change, and always downloadable.</p>
+          <ul class="feature-list">
+            <li><span class="chk">✓</span><div class="txt"><b>Auto-generated PDF invoice</b><span>Standard Indian restaurant format — logo, address, itemized bill.</span></div></li>
+            <li><span class="chk">✓</span><div class="txt"><b>Always downloadable</b><span>Stored centrally so customers can redownload their bill anytime.</span></div></li>
+            <li><span class="chk">✓</span><div class="txt"><b>One-tap WhatsApp updates</b><span>Status, bill link and tracking link — sent via click-to-chat, no paid API needed.</span></div></li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+            <div class="frame">
+              <div class="frame-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">WhatsApp</div></div>
+              <div class="frame-body"><div class="wa-mock">
+                <div class="wa-head"><div class="avatar">🍲</div><div><b>Spice Route Kitchen</b><small>online</small></div></div>
+                <div class="wa-bubble">Your order #CK20260914-007 is Out for Delivery 🛵<br>📄 Download invoice: yourkitchen.com/bill/a1b2c3<br>🛵 Track delivery: link</div>
+                <div class="wa-time">7:42 PM ✓✓</div>
+              </div></div>
+            </div>
+            <div class="frame">
+              <div class="frame-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">Invoice</div></div>
+              <div class="frame-body">
+                <div class="p-panel">
+                  <h4>Bill #CK20260914-007</h4>
+                  <table class="p-table">
+                    <tr><th>Item</th><th>Qty</th><th>Amt</th></tr>
+                    <tr><td class="strong">Butter Chicken</td><td>2 plate</td><td class="num">₹520</td></tr>
+                    <tr><td class="strong">Jeera Rice</td><td>3 plate</td><td class="num">₹360</td></tr>
+                  </table>
+                  <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px;">
+                    <span class="p-badge partial">Balance ₹540</span>
+                    <span class="p-btn ghost">Print / Save as PDF</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row reverse" data-reveal>
+        <div class="feature-copy">
+          <span class="f-index mono">04</span>
+          <h3>Customers can track their order — without logging in, or giving up privacy.</h3>
+          <p class="lede">A phone number is all a customer needs to check status. Name and address stay masked to anyone else who searches.</p>
+          <ul class="feature-list">
+            <li><span class="chk">✓</span><div class="txt"><b>Track by phone number</b><span>No account, no app download, works on any phone.</span></div></li>
+            <li><span class="chk">✓</span><div class="txt"><b>Privacy-masked results</b><span>Name and address hidden from anyone but the actual customer.</span></div></li>
+            <li><span class="chk">✓</span><div class="txt"><b>Live delivery tracking link</b><span>Shown right on the tracking page, whenever the kitchen adds one.</span></div></li>
+          </ul>
+        </div>
+        <div class="feature-visual frame">
+          <div class="frame-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">yourkitchen.com/track</div></div>
+          <div class="frame-body">
+            <div class="p-panel">
+              <h4>Order #CK20260914-007 · <span class="p-masked">P*** N***</span></h4>
+              <div class="p-timeline">
+                <div class="p-tstep done"><div class="p-tdot">✓</div><div class="p-tlabel">Received</div></div>
+                <div class="p-tstep done"><div class="p-tdot">✓</div><div class="p-tlabel">Preparing</div></div>
+                <div class="p-tstep active"><div class="p-tdot">●</div><div class="p-tlabel">Out for delivery</div></div>
+                <div class="p-tstep"><div class="p-tdot">○</div><div class="p-tlabel">Delivered</div></div>
+              </div>
+              <div class="p-audit">📍 <span class="p-masked">*** *** ***</span>, Pune · address hidden for privacy</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row" data-reveal>
+        <div class="feature-copy">
+          <span class="f-index mono">05</span>
+          <h3>Runs itself — dashboard, analytics, exports.</h3>
+          <p class="lede">See what's actually selling, where your customers are, and who keeps coming back — filterable by month, year, or both.</p>
+          <ul class="feature-list">
+            <li><span class="chk">✓</span><div class="txt"><b>Pincode, item &amp; category breakdowns</b><span>Know what to stock, and where your delivery demand is.</span></div></li>
+            <li><span class="chk">✓</span><div class="txt"><b>Top customers, new vs. returning</b><span>Order count, total spend, and who to retain.</span></div></li>
+            <li><span class="chk">✓</span><div class="txt"><b>One-click CSV export</b><span>Sales, expenses, P&amp;L and analytics — ready for your accountant.</span></div></li>
+          </ul>
+        </div>
+        <div class="feature-visual frame">
+          <div class="frame-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">yourkitchen.com/admin/reports</div></div>
+          <div class="frame-body">
+            <div class="p-panel">
+              <h4>Analytics · This month</h4>
+              <div class="p-stats-grid">
+                <div class="p-stat"><div class="ic" style="background:rgba(0,217,167,.12);color:var(--p-teal)">◆</div><div class="lbl">Orders</div><div class="val">312</div></div>
+                <div class="p-stat"><div class="ic" style="background:#0A2E1A;color:#6EE7B7">₹</div><div class="lbl">Revenue</div><div class="val">₹1.6L</div></div>
+                <div class="p-stat"><div class="ic" style="background:var(--p-amber-lt);color:var(--p-amber)">↺</div><div class="lbl">Returning</div><div class="val">128</div></div>
+                <div class="p-stat"><div class="ic" style="background:#3B1616;color:#FCA5A5">!</div><div class="lbl">Dues</div><div class="val">₹4,200</div></div>
+              </div>
+              <div style="text-align:center;font-size:9.5px;color:var(--p-text-mute);font-family:var(--mono);">Installable as an app · Works on any phone or tablet</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MORE SCREENS -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Every other screen, covered too</span>
+        <h2>The public ordering site, and the rest of the admin app.</h2>
+        <p>Menu management, sales, expenses, profit &amp; loss, and kitchen settings — all part of the same system, all mobile-first.</p>
+      </div>
+
+      <div class="mini-grid" data-reveal-group>
+
+        <div>
+          <div class="mini-title">Public ordering site · mobile</div>
+          <div class="phone-frame">
+            <div class="phone-notch"><span></span></div>
+            <div class="phone-body">
+              <div class="phone-hero">Spice Route Kitchen<small>Home-style food, delivered fresh</small></div>
+              <div class="phone-menu-item">
+                <div class="thumb"></div>
+                <div class="info"><div class="n">Butter Chicken</div><div class="p">₹260 / plate</div></div>
+                <div class="add">+</div>
+              </div>
+              <div class="phone-menu-item">
+                <div class="thumb"></div>
+                <div class="info"><div class="n">Paneer Tikka</div><div class="p">₹220 / plate</div></div>
+                <div class="add">+</div>
+              </div>
+              <div class="phone-menu-item">
+                <div class="thumb"></div>
+                <div class="info"><div class="n">Gulab Jamun</div><div class="p">₹40 / 2 pc</div></div>
+                <div class="add">+</div>
+              </div>
+              <div class="phone-bottomnav">
+                <span>🍽️<br>Menu</span>
+                <span class="active">🛒 <span class="phone-cart-badge">3</span><br>Cart</span>
+                <span>📍<br>Track</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="mini-title">Menu management</div>
+          <div class="frame">
+            <div class="frame-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">admin/menu</div></div>
+            <div class="frame-body">
+              <div class="p-panel">
+                <h4>Main Course</h4>
+                <div class="p-menu-item">
+                  <div class="thumb"></div>
+                  <div class="meta"><div class="n">Butter Chicken</div><div class="s">₹260 / plate</div></div>
+                  <div class="p-toggle on"></div>
+                </div>
+                <div class="p-menu-item">
+                  <div class="thumb"></div>
+                  <div class="meta"><div class="n">Paneer Tikka</div><div class="s">₹220 / plate</div></div>
+                  <div class="p-toggle on"></div>
+                </div>
+                <div class="p-menu-item">
+                  <div class="thumb" style="background:#334155;"></div>
+                  <div class="meta"><div class="n">Fish Curry</div><div class="s">Out of stock</div></div>
+                  <div class="p-toggle"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="mini-title">Sales · last 6 months</div>
+          <div class="frame">
+            <div class="frame-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">admin/reports/sales</div></div>
+            <div class="frame-body">
+              <div class="p-panel">
+                <h4>₹63,400 this month</h4>
+                <div class="mini-bars">
+                  <div class="bar" style="height:52%"></div>
+                  <div class="bar" style="height:58%"></div>
+                  <div class="bar" style="height:54%"></div>
+                  <div class="bar" style="height:71%"></div>
+                  <div class="bar" style="height:80%"></div>
+                  <div class="bar" style="height:100%"></div>
+                </div>
+                <div class="mini-bar-labels"><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="mini-title">Profit &amp; Loss</div>
+          <div class="frame">
+            <div class="frame-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">admin/reports/pnl</div></div>
+            <div class="frame-body">
+              <div class="p-panel">
+                <h4>Rolling 3 months</h4>
+                <table class="p-table">
+                  <tr><th>Month</th><th>Sales</th><th>Expenses</th><th>P&amp;L</th></tr>
+                  <tr><td class="strong">Jul</td><td>₹51,200</td><td>₹19,400</td><td class="num" style="color:#6EE7B7;">+₹31,800</td></tr>
+                  <tr><td class="strong">Aug</td><td>₹58,900</td><td>₹23,100</td><td class="num" style="color:#6EE7B7;">+₹35,800</td></tr>
+                  <tr><td class="strong">Sep</td><td>₹63,400</td><td>₹27,650</td><td class="num" style="color:#6EE7B7;">+₹35,750</td></tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="mini-title">Expenses</div>
+          <div class="frame">
+            <div class="frame-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">admin/reports/expenses</div></div>
+            <div class="frame-body">
+              <div class="p-panel">
+                <h4>September</h4>
+                <table class="p-table">
+                  <tr><th>Category</th><th>Note</th><th>Amt</th></tr>
+                  <tr><td class="strong">Ingredients</td><td>Vegetable supplier</td><td class="num">₹8,200</td></tr>
+                  <tr><td class="strong">Gas &amp; fuel</td><td>Cylinder refill</td><td class="num">₹1,500</td></tr>
+                  <tr><td class="strong">Packaging</td><td>Boxes &amp; bags</td><td class="num">₹950</td></tr>
+                </table>
+                <div style="text-align:right;margin-top:10px;"><span class="p-btn ghost">Export CSV ↓</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="mini-title">Kitchen settings</div>
+          <div class="frame">
+            <div class="frame-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">admin/settings</div></div>
+            <div class="frame-body">
+              <div class="p-panel">
+                <h4>Kitchen profile</h4>
+                <div class="p-form-row"><label>Kitchen name</label><div class="val">Spice Route Kitchen</div></div>
+                <div class="p-form-row"><label>UPI ID</label><div class="val">spiceroute@upi</div></div>
+                <div class="p-form-row"><label>WhatsApp number</label><div class="val">+91 98xxxxxx21</div></div>
+                <span class="p-btn ghost">Save settings</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW YOU GET IT -->
+  <section id="process">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">How you get it</span>
+        <h2>Four steps, no surprises in between.</h2>
+      </div>
+      <div class="process-grid" data-reveal-group>
+        <div class="process-rail"><div class="fill"></div></div>
+        <div class="process-step">
+          <span class="p-num mono">01</span>
+          <h3>Discovery</h3>
+          <p>We map your menu, categories and how orders currently come in — Zomato, WhatsApp, Instagram, phone.</p>
+        </div>
+        <div class="process-step">
+          <span class="p-num mono">02</span>
+          <h3>Configure</h3>
+          <p>Your menu, pricing, units and kitchen details get built in before your team ever logs in.</p>
+        </div>
+        <div class="process-step">
+          <span class="p-num mono">03</span>
+          <h3>Go live</h3>
+          <p>Your team gets trained, your ordering site goes live, and your first real orders start flowing through.</p>
+        </div>
+        <div class="process-step">
+          <span class="p-num mono">04</span>
+          <h3>Scale &amp; support</h3>
+          <p>We stay on to monitor, tune, and extend it — analytics, new order channels, whatever comes next.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY KITCHENS CHOOSE THIS -->
+  <section style="background:var(--paper-alt);">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Why it's different</span>
+        <h2>Built to replace the commission, not just the notebook.</h2>
+      </div>
+      <div class="testi-grid" data-reveal-group>
+        <div class="testi-card">
+          <blockquote>Zero commission on every order — unlike marketplace apps that take 20-30% off the top.</blockquote>
+        </div>
+        <div class="testi-card">
+          <blockquote>Your customer's number, address, and order history stay yours — not the platform's.</blockquote>
+        </div>
+        <div class="testi-card">
+          <blockquote>WhatsApp-native updates and billing, so customers never need to download another app.</blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div>
+          <span class="kicker" style="color:var(--signal-deep);">Get in touch</span>
+          <h2>Tell us how you take orders today.</h2>
+          <p>Send a few details and we'll reply with next steps — including setting you up with a free demo login — usually within a day.</p>
+          <div class="contact-info" style="margin-top:32px;">
+            <div class="info-row">
+              <div class="k">Email</div>
+              <div class="v"><a href="mailto:workwithstellarforge@gmail.com">workwithstellarforge@gmail.com</a></div>
+            </div>
+            <div class="info-row">
+              <div class="k">WhatsApp</div>
+              <div class="v"><a href="https://wa.me/919637655556?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20the%20Cloud%20Kitchen%20App." target="_blank" rel="noopener">+91 96376 55556</a></div>
+            </div>
+            <div class="info-row">
+              <div class="k">Availability</div>
+              <div class="v">Onboarding new kitchens now</div>
+            </div>
+          </div>
+        </div>
+        <form class="quote-form" aria-label="Cloud kitchen app inquiry form">
+          <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div>
+            <label for="project">What are you looking for?</label>
+            <select id="project" name="project">
+              <option selected>Cloud Kitchen App — demo login</option>
+              <option>Cloud Kitchen App — full rollout</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div>
+            <label for="budget">How do you take orders today?</label>
+            <select id="budget" name="budget">
+              <option>Zomato / Swiggy only</option>
+              <option>WhatsApp / phone calls</option>
+              <option>Instagram DMs</option>
+              <option>Another system</option>
+            </select>
+          </div>
+          <div>
+            <label for="message">Anything else we should know?</label>
+            <textarea id="message" name="message" placeholder="Kitchen name, rough daily order volume, anything that helps us set up your demo."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Request a demo login</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="/" class="foot-brand"><img src="/assets/img/logo.png" alt="Stellar Forge logo"> Stellar Forge</a>
+    <small>© 2026 Stellar Forge. Built &amp; deployed on our own stack.</small>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/assets/supabase-config.js"></script>
+<script src="/assets/script.js?v=9"></script>
+<script src="/assets/motion.js?v=9"></script>
+</body>
+</html>
