@@ -377,16 +377,6 @@
   .contact-info .info-row .v{font-family:var(--display); font-size:1.15rem; margin-top:4px;}
   .contact-info .info-row .v a:hover{color:var(--signal-light);}
   
-  form.quote-form{display:flex; flex-direction:column; gap:16px;}
-  .quote-form label{font-family:var(--mono); font-size:0.78rem; color:var(--forge-soft); margin-bottom:6px; display:block;}
-  .quote-form input, .quote-form select, .quote-form textarea{
-    width:100%; background:var(--forge-alt); border:1px solid var(--forge-line); color:var(--forge-text);
-    padding:13px 14px; border-radius:8px; font-family:var(--body); font-size:0.95rem;
-  }
-  .quote-form input:focus, .quote-form select:focus, .quote-form textarea:focus{border-color:var(--signal);}
-  .quote-form textarea{resize:vertical; min-height:100px;}
-  .quote-form .btn-primary{background:var(--signal); color:#fff; margin-top:6px; align-self:flex-start;}
-  .quote-form .btn-primary:hover{background:var(--signal-light); color:var(--forge);}
   @media (max-width:820px){ .contact-grid{grid-template-columns:1fr;} }
   
   /* ===== Footer ===== */
