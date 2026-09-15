@@ -119,6 +119,81 @@
   .mail-body .foot{ margin-top:13px; padding-top:11px; border-top:1px solid var(--p-border); font-size:9.5px; color:var(--p-text-mute); }
   .mail-body .foot a{ color:var(--p-teal); text-decoration:none; font-weight:600; }
 
+  /* ===== Real-UI recreation system =====
+     Colors sampled directly from the actual product's screenshots (navy
+     sidebar, mint brand accent, pastel status badges). Populated with a
+     fully fictional dataset only — no real customer names, contacts, or
+     order figures anywhere in this file. */
+  :root{
+    --ru-sidebar:#0D1A29; --ru-sidebar-active:#162C36; --ru-sidebar-line:#1C2C3E;
+    --ru-mint:#53B691; --ru-mint-soft:#E9F7F3; --ru-mint-dark:#295E48;
+    --ru-bg:#F5F7FB; --ru-mute:#9298A0;
+    --ru-amber-bg:#FFFBED; --ru-amber:#A85923;
+    --ru-green-bg:#EFFDF6; --ru-green:#295E48;
+    --ru-violet-bg:#F5F3FE; --ru-violet:#652DD1;
+    --ru-blue-bg:#EFF6FF; --ru-blue:#1D4ED8;
+  }
+  .ru-frame{ background:#fff; border-radius:14px; border:1px solid var(--line); box-shadow:0 24px 56px rgba(13,26,41,.10); overflow:hidden; }
+  .ru-bar{ display:flex; align-items:center; gap:8px; padding:11px 15px; background:#fff; border-bottom:1px solid var(--line); }
+  .ru-bar .dots span{ width:9px; height:9px; border-radius:50%; background:var(--line); display:inline-block; margin-right:6px; }
+  .ru-bar .url{ flex:1; text-align:center; font-size:11px; color:var(--ru-mute); font-family:var(--mono); }
+  .ru-shell{ display:grid; grid-template-columns:172px 1fr; }
+  .ru-side{ background:var(--ru-sidebar); padding:18px 14px; }
+  .ru-side .logo{ display:flex; align-items:center; gap:9px; margin-bottom:14px; }
+  .ru-side .logo .box{ width:30px; height:30px; border-radius:8px; background:var(--ru-mint); color:#0D1A29; font-family:var(--display); font-weight:700; font-size:12px; display:flex; align-items:center; justify-content:center; }
+  .ru-side .logo b{ display:block; color:#fff; font-size:11px; font-family:var(--body); }
+  .ru-side .logo small{ color:var(--ru-mint); font-size:8px; letter-spacing:.04em; font-family:var(--mono); }
+  .ru-pill{ display:inline-flex; align-items:center; gap:6px; font-family:var(--mono); font-size:8.5px; color:var(--ru-mint); background:rgba(83,182,145,.12); border:1px solid rgba(83,182,145,.35); padding:4px 9px; border-radius:100px; margin-bottom:16px; }
+  .ru-pill .d{ width:5px; height:5px; border-radius:50%; background:var(--ru-mint); }
+  .ru-navlabel{ font-size:7.5px; color:#5B6572; letter-spacing:.08em; font-family:var(--mono); margin-bottom:7px; }
+  .ru-nav{ display:flex; align-items:center; gap:8px; padding:7px 9px; border-radius:7px; font-size:10.5px; color:#9298A0; margin-bottom:2px; font-family:var(--body); }
+  .ru-nav.active{ background:var(--ru-sidebar-active); color:var(--ru-mint); font-weight:600; box-shadow:inset 2px 0 0 var(--ru-mint); }
+  .ru-main{ background:var(--ru-bg); padding:18px 20px; }
+  .ru-h1{ font-family:var(--display); font-weight:700; font-size:15px; color:#0D1A29; }
+  .ru-sub{ font-size:9.5px; color:var(--ru-mute); margin-top:2px; }
+  .ru-stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:12px 0; }
+  .ru-stat{ background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px; }
+  .ru-stat .ic{ width:22px; height:22px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:10px; margin-bottom:7px; }
+  .ru-stat .val{ font-family:var(--display); font-weight:700; font-size:13px; color:#0D1A29; }
+  .ru-stat .lbl{ font-size:6.8px; color:var(--ru-mute); font-family:var(--mono); text-transform:uppercase; margin-top:1px; }
+  .ru-panel{ background:#fff; border:1px solid var(--line); border-radius:10px; padding:12px; }
+  .ru-panel h4{ font-family:var(--body); font-size:10.5px; font-weight:600; color:#0D1A29; margin:0 0 9px; }
+  .ru-breakdown .row{ display:flex; justify-content:space-between; font-size:9.5px; color:#0D1A29; margin-bottom:3px; }
+  .ru-breakdown .bar{ height:4px; border-radius:3px; background:var(--line); overflow:hidden; margin-bottom:9px; }
+  .ru-breakdown .bar span{ display:block; height:100%; background:var(--ru-mint); }
+  table.ru-table{ width:100%; border-collapse:collapse; font-size:9px; }
+  table.ru-table th{ text-align:left; font-size:7.3px; color:var(--ru-mute); text-transform:uppercase; font-family:var(--mono); font-weight:600; padding:0 6px 6px; }
+  table.ru-table td{ padding:7px 6px; border-top:1px solid var(--line); color:#4B5563; }
+  table.ru-table td.strong{ color:#0D1A29; font-weight:600; }
+  .ru-badge{ display:inline-flex; align-items:center; gap:5px; font-family:var(--body); font-size:8.5px; font-weight:600; padding:3px 8px; border-radius:100px; }
+  .ru-badge::before{ content:''; width:5px; height:5px; border-radius:50%; background:currentColor; }
+  .ru-badge.pending{ background:var(--ru-amber-bg); color:var(--ru-amber); }
+  .ru-badge.delivered{ background:var(--ru-green-bg); color:var(--ru-green); }
+  .ru-badge.ready{ background:var(--ru-violet-bg); color:var(--ru-violet); }
+  .ru-badge.received{ background:var(--ru-blue-bg); color:var(--ru-blue); }
+  .ru-searchbar{ display:flex; gap:8px; margin-bottom:12px; }
+  .ru-searchbar .s{ flex:1; background:#fff; border:1px solid var(--line); border-radius:7px; padding:8px 10px; font-size:9.5px; color:var(--ru-mute); font-family:var(--body); }
+  .ru-searchbar .f{ background:#fff; border:1px solid var(--line); border-radius:7px; padding:8px 12px; font-size:9px; color:#0D1A29; font-family:var(--body); }
+  .ru-field{ margin-bottom:11px; }
+  .ru-field label{ display:block; font-size:7.8px; font-weight:700; color:var(--ru-mute); text-transform:uppercase; letter-spacing:.03em; margin-bottom:5px; font-family:var(--mono); }
+  .ru-field .box{ background:#fff; border:1px solid var(--line); border-radius:7px; padding:8px 10px; font-size:10.5px; color:#9298A0; }
+  .ru-field .box.focus{ border-color:var(--ru-mint); box-shadow:0 0 0 3px rgba(83,182,145,.15); color:#0D1A29; }
+  .ru-track-hero{ background:#122A20; border-radius:12px; padding:16px; color:#fff; }
+  .ru-track-hero .top{ display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:14px; }
+  .ru-track-hero .oid{ font-family:var(--display); font-weight:700; font-size:14px; }
+  .ru-steps{ display:flex; justify-content:space-between; }
+  .ru-steps .st{ display:flex; flex-direction:column; align-items:center; gap:5px; flex:1; }
+  .ru-steps .dot{ width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:10px; }
+  .ru-steps .lbl{ font-size:6.8px; color:#A8B3AD; font-family:var(--mono); text-align:center; }
+  .ru-email-band{ background:linear-gradient(90deg,#0D1A29,#122A20); padding:12px 15px; display:flex; justify-content:space-between; align-items:center; }
+  .ru-email-band b{ color:#fff; font-size:11px; }
+  .ru-email-band small{ display:block; color:var(--ru-mint); font-size:7.5px; letter-spacing:.04em; }
+  .ru-email-ok{ background:var(--ru-green-bg); border-radius:9px; padding:14px; text-align:center; margin:12px 0; }
+  .ru-email-ok b{ display:block; color:#0D1A29; font-size:12px; margin-top:6px; }
+  .ru-email-ok p{ font-size:9px; color:#3D4451; margin-top:4px; }
+  table.ru-etable th{ background:var(--ru-mint); color:#fff; font-size:7.5px; padding:6px; text-transform:none; }
+  table.ru-etable td{ font-size:8.5px; }
+
   /* pillar overview cards — mirrors homepage's .service-row / .service-index pattern but as a 4-up grid */
   .pillar-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden; }
   .pillar{ background:var(--surface); padding:28px 22px; }
@@ -272,19 +347,20 @@
             <li><span class="chk">✓</span><div class="txt"><b>Proof-of-delivery invoicing</b><span>Captured and sent the moment goods are delivered.</span></div></li>
           </ul>
         </div>
-        <div class="feature-visual frame">
-          <div class="frame-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">orders.yourbusiness.com/order/2201</div></div>
-          <div class="frame-body">
-            <div class="p-panel">
-              <h4>Order #SGS-2201 · Anand Pipes & Fittings</h4>
-              <table class="p-table">
-                <tr><th>Item</th><th>Qty</th><th>CGST</th><th>SGST</th><th>Total</th></tr>
-                <tr><td class="strong">GI Pipe Class-B 25mm</td><td>1.2T</td><td>₹1,278</td><td>₹1,278</td><td class="num">₹28,300</td></tr>
-                <tr><td class="strong">MS Round Bar 12mm</td><td>0.6T</td><td>₹648</td><td>₹648</td><td class="num">₹14,300</td></tr>
+        <div class="feature-visual ru-frame">
+          <div class="ru-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">orders.yourbusiness.com/orders/7c2f91a4</div></div>
+          <div class="ru-main" style="padding:16px;">
+            <div class="ru-panel">
+              <h4>Order #7C2F91A4 · Meridian Steel Works</h4>
+              <table class="ru-table">
+                <tr><th>Product</th><th>Material</th><th>Qty</th><th>Unit Cost</th><th>CGST</th><th>SGST</th><th>Total</th></tr>
+                <tr><td class="strong">MS Angle 50×50×6mm</td><td>MS</td><td>240 Kgs</td><td>₹78.20</td><td>₹1,689</td><td>₹1,689</td><td class="strong">₹20,900.40</td></tr>
+                <tr><td class="strong">SS Hex Bolt M10×30mm</td><td>SS</td><td>600 Pcs</td><td>₹14.20</td><td>₹767</td><td>₹767</td><td class="strong">₹9,554</td></tr>
+                <tr><td class="strong">Freight Charges</td><td>SERVICE</td><td>1 Pcs</td><td>₹1,800</td><td>₹162</td><td>₹162</td><td class="strong">₹2,124</td></tr>
               </table>
-              <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px;">
-                <span class="p-badge terms">After 30 days</span>
-                <span class="p-btn ghost">Download invoice ↓</span>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-top:10px;padding-top:10px;border-top:1px solid var(--line);">
+                <span style="font-family:var(--display);font-weight:700;font-size:11px;color:#0D1A29;">Grand Total ₹32,578.40</span>
+                <span class="ru-badge pending">Pending</span>
               </div>
             </div>
           </div>
@@ -295,25 +371,32 @@
         <div class="feature-copy">
           <span class="f-index mono">02</span>
           <h3>A pipeline that can't be skipped or faked.</h3>
-          <p class="lede">Every order moves through the same four stages in order — and every change is stamped with who made it and when.</p>
+          <p class="lede">Every order moves through the same four stages in order — and your customer can track it live without calling you.</p>
           <ul class="feature-list">
             <li><span class="chk">✓</span><div class="txt"><b>Enforced status stages</b><span>Nobody can mark "delivered" before it's dispatched.</span></div></li>
             <li><span class="chk">✓</span><div class="txt"><b>Full audit trail</b><span>Every edit is tied to the staff member who made it.</span></div></li>
-            <li><span class="chk">✓</span><div class="txt"><b>Real-time customer tracking</b><span>Your customers see the live status — never a stale page.</span></div></li>
+            <li><span class="chk">✓</span><div class="txt"><b>Public tracking page</b><span>A branded, link-only page your customer can check anytime.</span></div></li>
           </ul>
         </div>
-        <div class="feature-visual frame">
-          <div class="frame-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">track.yourbusiness.com/SGS-2200</div></div>
-          <div class="frame-body">
-            <div class="p-panel">
-              <h4>Order #SGS-2200 · Bharat Fabricators</h4>
-              <div class="p-timeline">
-                <div class="p-tstep done"><div class="p-tdot">✓</div><div class="p-tlabel">Received</div></div>
-                <div class="p-tstep active"><div class="p-tdot">●</div><div class="p-tlabel">Processing</div></div>
-                <div class="p-tstep"><div class="p-tdot">○</div><div class="p-tlabel">Ready to ship</div></div>
-                <div class="p-tstep"><div class="p-tdot">○</div><div class="p-tlabel">Delivered</div></div>
+        <div class="feature-visual ru-frame">
+          <div class="ru-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">orders.yourbusiness.com/track/7c2f91a4</div></div>
+          <div class="ru-main" style="padding:16px;">
+            <div class="ru-track-hero">
+              <div class="top">
+                <div><div style="font-size:8px;color:#8FB3A2;font-family:var(--mono);letter-spacing:.05em;">ORDER</div><div class="oid">#7C2F91A4</div></div>
+                <span style="background:rgba(255,255,255,.12);color:#9CF0B7;font-size:8.5px;font-weight:700;padding:4px 10px;border-radius:100px;font-family:var(--body);">● Delivered</span>
               </div>
-              <div class="p-audit"><span class="av">R</span> Updated by Ramesh · 6 minutes ago</div>
+              <div class="ru-steps">
+                <div class="st"><div class="dot" style="background:#1D4ED8;color:#fff;">✓</div><div class="lbl">Order<br>Received</div></div>
+                <div class="st"><div class="dot" style="background:#F59E0B;color:#fff;">✓</div><div class="lbl">Processing</div></div>
+                <div class="st"><div class="dot" style="background:#7C3AED;color:#fff;">✓</div><div class="lbl">Ready to<br>Dispatch</div></div>
+                <div class="st"><div class="dot" style="background:var(--ru-mint);color:#0D1A29;">✓</div><div class="lbl">Delivered</div></div>
+              </div>
+              <div style="margin-top:12px;font-size:8.5px;color:#A8B3AD;font-family:var(--mono);">Delivered on 18 Aug 2026</div>
+            </div>
+            <div class="ru-panel" style="margin-top:10px;">
+              <div style="display:flex;justify-content:space-between;font-size:9.5px;padding:6px 0;"><span style="color:var(--ru-mute);">Payment</span><span class="ru-badge pending">Pending</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:9.5px;padding:6px 0;border-top:1px solid var(--line);"><span style="color:var(--ru-mute);">Order Placed</span><span class="strong" style="color:#0D1A29;">17 Aug 2026</span></div>
             </div>
           </div>
         </div>
@@ -329,25 +412,25 @@
             <li><span class="chk">✓</span><div class="txt"><b>Multi-product orders</b><span>Bundle several materials into a single order and invoice.</span></div></li>
           </ul>
         </div>
-        <div class="feature-visual frame">
-          <div class="frame-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">orders.yourbusiness.com/new</div></div>
-          <div class="frame-body">
-            <div class="p-panel">
-              <h4>New order</h4>
-              <span class="p-label">Customer</span>
-              <div style="position:relative;margin-bottom:13px;">
-                <div class="p-input">Shree G...</div>
-                <div class="p-dropdown">
-                  <div class="opt"><b>Shree Ganesh Metals</b><small>Pune · 14 previous orders</small></div>
-                  <div class="opt"><b>Shree Guru Traders</b><small>Nashik · 3 previous orders</small></div>
-                </div>
+        <div class="feature-visual ru-frame">
+          <div class="ru-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">orders.yourbusiness.com/new-order</div></div>
+          <div class="ru-main" style="padding:16px;">
+            <div class="ru-panel" style="margin-bottom:9px;">
+              <h4>① Customer Information</h4>
+              <div class="ru-field"><label>Customer Name</label><div class="box focus">Meridian Steel Works</div></div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;">
+                <div class="ru-field" style="margin-bottom:0;"><label>Phone Number</label><div class="box">90011 22334</div></div>
+                <div class="ru-field" style="margin-bottom:0;"><label>Email</label><div class="box">accounts@example.com</div></div>
               </div>
-              <span class="p-label">Items</span>
-              <table class="p-table">
-                <tr><th>Product</th><th>Qty</th><th>Rate</th></tr>
-                <tr><td class="strong">SS 304 Sheet 2mm</td><td>0.4T</td><td class="num">₹1,92,000</td></tr>
-                <tr><td class="strong">MS Angle 40×40×5mm</td><td>1.0T</td><td class="num">₹64,500</td></tr>
-              </table>
+            </div>
+            <div class="ru-panel">
+              <h4>② Products</h4>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;">
+                <div class="ru-field"><label>Product Type</label><div class="box">MS Angle</div></div>
+                <div class="ru-field"><label>Material</label><div class="box">MS</div></div>
+                <div class="ru-field" style="margin-bottom:0;"><label>Unit Cost (₹)</label><div class="box">78.20</div></div>
+                <div class="ru-field" style="margin-bottom:0;"><label>Quantity</label><div class="box">240 Kgs</div></div>
+              </div>
             </div>
           </div>
         </div>
@@ -368,20 +451,26 @@
             <div class="frame">
               <div class="frame-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">WhatsApp</div></div>
               <div class="frame-body"><div class="wa-mock">
-                <div class="wa-head"><div class="avatar">🏭</div><div><b>Om Sai Engineering</b><small>online</small></div></div>
-                <div class="wa-bubble">Your order #SGS-2199 (GI Pipe Class-B, 25mm) is Ready to ship. Expected dispatch: tomorrow.</div>
+                <div class="wa-head"><div class="avatar">🏭</div><div><b>Meridian Steel Works</b><small>online</small></div></div>
+                <div class="wa-bubble">Your order #7C2F91A4 (MS Angle 50×50×6mm) is Ready to Dispatch. Expected delivery: tomorrow.</div>
                 <div class="wa-time">10:42 AM ✓✓</div>
               </div></div>
             </div>
-            <div class="frame">
-              <div class="frame-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">Inbox</div></div>
-              <div class="frame-body"><div class="mail-mock">
-                <div class="mail-head"><div class="to">To: shreeganesh@example.com</div><div class="subj">Order #SGS-2198 delivered ✓</div></div>
-                <div class="mail-band"></div>
-                <div class="mail-body">Your order has been delivered. Invoice is attached.
-                  <div class="foot">Crafted by <a href="/">Stellar Forge</a> — have a project in mind?</div>
+            <div class="ru-frame">
+              <div class="ru-email-band">
+                <div><b>Your Business</b><small>ORDER MANAGEMENT SYSTEM</small></div>
+              </div>
+              <div style="padding:14px;">
+                <div class="ru-email-ok">
+                  <div style="font-size:20px;">✅</div>
+                  <b>Order Delivered</b>
+                  <p>Hi Meridian Steel Works, your order has been successfully delivered. Thank you!</p>
                 </div>
-              </div></div>
+                <table class="ru-table ru-etable">
+                  <tr><th>Product</th><th>Qty</th><th>Total</th></tr>
+                  <tr><td class="strong">MS Angle 50×50×6mm</td><td>240 Kgs</td><td class="strong">₹20,900.40</td></tr>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -398,16 +487,76 @@
             <li><span class="chk">✓</span><div class="txt"><b>Serverless cloud infrastructure</b><span>Built on Cloudflare and AWS — scales without a sysadmin.</span></div></li>
           </ul>
         </div>
-        <div class="feature-visual frame">
-          <div class="frame-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">orders.yourbusiness.com</div></div>
-          <div class="frame-body">
-            <div class="p-panel">
-              <h4>Dashboard</h4>
-              <div class="p-stats-grid">
-                <div class="p-stat"><div class="ic" style="background:rgba(0,217,167,.12);color:var(--p-teal)">◆</div><div class="lbl">Total Orders</div><div class="val">312</div></div>
-                <div class="p-stat"><div class="ic" style="background:#0A2E1A;color:#6EE7B7">₹</div><div class="lbl">Revenue (MTD)</div><div class="val">₹8.4L</div></div>
+        <div class="feature-visual ru-frame">
+          <div class="ru-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">orders.yourbusiness.com</div></div>
+          <div class="ru-shell">
+            <div class="ru-side">
+              <div class="logo"><div class="box">YB</div><div><b>Your Business</b><small>OPERATIONS OMS</small></div></div>
+              <div class="ru-pill"><span class="d"></span>v2.0 Live</div>
+              <div class="ru-navlabel">NAVIGATION</div>
+              <div class="ru-nav active">▦ Dashboard</div>
+              <div class="ru-nav">▤ Orders</div>
+              <div class="ru-nav">＋ New Order</div>
+            </div>
+            <div class="ru-main">
+              <div class="ru-h1">Dashboard</div>
+              <div class="ru-sub">Welcome back — here's what's happening today</div>
+              <div class="ru-stats">
+                <div class="ru-stat"><div class="ic" style="background:var(--ru-mint-soft);color:var(--ru-mint-dark);">▦</div><div class="val">24</div><div class="lbl">Total Orders</div></div>
+                <div class="ru-stat"><div class="ic" style="background:var(--ru-mint-soft);color:var(--ru-mint-dark);">₹</div><div class="val">₹14.2L</div><div class="lbl">Total Revenue</div></div>
+                <div class="ru-stat"><div class="ic" style="background:#FEF3E2;color:#B4630F;">◷</div><div class="val">3</div><div class="lbl">In Progress</div></div>
+                <div class="ru-stat"><div class="ic" style="background:#F5F3FE;color:#652DD1;">▶</div><div class="val">19</div><div class="lbl">Delivered</div></div>
               </div>
-              <div style="text-align:center;font-size:9.5px;color:var(--p-text-mute);font-family:var(--mono);">Installable · Works offline · Light &amp; dark mode</div>
+              <div class="ru-panel">
+                <h4>Recent Orders</h4>
+                <table class="ru-table">
+                  <tr><th>Order</th><th>Customer</th><th>Cost</th><th>Status</th></tr>
+                  <tr><td class="strong">#7C2F91A4</td><td>Meridian Steel Works</td><td class="strong">₹52,180.40</td><td><span class="ru-badge delivered">Delivered</span></td></tr>
+                  <tr><td class="strong">#B84E103D</td><td>Bramhall Engineering</td><td class="strong">₹1,08,760</td><td><span class="ru-badge ready">Ready</span></td></tr>
+                  <tr><td class="strong">#3A9C7F2E</td><td>Solara Industrial</td><td class="strong">₹18,240.75</td><td><span class="ru-badge delivered">Delivered</span></td></tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row reverse" data-reveal>
+        <div class="feature-copy">
+          <span class="f-index mono">06</span>
+          <h3>Every order, searchable in seconds.</h3>
+          <p class="lede">Search by name or phone, filter by status, and get to any order in a couple of clicks — no spreadsheets required.</p>
+          <ul class="feature-list">
+            <li><span class="chk">✓</span><div class="txt"><b>Search &amp; filter</b><span>Find any order by customer name, phone, or status instantly.</span></div></li>
+            <li><span class="chk">✓</span><div class="txt"><b>Built for high order volume</b><span>Handles hundreds of orders without slowing down.</span></div></li>
+          </ul>
+        </div>
+        <div class="feature-visual ru-frame">
+          <div class="ru-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">orders.yourbusiness.com/orders</div></div>
+          <div class="ru-shell">
+            <div class="ru-side">
+              <div class="logo"><div class="box">YB</div><div><b>Your Business</b><small>OPERATIONS OMS</small></div></div>
+              <div class="ru-pill"><span class="d"></span>v2.0 Live</div>
+              <div class="ru-navlabel">NAVIGATION</div>
+              <div class="ru-nav">▦ Dashboard</div>
+              <div class="ru-nav active">▤ Orders</div>
+              <div class="ru-nav">＋ New Order</div>
+            </div>
+            <div class="ru-main">
+              <div class="ru-h1">Orders</div>
+              <div class="ru-sub">24 orders total</div>
+              <div class="ru-searchbar"><div class="s">🔍 Search by name, email or phone…</div><div class="f">All Statuses ▾</div></div>
+              <div style="overflow-x:auto;">
+              <table class="ru-table" style="min-width:520px;">
+                <tr><th>Order ID</th><th>Customer</th><th>Product</th><th>Qty</th><th>Cost</th><th>Payment</th><th>Status</th></tr>
+                <tr><td class="strong">#7C2F91A4</td><td>Meridian Steel Works</td><td>MS Angle 50×50×6mm</td><td>240 Kgs</td><td class="strong">₹52,180.40</td><td><span class="ru-badge pending">Pending</span></td><td><span class="ru-badge delivered">Delivered</span></td></tr>
+                <tr><td class="strong">#B84E103D</td><td>Bramhall Engineering</td><td>SS Hex Bolt M10×30mm</td><td>600 Pcs</td><td class="strong">₹1,08,760.00</td><td><span class="ru-badge pending">Pending</span></td><td><span class="ru-badge ready">Ready to Dispatch</span></td></tr>
+                <tr><td class="strong">#3A9C7F2E</td><td>Solara Industrial</td><td>GI Pipe 2" SCH40</td><td>80 Pcs</td><td class="strong">₹18,240.75</td><td><span class="ru-badge pending">Pending</span></td><td><span class="ru-badge delivered">Delivered</span></td></tr>
+                <tr><td class="strong">#E15D88B6</td><td>Northgate Fabricators</td><td>CS Flange Class150 4"</td><td>45 Pcs</td><td class="strong">₹61,050.00</td><td><span class="ru-badge delivered">Paid</span></td><td><span class="ru-badge delivered">Delivered</span></td></tr>
+                <tr><td class="strong">#916AC7F0</td><td>Ashford Process Systems</td><td>Aluminium Coil 1200mm W</td><td>30 Pcs</td><td class="strong">₹35,920.60</td><td><span class="ru-badge pending">Pending</span></td><td><span class="ru-badge delivered">Delivered</span></td></tr>
+                <tr><td class="strong">#4D7E23B9</td><td>Crestpoint Enterprises</td><td>MS Channel 100×50×6mm</td><td>150 Kgs</td><td class="strong">₹8,410.20</td><td><span class="ru-badge pending">Pending</span></td><td><span class="ru-badge received">Order Received</span></td></tr>
+              </table>
+              </div>
             </div>
           </div>
         </div>
@@ -478,8 +627,8 @@
               <div class="v"><a href="mailto:workwithstellarforge@gmail.com">workwithstellarforge@gmail.com</a></div>
             </div>
             <div class="info-row">
-              <div class="k">WhatsApp</div>
-              <div class="v"><a href="https://wa.me/919637655556?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20the%20Order%20Management%20System." target="_blank" rel="noopener">+91 96376 55556</a></div>
+              <div class="k">Stack</div>
+              <div class="v">AWS · Cloudflare · Render · Vercel</div>
             </div>
             <div class="info-row">
               <div class="k">Availability</div>

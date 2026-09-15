@@ -6,13 +6,13 @@ Static site (HTML/CSS/JS). No build step — upload as-is to any static host
 ## File structure
 ```
 index.html                  → homepage
-contact/index.html          → standalone contact page (same info + form)
+contact/index.html          → standalone contact page (email only)
 order-management-system/index.html → product page
 blog/index.html             → blog listing
 blog/*.html                 → individual posts
 404.html                    → not-found page
 assets/style.css            → design tokens + all component styles
-assets/script.js            → counters, nav, form, Supabase wiring
+assets/script.js            → counters, nav, Supabase wiring
 assets/motion.js            → GSAP scroll reveals, magnetic buttons, diagram draw-ins
 assets/terminal.js          → hero terminal typewriter (deploy log)
 assets/supabase-config.js   → YOUR Supabase URL + anon key go here
@@ -20,7 +20,7 @@ assets/img/logo.png         → Stellar Forge logo
 robots.txt / sitemap.xml    → SEO
 ```
 
-## Connect Supabase (live stats + lead capture)
+## Connect Supabase (live stats only)
 
 1. Create a free project at supabase.com.
 2. Go to **Project Settings → API** and copy the **Project URL** and **anon public key**.
@@ -29,7 +29,7 @@ robots.txt / sitemap.xml    → SEO
    window.SUPABASE_URL = "https://xxxxx.supabase.co";
    window.SUPABASE_ANON_KEY = "eyJ...";
    ```
-4. In the Supabase SQL editor, create the two tables below.
+4. In the Supabase SQL editor, create the table below.
 
 ### Table: site_stats (your Cloudflare numbers, pushed by automation)
 ```sql
@@ -76,33 +76,11 @@ Prefer: resolution=merge-duplicates
 }
 ```
 
-### Table: leads (contact form submissions)
-```sql
-create table leads (
-  id uuid primary key default gen_random_uuid(),
-  created_at timestamptz default now(),
-  name text,
-  email text,
-  project text,
-  budget text,
-  message text
-);
-
-alter table leads enable row level security;
-
-create policy "Allow public insert"
-  on leads for insert
-  with check (true);
-```
-
-No public **select** policy is added on purpose — anyone can submit a lead,
-but only you (via the Supabase dashboard, or an authenticated query) can
-read them back.
-
 ## Notes
 - If `supabase-config.js` is left with the placeholder values, the site
-  quietly falls back to the static numbers already written into `index.html`
-  and the contact form falls back to a `mailto:` link — nothing breaks.
+  quietly falls back to the static numbers already written into `index.html`.
+- Contact is via email only — the contact page links directly to
+  `workwithstellarforge@gmail.com` with a pre-filled subject line.
 - Update `og-image.jpg` under `assets/img/` with a real 1200×630 social
   preview image before launch (referenced in the meta tags but not yet
   created).
